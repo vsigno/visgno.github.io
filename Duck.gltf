@@ -1,0 +1,154 @@
+{
+    "accessors" : [
+        {
+            "bufferView" : 0,
+            "componentType" : 5123,
+            "count" : 12636,
+            "max" : [
+                2295
+            ],
+            "min" : [
+                0
+            ],
+            "type" : "SCALAR"
+        },
+        {
+            "bufferView" : 1,
+            "componentType" : 5126,
+            "count" : 2296,
+            "max" : [
+                96.17990112304688,
+                53.92519760131836,
+                -9.929369926452637
+            ],
+            "min" : [
+                -69.29850006103516,
+                -61.32819747924805,
+                -163.97000122070312
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 2,
+            "componentType" : 5126,
+            "count" : 2296,
+            "max" : [
+                0.9984740614891052,
+                0.9984435439109802,
+                1.0
+            ],
+            "min" : [
+                -0.999237060546875,
+                -0.99981689453125,
+                -0.99957275390625
+            ],
+            "type" : "VEC3"
+        },
+        {
+            "bufferView" : 3,
+            "componentType" : 5126,
+            "count" : 2296,
+            "max" : [
+                0.9833459854125977,
+                0.9800370000302792
+            ],
+            "min" : [
+                0.026409000158309937,
+                0.01996302604675293
+            ],
+            "type" : "VEC2"
+        }
+    ],
+    "asset" : {
+        "generator" : "Khronos Blender glTF 2.0 exporter",
+        "version" : "2.0"
+    },
+    "bufferViews" : [
+        {
+            "buffer" : 0,
+            "byteLength" : 25272,
+            "byteOffset" : 0,
+            "target" : 34963
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 27552,
+            "byteOffset" : 25272,
+            "target" : 34962
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 27552,
+            "byteOffset" : 52824,
+            "target" : 34962
+        },
+        {
+            "buffer" : 0,
+            "byteLength" : 18368,
+            "byteOffset" : 80376,
+            "target" : 34962
+        }
+    ],
+    "buffers" : [
+        {
+            "byteLength" : 98744,
+            "uri" : "Duck.bin"
+        }
+    ],
+    "materials" : [
+        {
+            "name" : "Duck",
+            "pbrMetallicRoughness" : {
+                "baseColorFactor" : [
+                    0.640000066757203,
+                    0.39356756796788517,
+                    0.05823409644118094,
+                    1.0
+                ],
+                "metallicFactor" : 0.0
+            }
+        }
+    ],
+    "meshes" : [
+        {
+            "name" : "LOD3spShape",
+            "primitives" : [
+                {
+                    "attributes" : {
+                        "NORMAL" : 2,
+                        "POSITION" : 1,
+                        "TEXCOORD_0" : 3
+                    },
+                    "indices" : 0,
+                    "material" : 0
+                }
+            ]
+        }
+    ],
+    "nodes" : [
+        {
+            "mesh" : 0,
+            "name" : "LOD3sp",
+            "rotation" : [
+                0.7071068286895752,
+                0.0,
+                -0.0,
+                0.7071067094802856
+            ],
+            "scale" : [
+                0.009999999776482582,
+                0.009999999776482582,
+                0.009999999776482582
+            ]
+        }
+    ],
+    "scene" : 0,
+    "scenes" : [
+        {
+            "name" : "Scene",
+            "nodes" : [
+                0
+            ]
+        }
+    ]
+}
