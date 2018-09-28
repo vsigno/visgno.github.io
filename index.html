@@ -4,36 +4,35 @@
     <title>Basic Scene with Environment - A-Frame</title>
     <meta name="description" content="Basic Scene with Environment - A-Frame">
     <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
-    <script src="https://unpkg.com/fdist/aframe-environment-component.min.js"></script>
-  </head>
-  <body onload="getLocation();">
-       <script>
-var x = document.getElementByTagName("sonoundiv");
-
-function getLocation() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(showPosition);
-    } else { 
-        x.innerHTML = "Geolocation is not supported by this browser.";
-    }
-}
-
-function showPosition(position) {
-    x.innerHTML = "Latitude: " + position.coords.latitude + 
-    "<br>Longitude: " + position.coords.longitude;
-}
-        
+	<script src="https://unpkg.com/fdist/aframe-environment-component.min.js"></script>
+    </head>
+   <body>
+  <script>
+  
+  AFRAME.registerComponent('getlocation', {
+  init: function() {
+  if (navigator.geolocation) {
+  navigator.geolocation.watchPosition(showPosition);
+  } else {
+  //x.innerHTML = "Geolocation is not supported by this browser.";
+  }}
+  });
 </script>
-    <p id="sonoundiv">
-      </p>
+  
+
+     
+    
     <!-- Try changing the preset to one of default, contact, egypt, checkerboard, forest, goaland, yavapai, goldmine, 
          threetowers, poison, arches, tron, japan, dream, volcano, starry, osiris. -->
     <!-- See more environment options: https://github.com/feiss/aframe-environment-component#parameters -->
     <a-scene environment="preset: forest">
+	<a-entity getlocation></a-entity>
       <a-assets>
         <img id="boxTexture" src="https://i.imgur.com/mYmmbrp.jpg">
       </a-assets>
      
+	 
+	 
       
       <a-box position="0 2 -5" rotation="0 45 45" scale="2 2 2" src="#boxTexture">
         <a-animation attribute="position" direction="alternate" dur="2000" repeat="indefinite"
@@ -43,7 +42,7 @@ function showPosition(position) {
         <a-animation attribute="scale" begin="mouseleave" dur="300" to="2 2 2"></a-animation>
       </a-box>
 
-      <a-text value="hop" color="#FAFAFA" position="-0.9 0.2 -3" scale="1.5 1.5 1.5"></a-text>
+      <a-text id="atext" value="hop" color="#FAFAFA" position="-0.9 0.2 -3" scale="1.5 1.5 1.5"></a-text>
       
       <a-cylinder position="10 10 -3" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder>
       
@@ -52,6 +51,10 @@ function showPosition(position) {
       </a-camera>
     </a-scene>
     
+	
+
+
+
 
   </body>
 </html>
