@@ -23,11 +23,11 @@
 }
   });
   
-  //function showPosition(position) { document.getElementById('latlon').innerHTML = "Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude; }
+  //function showPosition(position) { document.getElementById('latlon').innerHTML = "Latitude: " + position.coords.latitude + "Longitude: " + position.coords.longitude; }
   function showPosition(position) { 
   var sceneEl = document.querySelector('a-scene');
 var atext = sceneEl.querySelector('a-text');
-  atext.setAttribute('value',"Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude);}
+  atext.setAttribute('value',"Latitude: " + position.coords.latitude + "\n Longitude: " + position.coords.longitude);}
   
   
   
@@ -60,7 +60,7 @@ var atext = sceneEl.querySelector('a-text');
         <a-animation attribute="scale" begin="mouseleave" dur="300" to="2 2 2"></a-animation>
       </a-box>
 
-      <a-text value="hop" color="#8ee5ee" position="-1.9 0.2 -3" scale="1.5 1.5 1.5"></a-text>
+      <a-text value="hop" color="#8ee5ee"  position="-1.9 0.2 -3" scale="1.5 1.5 1.5"></a-text>
       
       <a-cylinder position="10 10 -3" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder>
       
