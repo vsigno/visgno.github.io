@@ -24,7 +24,7 @@ function showPosition(position) {
 }
          function start()
          {
-         getLocation();
+            getLocation();
            showPosition(position);
          }
 </script>
@@ -46,8 +46,7 @@ function showPosition(position) {
         <a-animation attribute="scale" begin="mouseleave" dur="300" to="2 2 2"></a-animation>
       </a-box>
 
-      <a-text value="Latitude: " + position.coords.latitude + 
-    "<br>Longitude: " + position.coords.longitude color="#FAFAFA" position="-0.9 0.2 -3" scale="1.5 1.5 1.5"></a-text>
+      <a-text value="Latitude: " + position.coords.latitude + "Longitude: " + position.coords.longitude color="#FAFAFA" position="-0.9 0.2 -3" scale="1.5 1.5 1.5"></a-text>
       
       <a-cylinder position="10 10 -3" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder>
       
