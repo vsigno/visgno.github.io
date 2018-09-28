@@ -6,15 +6,31 @@
     <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
 	<script src="https://unpkg.com/fdist/aframe-environment-component.min.js"></script>
  <script>
+	
   
   AFRAME.registerComponent('getlocation', {
-  init: function() {
+  init: function(position) {
+  
+	
+	
+  
   if (navigator.geolocation) {
   navigator.geolocation.watchPosition(showPosition);
   } else {
-  //x.innerHTML = "Geolocation is not supported by this browser.";
-  }}
+  document.getElementById('latlon').innerHTML = "Geolocation is not supported by this browser.";
+  }
+  
+}
   });
+  
+  //function showPosition(position) { document.getElementById('latlon').innerHTML = "Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude; }
+  function showPosition(position) { 
+  var sceneEl = document.querySelector('a-scene');
+var atext = sceneEl.querySelector('a-text');
+  atext.setAttribute('value',"Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude);}
+  
+  
+  
 </script>
     </head>
    <body>
@@ -25,7 +41,13 @@
          threetowers, poison, arches, tron, japan, dream, volcano, starry, osiris. -->
     <!-- See more environment options: https://github.com/feiss/aframe-environment-component#parameters -->
     <a-scene environment="preset: forest">
+	
 	<a-entity getlocation></a-entity>
+	
+	
+	
+	<p id="latlon"> ciao</p>
+	
       <a-assets>
         <img id="boxTexture" src="https://i.imgur.com/mYmmbrp.jpg">
       </a-assets>
@@ -38,7 +60,7 @@
         <a-animation attribute="scale" begin="mouseleave" dur="300" to="2 2 2"></a-animation>
       </a-box>
 
-      <a-text id="atext" value="hop" color="#FAFAFA" position="-0.9 0.2 -3" scale="1.5 1.5 1.5"></a-text>
+      <a-text value="hop" color="#FAFAFA" position="-0.9 0.2 -3" scale="1.5 1.5 1.5"></a-text>
       
       <a-cylinder position="10 10 -3" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder>
       
