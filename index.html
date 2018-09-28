@@ -6,9 +6,9 @@
     <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
     <script src="https://unpkg.com/fdist/aframe-environment-component.min.js"></script>
   </head>
-  <body onload="start();">
+  <body onload="getLocation();">
        <script>
-var x = document.getElementById("demo");
+var x = document.getElementByTagName("a-text");
 
 function getLocation() {
     if (navigator.geolocation) {
@@ -22,11 +22,7 @@ function showPosition(position) {
     x.innerHTML = "Latitude: " + position.coords.latitude + 
     "<br>Longitude: " + position.coords.longitude;
 }
-         function start()
-         {
-            getLocation();
-           showPosition(position);
-         }
+        
 </script>
     
     <!-- Try changing the preset to one of default, contact, egypt, checkerboard, forest, goaland, yavapai, goldmine, 
