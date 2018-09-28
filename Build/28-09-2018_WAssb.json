@@ -1,0 +1,12 @@
+{
+"companyName": "DefaultCompany",
+"productName": "2018_GeoLocTrail",
+"dataUrl": "28-09-2018_WAssb.data.unityweb",
+"wasmCodeUrl": "28-09-2018_WAssb.wasm.code.unityweb",
+"wasmFrameworkUrl": "28-09-2018_WAssb.wasm.framework.unityweb",
+"TOTAL_MEMORY": 536870912,
+"graphicsAPI": ["WebGL 2.0", "WebGL 1.0"],
+"webglContextAttributes": {"preserveDrawingBuffer": false},
+"splashScreenStyle": "Dark",
+"backgroundColor": "#231F20"
+}
