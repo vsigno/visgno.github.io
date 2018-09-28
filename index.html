@@ -6,7 +6,7 @@
     <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
     <script src="https://unpkg.com/fdist/aframe-environment-component.min.js"></script>
   </head>
-  <body>
+  <body onload="getLocation();">
        <script>
 var x = document.getElementById("demo");
 
@@ -23,9 +23,7 @@ function showPosition(position) {
     "<br>Longitude: " + position.coords.longitude;
 }
 </script>
-    <script> 
-    getLocation();
-      </script>
+    
     <!-- Try changing the preset to one of default, contact, egypt, checkerboard, forest, goaland, yavapai, goldmine, 
          threetowers, poison, arches, tron, japan, dream, volcano, starry, osiris. -->
     <!-- See more environment options: https://github.com/feiss/aframe-environment-component#parameters -->
