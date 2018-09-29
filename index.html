@@ -51,12 +51,17 @@ var atext = sceneEl.querySelector('a-text');
 	
       <a-assets>
         <img id="boxTexture" src="https://i.imgur.com/mYmmbrp.jpg">
+		<a-asset-item id="terrainPart" src="GTLSQEOP/PartTer/TerrainPart.gltf"></a-asset-item>
       </a-assets>
      	   
+		   
+  <a-entity gltf-model="#terrainPart" position="0 -50 0"></a-entity>
+		   
+		   
 		   <a-entity gltf-model=GTLSQEOP/Bldgs.gltf position="0 -50 0" >
 		   </a-entity>
-		   <a-entity gltf-model=GTLSQEOP/PartTer/TerrainPart.gltf position="0 -50 0" >
-		   </a-entity>
+		   //<a-entity gltf-model=GTLSQEOP/PartTer/TerrainPart.gltf position="0 -50 0" >
+		   //</a-entity>
 
 		   
 		<a-entity gltf-model=Duck.gltf position="0 0 -10" rotation="0 270 0" scale="2 2 2">
