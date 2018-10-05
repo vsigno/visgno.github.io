@@ -1,4 +1,4 @@
-const DracoModule = module;
+//const DracoModule = module;
 
 AFRAME.registerComponent('drc-model', {
     schema: {
