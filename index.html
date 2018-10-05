@@ -64,15 +64,15 @@ var atext = sceneEl.querySelector('a-text');
 	<!--<a-pointcloud scale="0.5 0.5 0.5" position="1.5 2 0.5" src="dublin/DubTest.ply" size="0.05" depthWrite="false">      </a-pointcloud>-->
 
 
-		   <a-entity drc-model="drcUrl: GTLSQEOP/dubDarcMedium.drc" position="0 1.25 -4" scale="10 10 10" rotation="-90 0 0" material="color: white; shader: standard;"></a-entity>
+		   <a-entity drc-model="drcUrl: GTLSQEOP/dubDarcMedium.drc" position="0 -2 -4" scale="10 10 10" rotation="-90 0 0" material="color: #ff8000; shader: standard;"></a-entity>
 		  
 		   
 		   <a-entity gltf-model=GTLSQEOP/Bldgs.gltf position="0 -50 0" ></a-entity> 
 		   <a-entity gltf-model=GTLSQEOP/SphereDraco.gltf position="0 0 -5" ></a-entity> 
-		   <a-entity gltf-model=GTLSQEOP/PartTer/TerrainPart.gltf position="0 -50 0" > </a-entity>
+		   <a-entity gltf-model=GTLSQEOP/TerrainNoMat.gltf position="0 -50 0" material="color: #c6c2b7; shader: standard;" > </a-entity>
 
 		   
-		<a-entity gltf-model=Duck.gltf position="0 0 -10" rotation="0 270 0" scale="2 2 2">
+		<a-entity class="clickable" gltf-model=Duck.gltf position="0 0 -10" rotation="0 270 0" scale="2 2 2">
 		<!--<a-animation attribute="position" direction="alternate" dur="2000" repeat="indefinite"
           to="0 0 -5"></a-animation>-->
         <a-animation attribute="rotation" begin="click" dur="2000" to="0 0 0"></a-animation>
@@ -84,7 +84,7 @@ var atext = sceneEl.querySelector('a-text');
 			   
 			   
 			   
-      <a-box position="8 -5 -5" rotation="0 45 45" scale="1.5 1.5 1.5" src="#boxTexture">
+      <a-box class="clickable" position="8 -5 -5" rotation="0 45 45" scale="1.5 1.5 1.5" src="#boxTexture">
         <a-animation attribute="position" direction="alternate" dur="2000" repeat="indefinite"
           to="8 0 -5"></a-animation>
         <a-animation attribute="rotation" begin="click" dur="2000" to="360 405 45"></a-animation>
@@ -97,7 +97,7 @@ var atext = sceneEl.querySelector('a-text');
       <a-cylinder position="10 10 -3" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder>
       
       <a-camera>
-        <a-cursor color="#FAFAFA"></a-cursor>
+        <a-cursor color="#FAFAFA" raycaster="objects: .clickable"></a-cursor>
       </a-camera>
     </a-scene>
     
