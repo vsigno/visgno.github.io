@@ -7,22 +7,11 @@
 	<script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
 	
 	
-	 
+	 <script src="script/draco_decoder.js"></script>
+    <script src="script/DRACOLoader.js"></script>
+    <script src="script/draco_model_component.js"></script>
+	
  <script>
-	
-	
-	
-	AFRAME.registerComponent('DracoL', {
-  init: function () {
-    this.el.setObject3D('modelDraco', new THREE.PointLight());
-  },
-
-  remove: function () {
-    // Remove Object3D.
-    this.el.removeObject3D('light');
-  }
-});
-	
 	
   
   AFRAME.registerComponent('getlocation', {
@@ -75,7 +64,7 @@ var atext = sceneEl.querySelector('a-text');
 	<!--<a-pointcloud scale="0.5 0.5 0.5" position="1.5 2 0.5" src="dublin/DubTest.ply" size="0.05" depthWrite="false">      </a-pointcloud>-->
 
 
-
+		   <a-entity drc-model="drcUrl: GTLSQEOP/Sphere.drc" position="0 1.25 -7"></a-entity>
 		  
 		   
 		   <a-entity gltf-model=GTLSQEOP/Bldgs.gltf position="0 -50 0" ></a-entity> 
