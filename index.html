@@ -6,7 +6,6 @@
     <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
 	<script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
 	<script src="https://unpkg.com/fdist/aframe-environment-component.min.js"></script>
-	<!--<script src="https://unpkg.com/aframe-pointcloud-component/dist/aframe-pointcloud-component.min.js"></script>-->
 	
 	 
  <script>
@@ -38,10 +37,7 @@ var atext = sceneEl.querySelector('a-text');
 </script>
     </head>
    <body>
-	
-	<script src="draco_decoder.js"></script>
-    <script src="DRACOLoader.js"></script>
-    <script src="draco_model_component.js"></script>
+ 
 
      
     <!-- Try changing the preset to one of default, contact, egypt, checkerboard, forest, goaland, yavapai, goldmine, 
@@ -66,10 +62,10 @@ var atext = sceneEl.querySelector('a-text');
 
 
 
-		  <a-entity drc-model="drcUrl: ./bunny.drc" position="0 1.25 -2"></a-entity>
+		  
 		   
 		   <a-entity gltf-model=GTLSQEOP/Bldgs.gltf position="0 -50 0" ></a-entity> 
-		   <a-entity gltf-model=GTLSQEOP/TerrainNoMat.gltf position="0 -50 0" > </a-entity>
+		   <a-entity gltf-model=GTLSQEOP/PartTer/TerDraco.gltf position="0 -50 0" > </a-entity>
 
 		   
 		<a-entity gltf-model=Duck.gltf position="0 0 -10" rotation="0 270 0" scale="2 2 2">
