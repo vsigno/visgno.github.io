@@ -35,7 +35,7 @@
   <div id="container"></div>
   <div id="info">
     <a href="http://threejs.org" target="_blank" rel="noopener">three.js</a> -
-    <a href="https://github.com/google/draco" target="_blank" rel="noopener">DRACO</a> loader Dublin
+    <a href="https://github.com/google/draco" target="_blank" rel="noopener">DRACO</a> loader Sphere
   </div>
   <script src="https://cdn.rawgit.com/mrdoob/three.js/dev/build/three.min.js"></script>
   <script src="DRACOLoader.js"></script>
@@ -82,7 +82,7 @@
       light.position.set( - 1, 1, 1 );
       scene.add( light );
 
-      dracoLoader.load( 'models/Dublin_Orig.drc', function ( geometry ) {
+      dracoLoader.load( 'models/Sphere.drc', function ( geometry ) {
 
         geometry.computeVertexNormals();
 
