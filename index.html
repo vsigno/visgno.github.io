@@ -10,6 +10,20 @@
 	 
  <script>
 	
+	
+	
+	AFRAME.registerComponent('DracoL', {
+  init: function () {
+    this.el.setObject3D('modelDraco', new THREE.PointLight());
+  },
+
+  remove: function () {
+    // Remove Object3D.
+    this.el.removeObject3D('light');
+  }
+});
+	
+	
   
   AFRAME.registerComponent('getlocation', {
   init: function(position) {
@@ -49,7 +63,7 @@ var atext = sceneEl.querySelector('a-text');
 	
 	
 	
-	<p id="latlon"> TexTerrainDraco</p>
+	<p id="latlon"> Sphere</p>
 	
       <a-assets>
         <img id="boxTexture" src="https://i.imgur.com/mYmmbrp.jpg">
