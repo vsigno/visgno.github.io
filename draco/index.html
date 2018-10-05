@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>AFrame + Draco Example</title>
+    <meta charset="utf-8">
+    <script src="aframe-master.min.js"></script>
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <style>
+        body {
+            font-family: Monospace;
+            background-color: #000;
+            color: #fff;
+            margin: 0px;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <script src="draco_decoder.js"></script>
+    <script src="DRACOLoader.js"></script>
+    <script src="draco_model_component.js"></script>
+    <a-scene>
+      <a-sky color="#ECFFFF"></a-sky>
+      <a-entity drc-model="drcUrl: ./bunny.drc" position="0 1.25 -2"></a-entity>
+    </a-scene>
+</body>
+</html>
