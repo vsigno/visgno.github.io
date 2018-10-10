@@ -55,6 +55,7 @@ function showPosition(position) {
 		document.getElementById('deb').innerHTML  ="Keep looking"; 
 		o.c=false;
 	}
+	}
 	
 	/*
 	if (position.coords.latitude>51.3)
