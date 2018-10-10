@@ -44,6 +44,16 @@
       "loc_max_lat": 51.565771,
       "loc_min_long": -0.136766,
       "loc_max_long": -0.129009
+	},
+	{
+	"loc_name": "CASA UCL",
+      "loc_lat": 51.521912, 
+      "loc_long": -0.135973,
+      "loc_min_lat": 51.561909,
+      "loc_max_lat": 51.565771,
+      "loc_min_long": -0.136766,
+      "loc_max_long": -0.129009
 	}
+		 
   ]
 }

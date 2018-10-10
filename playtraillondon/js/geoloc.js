@@ -81,7 +81,7 @@ function showPosition(position) {
 	
 	
 	
-	if (position.coords.latitude>jsontopass.locations[i].loc_min_lat && position.coords.latitude<jsontopass.locations[i].loc_max_lat && position.coords.longitude>jsontopass.locations[i].loc_min_long && position.coords.longitude<jsontopass.locations[i].loc_max_long)
+	if (d<0.1)
 	{
 		document.getElementById('deb').innerHTML  =jsontopass.locations[i].loc_name;
 		o.c=true;
