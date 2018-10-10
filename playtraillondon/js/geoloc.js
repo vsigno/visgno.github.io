@@ -35,7 +35,7 @@ function getLocation()
 {
 	    if (navigator.geolocation) 
 		{
-	      navigator.geolocation.watchPosition(showPosition);
+	      navigator.geolocation.watchPosition(showPosition,error,options);
 	    } 
 		else 
 		{
@@ -43,6 +43,15 @@ function getLocation()
 		}	
 }
 
+function error(err) {
+  console.warn('ERROR(' + err.code + '): ' + err.message);
+}
+
+options = {
+  enableHighAccuracy: true,
+  timeout: 5000,
+  maximumAge: 0
+};
 
 //Show the Location
 function showPosition(position) {
