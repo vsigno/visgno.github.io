@@ -19,25 +19,18 @@ let audioReady = false;
  * @param {Object} elements
  * @private
  */
-function updatePositions(elements) {
+ var x =0;
+function updatePositions() {
   if (!audioReady)
     return;
+x++;
+foaSource.setPosition(x, 0, 0);
+foaScene.setListenerPosition(0, 0, 0);
 
-  for (let i = 0; i < elements.length; i++) {
-    let x = (elements[i].x - 0.5) * dimensions.width / 2;
-    let y = 0;
-    let z = (elements[i].y - 0.5) * dimensions.depth / 2;
-    if (i == 0) {
-      pannerNode.setPosition(x, y, z);
-      foaSource.setPosition(x, y, z);
-      toaSource.setPosition(x, y, z);
-    } else {
-      audioContext.listener.setPosition(x, y, z);
-      foaScene.setListenerPosition(x, y, z);
-      toaScene.setListenerPosition(x, y, z);
-    }
-  }
+ 
 }
+
+setInterval(function(){ updatePositions() }, 3000);
 
 /**
  * @private
