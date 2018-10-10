@@ -52,7 +52,36 @@ function showPosition(position) {
 	
 	console.log(jsontopass.locations);
 	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	for (var i = 0; i < jsontopass.locations.length; i++) {
+	
+	//use the distance between the point rather then the between
+	var R = 6371e3; // metres
+	var φ1 = position.coords.latitude.toRadians();
+	var φ2 = jsontopass.locations[i].loc_lat.toRadians();
+	var Δφ = (jsontopass.locations[i].loc_lat-position.coords.latitude).toRadians();
+	var Δλ = (jsontopass.locations[i].loc_long-position.coords.longitude).toRadians();
+
+	var a = Math.sin(Δφ/2) * Math.sin(Δφ/2) +
+        Math.cos(φ1) * Math.cos(φ2) *
+        Math.sin(Δλ/2) * Math.sin(Δλ/2);
+	var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+
+	var d = R * c;
+	
+	console.log("Distance",d);
+	
+	
+	
 	
 	if (position.coords.latitude>jsontopass.locations[i].loc_min_lat && position.coords.latitude<jsontopass.locations[i].loc_max_lat && position.coords.longitude>jsontopass.locations[i].loc_min_long && position.coords.longitude<jsontopass.locations[i].loc_max_long)
 	{
