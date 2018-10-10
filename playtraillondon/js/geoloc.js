@@ -49,7 +49,9 @@ function showPosition(position) {
 	document.getElementById('latlon').innerHTML  = "Latitude: " + position.coords.latitude + 
     "<br>Longitude: " + position.coords.longitude; 
 	
-	for (var i = 0; i < Object.keys(jsontopass).length; i++) {
+	console.log(jsontopass.locations);
+	
+	for (var i = 0; i < jsontopass.locations.length; i++) {
 	
 	if (position.coords.latitude>jsontopass.locations[i].loc_min_lat && position.coords.latitude<jsontopass.locations[i].loc_max_lat && position.coords.longitude>jsontopass.locations[i].loc_min_long && position.coords.longitude<jsontopass.locations[i].loc_max_long)
 	{
