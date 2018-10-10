@@ -32,9 +32,13 @@ foaScene.setListenerPosition(0, 0, 0);
 
 setInterval(function(){ updatePositions() }, 3000);
 
+
+
+
 /**
  * @private
  */
+
 function initAudio() {
   // Create <audio> streaming audio source.
   audioContext = new (window.AudioContext || window.webkitAudioContext);
@@ -61,13 +65,21 @@ function initAudio() {
   foaGain.connect(audioContext.destination);
   
   audioReady = true;
-  
+     
 }
 
 let onLoad = function() {
+	
+	
+
+
+	
   // Initialize play button functionality.
   let sourcePlayback = document.getElementById('sourceButton');
   sourcePlayback.onclick = function(event) {
+	  
+	  
+	  
     switch (event.target.textContent) {
       case 'Play': {
         if (!audioReady) {
@@ -83,6 +95,21 @@ let onLoad = function() {
       }
       break;
     }
+	
+	
+	
   };
 };
 window.addEventListener('load', onLoad);
+
+
+
+
+
+
+
+
+
+
+
+
