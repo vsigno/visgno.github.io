@@ -1,4 +1,8 @@
 
+var jsontopass;
+
+
+
 var o = { mayi:false };
 		Object.defineProperties(o, {
 			'b': { get: function() { return this.mayi; } },
@@ -7,11 +11,14 @@ var o = { mayi:false };
 		console.log(o.b);
 
 
+		
+		
 //Parsing a json with the location
 function parsedLocation()
 {
 	$.getJSON("resources/locations.json", function(json_loc) {
 		console.log(json_loc);
+		jsontopass=json_loc;
 	for (var i = 0; i < json_loc.locations.length; i++) {
     var locations = json_loc.locations[i];
 
@@ -42,11 +49,11 @@ function showPosition(position) {
 	document.getElementById('latlon').innerHTML  = "Latitude: " + position.coords.latitude + 
     "<br>Longitude: " + position.coords.longitude; 
 	
-	for (var i = 0; i < json_loc.locations.length; i++) {
+	for (var i = 0; i < jsontopass.locations.length; i++) {
 	
-	if (position.coords.latitude>locations.loc_min_lat && position.coords.latitude<locations.loc_max_lat && position.coords.longitude>locations.loc_min_long && position.coords.longitude<locations.loc_max_long)
+	if (position.coords.latitude>jsontopass.locations[i].loc_min_lat && position.coords.latitude<jsontopass.locations[i].loc_max_lat && position.coords.longitude>jsontopass.locations[i].loc_min_long && position.coords.longitude<jsontopass.locations[i].loc_max_long)
 	{
-		document.getElementById('deb').innerHTML  =locations.loc_name;
+		document.getElementById('deb').innerHTML  =jsontopass.locations[i].loc_name;
 		o.c=true;
 	}
 
