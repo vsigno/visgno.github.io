@@ -4,7 +4,11 @@
     <title>Play Trail_London</title>
     <meta name="description" content="Play Trail Beta 0.1">
     <script src="https://cdn.jsdelivr.net/npm/resonance-audio/build/resonance-audio.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	
 	<script src="js/test_trail.js"></script>
+	<script src="js/geoloc.js"></script>
+	<script type="text/json" src="resources/locations.json"></script>
 	
 <script>
 	var o = { mayi:false };
@@ -42,7 +46,8 @@ function showPosition(position) {
 	
 		console.log("nice");
 		if ("vibrate" in navigator) {
-navigator.vibrate(250);
+		document.getElementById('deb').innerHTML  ="Works";
+		navigator.vibrate(250);
 }
 		
 	}
@@ -75,7 +80,7 @@ o.c=false;
    <body>
    <script>
    getLocation();
-   
+   parsedLocation();
    </script>
 <div class="input-group">
 
