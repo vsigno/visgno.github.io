@@ -65,21 +65,19 @@ function showPosition(position) {
 	for (var i = 0; i < jsontopass.locations.length; i++) {
 	
 	//use the distance between the point rather then the between
-	var R = 6371e3; // metres
-	var φ1 = position.coords.latitude.toRadians();
-	var φ2 = jsontopass.locations[i].loc_lat.toRadians();
-	var Δφ = (jsontopass.locations[i].loc_lat-position.coords.latitude).toRadians();
-	var Δλ = (jsontopass.locations[i].loc_long-position.coords.longitude).toRadians();
+	
+	
+	var R = 6371; // Radius of the earth in km
+	var dLat = (jsontopass.locations[i].loc_lat - position.coords.latitude) * Math.PI / 180;  // deg2rad below
+	var dLon = (jsontopass.locations[i].loc_long - position.coords.longitude) * Math.PI / 180;
+	var a = 
+     0.5 - Math.cos(dLat)/2 + 
+     Math.cos(position.coords.latitude * Math.PI / 180) * Math.cos(jsontopass.locations[i].loc_lat * Math.PI / 180) * 
+     (1 - Math.cos(dLon))/2;
 
-	var a = Math.sin(Δφ/2) * Math.sin(Δφ/2) +
-        Math.cos(φ1) * Math.cos(φ2) *
-        Math.sin(Δλ/2) * Math.sin(Δλ/2);
-	var c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
-
-	var d = R * c;
+	var d= R * 2 * Math.asin(Math.sqrt(a));
 	
 	console.log("Distance",d);
-	
 	
 	
 	
