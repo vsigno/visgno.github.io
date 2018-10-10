@@ -90,7 +90,7 @@ function showPosition(position) {
 	
 	
 	
-	if (d<0.1)
+	if (d<0.3)
 	{
 		document.getElementById('deb').innerHTML  =jsontopass.locations[i].loc_name;
 		o.c=true;
