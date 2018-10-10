@@ -62,7 +62,7 @@ function showPosition(position) {
 
 	else
 	{
-		console.log(jsontopass.locations[i].loc_min_lat+jsontopass.locations[i].loc_max_lat +jsontopass.locations[i].loc_min_long+jsontopass.locations[i].loc_max_long)
+		console.log(jsontopass.locations[i].loc_min_lat,jsontopass.locations[i].loc_max_lat, jsontopass.locations[i].loc_min_long,jsontopass.locations[i].loc_max_long)
 		document.getElementById('deb').innerHTML  ="Keep looking"; 
 		o.c=false;
 	}
