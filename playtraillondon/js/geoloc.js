@@ -6,10 +6,10 @@ function parsedLocation()
 		
 		console.log(json_loc);
 	
-	var JSON_Locparsed=JSON.parse(json_loc);
+	//var JSON_Locparsed=JSON.parse(json_loc);
 	
-	for (var i = 0; i < JSON_Locparsed.locations.length; i++) {
-    var locations = JSON_Locparsed.locations[i];
+	for (var i = 0; i < json_loc.locations.length; i++) {
+    var locations = json_loc.locations[i];
 	
     console.log(locations.loc_name);	
 	}	
