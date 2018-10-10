@@ -24,9 +24,10 @@ function parsedLocation()
 
     console.log(locations.loc_name);	
 	}	
+	getLocation(); 
 		});
 	
-	getLocation(); 
+	
 }
 
 //Get the location of the user		
