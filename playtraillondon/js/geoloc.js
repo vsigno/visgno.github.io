@@ -19,7 +19,7 @@ function parsedLocation()
 	}	
 		});
 	
-	
+	getLocation(); 
 }
 
 //Get the location of the user		

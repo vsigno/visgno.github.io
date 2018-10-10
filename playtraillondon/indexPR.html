@@ -11,65 +11,7 @@
 	<script type="text/json" src="resources/locations.json"></script>
 	
 <script>
-	var o = { mayi:false };
-		
-		Object.defineProperties(o, {
-			'b': { get: function() { return this.mayi; } },
-			'c': { set: function(x) { this.mayi = x; } }
-		});
-		console.log(o.b);
-
 	
-	var loc;
-
-	function getLocation() {
-	
-    if (navigator.geolocation) {
-	
-        navigator.geolocation.watchPosition(showPosition);
-		
-		
-		
-    } else {
-        document.getElementById('latlon').innerHTML  = "Geolocation is not supported by this browser.";
-    }
-	
-}
-
-
-function showPosition(position) {
-    document.getElementById('latlon').innerHTML  = "Latitude: " + position.coords.latitude + 
-    "<br>Longitude: " + position.coords.longitude; 
-	
-	if(o.b==true)
-	{
-	
-		console.log("nice");
-		if ("vibrate" in navigator) {
-		document.getElementById('deb').innerHTML  ="Works";
-		navigator.vibrate(250);
-}
-		
-	}
-	else
-	{
-		console.log("nope");
-	}
-	
-	
-if (position.coords.latitude>51.3)
-{
-document.getElementById('deb').innerHTML  ="Works";
-o.c=true;
-
-}
-else{document.getElementById('deb').innerHTML  ="Oh No!"; 
-o.c=false;
-}
-
-	
-	
-}
 </script>
 	
 	
@@ -79,7 +21,7 @@ o.c=false;
     </head>
    <body>
    <script>
-   getLocation();
+   
    parsedLocation();
    </script>
 <div class="input-group">
