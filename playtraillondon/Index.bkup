@@ -5,8 +5,8 @@
     <meta name="description" content="Play Trail Beta 0.1">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	
-	<link rel="stylesheet" href="w3.css">
-	<link rel="stylesheet" href="playtrail.css">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3pro.css">
+	<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-teal.css">
 	
     <script src="https://cdn.jsdelivr.net/npm/resonance-audio/build/resonance-audio.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -34,122 +34,107 @@
     <img class="w3-circle" src="resources/PlayingArchive.png" alt="avatar" style="width:75%">
   </div>
 </div>
-<a class="w3-bar-item w3-button" href="#">Map</a>
-<a class="w3-bar-item w3-button" href="#">Playing the Archive</a>
-<a class="w3-bar-item w3-button" href="#">Contact</a>
+<a class="w3-bar-item w3-button" href="#">Movies</a>
+<a class="w3-bar-item w3-button" href="#">Friends</a>
+<a class="w3-bar-item w3-button" href="#">Messages</a>
 </nav>
    
-  <header class="w3-top w3-bar w3-theme">
-  
+   <header class="w3-top w3-bar w3-theme">
   <button class="w3-bar-item w3-button w3-xxxlarge w3-hover-theme" onclick="openSidebar()">&#9776;</button>
-  
-  <h1 class="w3-bar-item" >Play Trail London</h1>
-    
-  <div class="w3-bar-item">
+  <h1 class="w3-bar-item" id="deb">This is where I am</h1>
+  <div class="input-group">
 
 <span class="input-group-btn">
-              <!--<button type="button" class="btn btn-primary" id="sourceButton">Play</button>-->
-            <button type="button" class=" w3-circle w3-bar-item w3-button w3-hover-theme btn btn-primary" id="sourceButton">Play</button>
-			</span>
+              <button type="button" class="btn btn-primary" id="sourceButton">Play</button>
+            </span>
    </div>
 </header>
    
    
    <div class="w3-container" style="margin-top:90px">
-
+<hr>
 <div class="w3-cell-row">
-  <div class="w3-cell" style="width:40%">
-    <img class="w3-circle" src="resources/PlayingArchive.png" style="width:40%">
+  <div class="w3-cell" style="width:30%">
+    <img class="w3-circle" src="resources/PlayingArchive.png" style="width:100%">
   </div>
   <div class="w3-cell w3-container">
-    <h5>Euston</h5>
+    <h3>Euston</h3>
     <p id="Euston">Euston dist</p>
   </div>
-   <div class="w3-bar-item">
-
-	
-              <!--<button type="button" class="btn btn-primary" id="sourceButton">Play</button>-->
-            <button type="button" class=" w3-circle w3-bar-item w3-button w3-hover-theme btn btn-primary" id="sourceButton">Play</button>
-	
-   </div>
 </div>  
 <hr>
 <div class="w3-cell-row">
-  <div class="w3-cell" style="width:40%">
-    <img class="w3-circle" src="resources/PlayingArchive.png" style="width:40%">
+  <div class="w3-cell" style="width:30%">
+    <img class="w3-circle" src="resources/PlayingArchive.png" style="width:100%">
   </div>
   <div class="w3-cell w3-container">
-    <h5>Russel Square</h5>
+    <h3>Russel Square</h3>
     <p id="Russel Square">Russel Square dist</p>
   </div>
 </div>
 <hr>
 <div class="w3-cell-row">
-  <div class="w3-cell" style="width:40%">
-    <img class="w3-circle" src="resources/PlayingArchive.png" style="width:40%">
+  <div class="w3-cell" style="width:30%">
+    <img class="w3-circle" src="resources/PlayingArchive.png" style="width:100%">
   </div>
   <div class="w3-cell w3-container">
-    <h5>Knowledge Lab</h5>
+    <h3>Knowledge Lab</h3>
     <p id="Knowledge Lab">Yey</p>
   </div>
 </div>
 <hr>
 
 <div class="w3-cell-row">
-  <div class="w3-cell" style="width:40%">
-    <img class="w3-circle" src="resources/PlayingArchive.png" style="width:40%">
+  <div class="w3-cell" style="width:30%">
+    <img class="w3-circle" src="resources/PlayingArchive.png" style="width:100%">
   </div>
   <div class="w3-cell w3-container">
-    <h5>Tottenham St</h5>
+    <h3>Tottenham St</h3>
     <p id="Tottenham St">Yey</p>
   </div>
 </div>
 <hr>
 
 <div class="w3-cell-row">
-  <div class="w3-cell" style="width:40%">
-    <img class="w3-circle" src="resources/PlayingArchive.png" style="width:40%">
+  <div class="w3-cell" style="width:30%">
+    <img class="w3-circle" src="resources/PlayingArchive.png" style="width:100%">
   </div>
-  <div  style="margin:0px 0px 0px 0px">
-    <h5>Archway</h5>
+  <div class="w3-cell w3-container">
+    <h3>Archway</h3>
     <p id="Archway">Yey</p>
   </div>
 </div>
 <hr>
 
 <div class="w3-cell-row">
-  <div class="w3-cell" style="width:40%">
-    <img class="w3-circle" src="resources/PlayingArchive.png" style="width:40%">
+  <div class="w3-cell" style="width:30%">
+    <img class="w3-circle" src="resources/PlayingArchive.png" style="width:100%">
   </div>
   <div class="w3-cell w3-container">
-    <h5>CASA Ucl</h5>
+    <h3>CASA Ucl</h3>
     <p id="CASA UCL">Yey</p>
   </div>
 </div>
 <hr>
 
-<div class="w3-cell-row" >
-  <div class="w3-cell" style="width:40%">
-    <img class="w3-circle" src="resources/PlayingArchive.png" style="width:40%">
+<div class="w3-cell-row">
+  <div class="w3-cell" style="width:30%">
+    <img class="w3-circle" src="resources/PlayingArchive.png" style="width:100%">
   </div>
   <div class="w3-cell w3-container">
-    <h5>Farmer Market</h5>
+    <h3>Farmer Market</h3>
      <p id="Farmer Market">Yey</p>
   </div>
 </div>
 <hr>
-<hr>
-<hr>
 
 
 </div>
    
    
-   
-   
-   <footer class="w3-container w3-bottom w3-theme">
-  <h6 id="deb">Play Trail London</h6> 
-   <h6 id="latlon">ciao</h6>
+   <footer class="w3-container w3-bottom w3-theme w3-margin-top">
+  <h3>Play Trail London</h3> 
+   <p id="latlon">ciao</p>
 </footer>
    
     <script>
@@ -161,11 +146,6 @@ function closeSidebar() {
     document.getElementById("mySidebar").style.display = "none";
 }
 </script>
-   
-   
-   
-   
-   
    
 <!--   
 Old Code  
