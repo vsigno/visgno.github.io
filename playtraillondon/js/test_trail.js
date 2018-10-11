@@ -44,7 +44,7 @@ foaSource.setPosition(newX, newY, 0);
 foaScene.setListenerPosition(0, 0, 0);
 }
 
-setInterval(function(){ updatePositions() }, 1000);
+setInterval(function(){ updatePositions() }, 500);
 
 
 
