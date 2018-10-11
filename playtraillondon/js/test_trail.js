@@ -9,6 +9,11 @@ let audioReady = false;
 
 let audioSource;
 
+let angle = 3 * Math.PI / 180;
+let cx = 0;
+let cy = 0;
+let radius = 2;
+
 /**
  * Select the desired rendering mode.
  * @param {Object} event
@@ -21,16 +26,25 @@ let audioSource;
  * @param {Object} elements
  * @private
  */
- var x =0;
+ 
 function updatePositions() {
   if (!audioReady)
     return;
-x++;
-foaSource.setPosition(x, 0, 0);
+
+
+	// increase the angle of rotation
+        angle += 3 * Math.PI / 180;
+
+        // calculate the new ball.x / ball.y
+        var newX = cx + radius * Math.cos(angle);
+        var newY = cy + radius * Math.sin(angle);
+
+
+foaSource.setPosition(newX, newY, 0);
 foaScene.setListenerPosition(0, 0, 0);
 }
 
-setInterval(function(){ updatePositions() }, 3000);
+setInterval(function(){ updatePositions() }, 1000);
 
 
 
