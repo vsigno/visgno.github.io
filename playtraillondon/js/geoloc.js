@@ -118,7 +118,7 @@ function showPosition(position) {
 	}
 	*/
 	
-	
+	/*
 	
 	if(o.b==true)
 	{
@@ -134,4 +134,5 @@ function showPosition(position) {
 	{
 		console.log("nope");
 	}
+	*/
 }
