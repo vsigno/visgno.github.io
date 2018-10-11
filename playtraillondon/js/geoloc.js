@@ -87,7 +87,7 @@ function showPosition(position) {
 	var d= R * 2 * Math.asin(Math.sqrt(a));
 	
 	console.log("Distance",d);
-	document.getElementById('dist').innerHTML  =d; 
+	document.getElementById(jsontopass.locations[i].loc_name).innerHTML  =d; 
 	
 	
 	if (d<0.4)
