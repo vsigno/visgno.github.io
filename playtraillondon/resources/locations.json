@@ -4,56 +4,43 @@
       "loc_name": "Euston",
       "loc_lat": 51.528118,
       "loc_long": -0.133112,
-      "loc_min_lat": 51.526346,
-      "loc_max_lat": 51.530915,
-      "loc_min_long": -0.137138,
-      "loc_max_long": -0.130668
+      "events":[]
     },
     {
       "loc_name": "Russel Square",
       "loc_lat": 51.52169,
       "loc_long": -0.125965,
-      "loc_min_lat": 51.520609,
-      "loc_max_lat": 51.52274,
-      "loc_min_long": -0.127821,
-      "loc_max_long": -0.124173
+      "events":[]
     },
     {
       "loc_name": "Knowledge Lab",
       "loc_lat": 51.521725,
       "loc_long": -0.117677,
-      "loc_min_lat": 51.520956,
-      "loc_max_lat": 51.521818,
-      "loc_min_long": -0.118133,
-      "loc_max_long": -0.117194
+      "events":[]
     },
     {
       "loc_name": "Tottenham St",
       "loc_lat": 51.520836,
       "loc_long": -0.134872,
-      "loc_min_lat": 51.521029,
-      "loc_max_lat": 51.520634,
-      "loc_min_long": -0.135124,
-      "loc_max_long": -0.134655
+      "events":[]
     },
 	{
 	"loc_name": "Archway",
       "loc_lat": 51.563805, 
       "loc_long": -0.129601,
-      "loc_min_lat": 51.561909,
-      "loc_max_lat": 51.565771,
-      "loc_min_long": -0.136766,
-      "loc_max_long": -0.129009
+      "events":[]
 	},
 	{
 	"loc_name": "CASA UCL",
       "loc_lat": 51.521912, 
       "loc_long": -0.135973,
-      "loc_min_lat": 51.561909,
-      "loc_max_lat": 51.565771,
-      "loc_min_long": -0.136766,
-      "loc_max_long": -0.129009
-	}
-		 
+      "events":["CoconutEffect.mp3"]
+	},
+	{
+	"loc_name": "Farmer Market",
+      "loc_lat": 51.523072,
+      "loc_long":  -0.130954,
+	  "events":["BrambushLiss.mp3"]
+    } 
   ]
 }
