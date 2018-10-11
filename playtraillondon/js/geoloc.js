@@ -99,7 +99,7 @@ function showPosition(position) {
 	else
 	{
 		console.log("my lat",position.coords.latitude, "my long", position.coords.longitude,"min lat",jsontopass.locations[i].loc_min_lat,"max lat",jsontopass.locations[i].loc_max_lat, "min long", jsontopass.locations[i].loc_min_long,"max long", jsontopass.locations[i].loc_max_long)
-		document.getElementById('deb').innerHTML  ="Keep looking"; 
+		//document.getElementById('deb').innerHTML  ="Keep looking"; 
 		o.c=false;
 	}
 	}
