@@ -37,6 +37,7 @@ setInterval(function(){ updatePositions() }, 3000);
 function loadEvents()
 {
 	console.log(events[0]);
+	audioSource='resources/'events[0];
 }
 
 
@@ -57,8 +58,7 @@ function initAudio() {
   // Create <audio> streaming audio source.
   audioContext = new (window.AudioContext || window.webkitAudioContext);
   //let audioSource = 'resources/BrambushLiss.wav';
-  
-  audioSource = 'resources/BrambushLiss.wav';
+    
   
   audioElement = document.createElement('audio');
   audioElement.src = audioSource;

@@ -7,7 +7,7 @@ var events;
 
 //Detect Variables Changed
 var check = { condition:false };
-		Object.defineProperties(o, {
+		Object.defineProperties(check, {
 			'b': { get: function() { return this.condition; } },
 			'c': { set: function(x) { this.condition = x; } }
 		});
