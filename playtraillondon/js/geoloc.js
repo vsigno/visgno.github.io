@@ -86,7 +86,7 @@ function showPosition(position) {
 	
 	
 	//if we are closer than 400meters give me the name of the location and the number of sounds/tags to discover
-	if (d<0.4)
+	if (d<0.1)
 	{
 		document.getElementById('deb').innerHTML  =jsontopass.locations[i].loc_name;
 		
