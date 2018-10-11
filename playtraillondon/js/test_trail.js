@@ -37,7 +37,7 @@ setInterval(function(){ updatePositions() }, 3000);
 function loadEvents()
 {
 	console.log(events[0]);
-	audioSource='resources/'events[0];
+	audioSource='resources/'+events[0];
 }
 
 
