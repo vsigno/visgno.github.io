@@ -18,8 +18,17 @@ THREEx.ArToolkitContext.baseURL = 'https://rawgit.com/jeromeetienne/ar.js/master
 	<a-scene embedded arjs='sourceType: webcam;'>
 	<!--<a-box position='0 0.5 0' material='opacity: 0.5;'></a-box>-->
 	
+	<a-assets>
+        <img id="boxTexture" src="https://i.imgur.com/mYmmbrp.jpg">
+		<a-asset-item id="sheffieldsch" src="GTLSQEOP/SheffieldTexture4.gltf"></a-asset-item>
+		
+    </a-assets>
+	
 	<a-marker-camera preset='hiro'>
-	<a-entity drc-model="drcUrl: resources/dubDarcMedium.drc" position="0 0.5 0" scale="4 4 4" rotation="-90 0 0" material="color: #ff8000; shader: standard;"></a-entity>
+	<a-gltf-model src="#sheffieldsch" position="0 0 0"></a-gltf-model>
+	
+	<!--<a-entity drc-model="drcUrl: resources/dubDarcMedium.drc" position="0 0.5 0" scale="4 4 4" rotation="-90 0 0" material="color: #ff8000; shader: standard;"></a-entity>-->
+	
 	</a-marker-camera>
 	</a-scene>
 	</body>
