@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+    <title>Play Trail Sheffield</title>
+    <meta name="description" content="Play Trail Beta 0.1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<link rel="stylesheet" href="w3.css">
+	<link rel="stylesheet" href="playtrail.css">
+	<link rel="stylesheet" href="bigslide.css">
+	
+    <script src="https://cdn.jsdelivr.net/npm/resonance-audio/build/resonance-audio.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	
+	<script src="js/test_trail.js"></script>
+	<script src="js/geoloc.js"></script>
+	<script type="text/json" src="resources/locations.json"></script>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script src="js/bigSlide.js"></script>
+	
+	</head>
+	<body>
+	
+	<script>
+   
+	parsedLocation();
+   console.log("io");
+	</script>
+   
+   <script>
+    $(document).ready(function() {
+        $('.menu-link').bigSlide();
+    });
+	
+	</script>
+   
+  
+  
+  <nav id="menu" class="panel" role="navigation">
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Map</a></li>
+        <li><a href="#">My Collection</a></li>
+        <li><a href="#">Settings</a></li>
+        <li><a href="#">About us</a></li>
+    </ul>
+</nav>
+   
+  
+<div class="container">
+
+	<div class="masthead">
+		<div class="wrap push"> 
+		<a href="#menu" class="menu-link">☰</a>
+		<h1>Play Trail</h1>
+	</div>
+	</div>
+
+
+<div class="main wrap push">
+
+<div class="w3-cell-row">
+  <div class="w3-cell" style="width:40%">
+    <img class="w3-circle" src="resources/PlayingArchive.png" style="width:40%">
+  </div>
+  <div class="w3-cell w3-container">
+    <h5>Russell Square</h5>
+    <p id="Russel Square">Russell Square dist</p>
+  </div>
+</div>
+
+</div>
+   
+
+
+<div class="footerdiv">
+<div class="wrap push" style="float:left">
+	<h6 id="currentLocation">GPS...</h6> 
+    <h6 id="latlon">current Lat Long</h6>
+</div>  
+<div class="wrap push" style="float:right" >
+	<input type="image" class="w3-circle" src="resources/Speaker.png" style="width:50px" id="sourceButton" />
+</div>  
+
+
+</div>
+
+   
+   
+   
+   
+<!--   
+Old Code  
+
+<div class="input-group">
+
+<span class="input-group-btn">
+              <button type="button" class="btn btn-primary" id="sourceButton">Play</button>
+            </span>
+   </div>
+   <div>
+  <p id="latlon">ciao</p>
+   <p id="deb">This is where I am</p>
+   
+   
+   <p id="Euston">Euston dist</p>
+   <p id="Russel Square">Russel Square dist</p>
+   <p id="Knowledge Lab">Yey</p>
+   <p id="Tottenham St">Yey</p>
+   <p id="Archway">Yey</p>
+   <p id="CASA UCL">Yey</p>
+   <p id="Farmer Market">Yey</p>
+   
+   
+   </div>
+-->
+  
+   
+     </body>
+</html>

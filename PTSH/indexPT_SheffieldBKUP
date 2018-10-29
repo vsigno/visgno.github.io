@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Play Trail Sheffield</title>
+    <meta name="description" content="Play Trail Beta 0.1">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<link rel="stylesheet" href="w3.css">
+	<link rel="stylesheet" href="playtrail.css">
+	
+    <script src="https://cdn.jsdelivr.net/npm/resonance-audio/build/resonance-audio.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	
+	<script src="js/test_trail.js"></script>
+	<script src="js/geoloc.js"></script>
+	<script type="text/json" src="resources/locations.json"></script>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script src="js/bigSlide.js"></script>
+	
+	
+	
+    </head>
+   <body>
+   <script>
+   
+   parsedLocation();
+   
+   </script>
+   
+   <script>
+    $(document).ready(function() {
+        $('.menu-link').bigSlide();
+    });
+</script>
+   
+  <a href="#menu" class="menu-link">&#9776;</a>
+  
+  <nav id="menu" class="panel" role="navigation">
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">The Ballad of El Goodo</a></li>
+        <li><a href="#">Thirteen</a></li>
+        <li><a href="#">September Gurls</a></li>
+        <li><a href="#">What's Going Ahn</a></li>
+    </ul>
+</nav>
+   
+   <nav class="w3-sidebar w3-bar-block w3-card" id="mySidebar">
+<div class="w3-container w3-theme-d2">
+  <span onclick="closeSidebar()" class="w3-button w3-display-topright w3-large">X</span>
+  <br>
+  <div class="w3-padding w3-center">
+    <img class="w3-circle" src="resources/PlayingArchive.png" alt="avatar" style="width:75%">
+  </div>
+</div>
+<a class="w3-bar-item w3-button" href="#">Map</a>
+<a class="w3-bar-item w3-button" href="#">Playing the Archive</a>
+<a class="w3-bar-item w3-button" href="#">Contact</a>
+</nav>
+   
+  <header class="w3-top w3-bar w3-theme">
+  
+  <button class="w3-bar-item w3-button w3-xxxlarge w3-hover-theme" onclick="openSidebar()">&#9776;</button>
+  
+  <h1 class="w3-bar-item" >Play Trail London</h1>
+    
+  <div class="w3-bar-item">
+
+<span class="input-group-btn">
+              <!--<button type="button" class="btn btn-primary" id="sourceButton">Play</button>-->
+            <button type="button" class=" w3-circle w3-bar-item w3-button w3-hover-theme btn btn-primary" id="sourceButton">Play</button>
+			</span>
+   </div>
+</header>
+   
+   
+   <div class="w3-container" style="margin-top:90px">
+
+<div class="w3-cell-row">
+  <div class="w3-cell" style="width:40%">
+    <img class="w3-circle" src="resources/PlayingArchive.png" style="width:40%">
+  </div>
+  <div class="w3-cell w3-container">
+    <h5>Euston</h5>
+    <p id="Euston">Euston dist</p>
+  </div>
+   <div class="w3-bar-item">
+
+	<span class="input-group-btn">
+              <!--<button type="button" class="btn btn-primary" id="sourceButton">Play</button>-->
+            <button type="button" class=" w3-circle w3-bar-item w3-button w3-hover-theme btn btn-primary" id="sourceButton">Play</button>
+			</span>
+   </div>
+</div>  
+<hr>
+<div class="w3-cell-row">
+  <div class="w3-cell" style="width:40%">
+    <img class="w3-circle" src="resources/PlayingArchive.png" style="width:40%">
+  </div>
+  <div class="w3-cell w3-container">
+    <h5>Russell Square</h5>
+    <p id="Russel Square">Russell Square dist</p>
+  </div>
+</div>
+<hr>
+<div class="w3-cell-row">
+  <div class="w3-cell" style="width:40%">
+    <img class="w3-circle" src="resources/PlayingArchive.png" style="width:40%">
+  </div>
+  <div class="w3-cell w3-container">
+    <h5>Knowledge Lab</h5>
+    <p id="Knowledge Lab">Yey</p>
+  </div>
+</div>
+<hr>
+
+<div class="w3-cell-row">
+  <div class="w3-cell" style="width:40%">
+    <img class="w3-circle" src="resources/PlayingArchive.png" style="width:40%">
+  </div>
+  <div class="w3-cell w3-container">
+    <h5>Tottenham St</h5>
+    <p id="Tottenham St">Yey</p>
+  </div>
+</div>
+<hr>
+
+<div class="w3-cell-row">
+  <div class="w3-cell" style="width:40%">
+    <img class="w3-circle" src="resources/PlayingArchive.png" style="width:40%">
+  </div>
+  <div  style="margin:0px 0px 0px 0px">
+    <h5>Archway</h5>
+    <p id="Archway">Yey</p>
+  </div>
+</div>
+<hr>
+
+<div class="w3-cell-row">
+  <div class="w3-cell" style="width:40%">
+    <img class="w3-circle" src="resources/PlayingArchive.png" style="width:40%">
+  </div>
+  <div class="w3-cell w3-container">
+    <h5>CASA Ucl</h5>
+    <p id="CASA UCL">Yey</p>
+  </div>
+</div>
+<hr>
+
+<div class="w3-cell-row" >
+  <div class="w3-cell" style="width:40%">
+    <img class="w3-circle" src="resources/PlayingArchive.png" style="width:40%">
+  </div>
+  <div class="w3-cell w3-container">
+    <h5>Farmer Market</h5>
+     <p id="Farmer Market">Yey</p>
+  </div>
+</div>
+<hr>
+<hr>
+<hr>
+
+
+</div>
+   
+   
+   
+   
+   <footer class="w3-container w3-bottom w3-theme">
+  <h6 id="deb">Play Trail London</h6> 
+   <h6 id="latlon">ciao</h6>
+</footer>
+   
+    <script>
+closeSidebar();
+function openSidebar() {
+    document.getElementById("mySidebar").style.display = "block";
+}
+function closeSidebar() {
+    document.getElementById("mySidebar").style.display = "none";
+}
+</script>
+   
+   
+   
+   
+   
+   
+<!--   
+Old Code  
+
+<div class="input-group">
+
+<span class="input-group-btn">
+              <button type="button" class="btn btn-primary" id="sourceButton">Play</button>
+            </span>
+   </div>
+   <div>
+  <p id="latlon">ciao</p>
+   <p id="deb">This is where I am</p>
+   
+   
+   <p id="Euston">Euston dist</p>
+   <p id="Russel Square">Russel Square dist</p>
+   <p id="Knowledge Lab">Yey</p>
+   <p id="Tottenham St">Yey</p>
+   <p id="Archway">Yey</p>
+   <p id="CASA UCL">Yey</p>
+   <p id="Farmer Market">Yey</p>
+   
+   
+   </div>
+-->
+  
+   
+     </body>
+</html>
