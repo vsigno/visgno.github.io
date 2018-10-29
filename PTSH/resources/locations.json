@@ -4,13 +4,13 @@
       "loc_name": "Site Gallery",
       "loc_lat": 53.376653,
       "loc_long": -1.466140,
-      "events":[mountain-pastures.mp3]
+      "events":["mountain-pastures.mp3"]
     },
     {
       "loc_name": "Playground Charles St",
       "loc_lat": 53.377175,
       "loc_long": -1.466566,
-      "events":[Grasshoppers.mp3]
+      "events":["Grasshoppers.mp3"]
     },
     {
       "loc_name": "Sheffield Station",
@@ -34,7 +34,7 @@
 	"loc_name": "Hallam Square",
       "loc_lat": 53.378972, 
       "loc_long": -1.466415,
-      "events":[Sea.mp3]
+      "events":["Sea.mp3"]
 	}
   ]
 }

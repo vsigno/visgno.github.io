@@ -86,13 +86,13 @@ function showPosition(position) {
 	
 	console.log("Distance",d);
 	
-	document.getElementById(jsontopass.locations[i].loc_name).innerHTML  =d; 
+	//document.getElementById(jsontopass.locations[i].loc_name).innerHTML  =d; 
 	
 	
 	//if we are closer than 30 meters give me the name of the location and the number of sounds/tags to discover
-	if (d>0.03)
+	if (d<0.03)
 	{
-		document.getElementById('currentLocation').innerHTML  =jsontopass.locations[i].loc_name;
+		document.getElementById('currentLocation').innerHTML  = jsontopass.locations[i].loc_name;
 		
 		events=jsontopass.locations[i].events;
 		
