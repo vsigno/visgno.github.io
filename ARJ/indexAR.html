@@ -25,11 +25,16 @@ THREEx.ArToolkitContext.baseURL = 'https://rawgit.com/jeromeetienne/ar.js/master
     </a-assets>
 	
 	<a-marker-camera preset='hiro'>
-	<a-gltf-model src="#sheffieldsch" position="0 0 0"></a-gltf-model>
 	
+	<a-gltf-model src="#sheffieldsch" position="0 0 0"></a-gltf-model>
 	<!--<a-entity drc-model="drcUrl: resources/dubDarcMedium.drc" position="0 0.5 0" scale="4 4 4" rotation="-90 0 0" material="color: #ff8000; shader: standard;"></a-entity>-->
 	
 	</a-marker-camera>
+	
+	<a-marker preset='custom' type="pattern" src="resources/StarMarker.patt">
+	<a-box position='0 0.5 0' material='color: red;'></a-box>
+	</a-marker-camera>
+	
 	</a-scene>
 	</body>
 </head>

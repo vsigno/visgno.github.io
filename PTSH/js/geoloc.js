@@ -95,7 +95,9 @@ function showPosition(position) {
 		document.getElementById('currentLocation').innerHTML  = jsontopass.locations[i].loc_name;
 		
 		events=jsontopass.locations[i].events;
+		document.getElementById('targetEvent').innerHTML  =events; 
 		
+		targetEvent
 		loadEvents();
 		
 		check.c=true;
