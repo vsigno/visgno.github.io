@@ -9,18 +9,21 @@
 THREEx.ArToolkitContext.baseURL = 'https://rawgit.com/jeromeetienne/ar.js/master/three.js/'
 </script>
 
-<script src="script/draco_decoder.js"></script>
+	<script src="script/draco_decoder.js"></script>
     <script src="script/DRACOLoader.js"></script>
     <script src="script/draco_model_component.js"></script>
 
 
 <body style='margin : 0px; overflow: hidden;'>
 	<a-scene embedded arjs='sourceType: webcam;'>
-	<!--<a-box position='0 0.5 0' material='opacity: 0.5;'></a-box>-->
 	
 	<a-assets>
         <img id="boxTexture" src="https://i.imgur.com/mYmmbrp.jpg">
+		
 		<a-asset-item id="sheffieldsch" src="resources/SheffieldTexture4.gltf" position="0 0.8 0" scale="1.5 1.5 1.5" rotation="45 0 0"></a-asset-item>
+		
+		<a-asset-item id="ajWalk" src="resources/ajwalk/WalkingAJ.gltf" position="0 0.5 0" scale="1 1 1"></a-asset-item>
+		
 		
     </a-assets>
 	
@@ -37,7 +40,9 @@ THREEx.ArToolkitContext.baseURL = 'https://rawgit.com/jeromeetienne/ar.js/master
 	
 	
 	<a-marker type="pattern" url="resources/Clock.patt">
-	<a-box position='0 0.5 0' material='color: green;'></a-box>
+	
+	<a-gltf-model src="#ajwalk" position="0 0 0"></a-gltf-model>
+		
 	</a-marker>
 	
 	<a-marker type="pattern" url="resources/StarMarker.patt">
