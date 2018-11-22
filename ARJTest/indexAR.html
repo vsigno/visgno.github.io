@@ -9,16 +9,38 @@
 <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
 
 
-<script>
-THREEx.ArToolkitContext.baseURL = 'https://rawgit.com/jeromeetienne/ar.js/master/three.js/'
-</script>
+<!--<script> THREEx.ArToolkitContext.baseURL = 'https://rawgit.com/jeromeetienne/ar.js/master/three.js/' </script>-->
 
 	<script src="script/draco_decoder.js"></script>
     <script src="script/DRACOLoader.js"></script>
     <script src="script/draco_model_component.js"></script>
-
+	
+	<script>
+	
+	AFRAME.registerComponent('registerevents', {
+		init: function () {
+			var marker = this.el;
+			marker.addEventListener('markerFound', function() {
+				var markerId = marker.id;
+				console.log('markerFound', markerId);
+				// TODO: Add your own code here to react to the marker being found.
+			});
+			marker.addEventListener('markerLost', function() {
+				var markerId = marker.id;
+				console.log('markerLost', markerId);
+				// TODO: Add your own code here to react to the marker being lost.
+			});
+		}
+	});
+	
+	
+	</script>
+</head>
 
 <body style='margin : 0px; overflow: hidden;'>
+
+
+
 	<a-scene embedded arjs='sourceType: webcam; patternRatio: 0.9;'>
 	
 	<a-assets>
@@ -31,7 +53,7 @@ THREEx.ArToolkitContext.baseURL = 'https://rawgit.com/jeromeetienne/ar.js/master
 		
     </a-assets>
 	
-	<a-marker-camera preset='hiro'>
+	<a-marker-camera preset='hiro' id='marker-hiro' registerevents>
 	
 	<a-gltf-model src="#sheffieldsch" position="0 0 0"></a-gltf-model>
 	<!--<a-entity drc-model="drcUrl: resources/dubDarcMedium.drc" position="0 0.5 0" scale="4 4 4" rotation="-90 0 0" material="color: #ff8000; shader: standard;"></a-entity>-->
@@ -49,34 +71,33 @@ THREEx.ArToolkitContext.baseURL = 'https://rawgit.com/jeromeetienne/ar.js/master
 		
 	</a-marker>
 	
-	<!--
-	<a-marker type="pattern" url="resources/StarMarker.patt">
+	<a-marker  type="pattern" url="resources/StarMarker.patt" >
 	<a-box position='0 0.5 0' material='color: red;'></a-box>
 	</a-marker>
-	-->
-	<!--Color Marker-->
 	
-	<a-marker type="pattern" url="resources/Star-01.patt">
+	<!--Color Marker-->
+	<!--
+	<a-marker  type="pattern" url="resources/Star-01.patt" id="ciaociao6" registerevents>
 	<a-box position='0 0.5 0' material='color: green;'></a-box>
 	</a-marker>
 	
-	<a-marker type="pattern" url="resources/Star-02.patt">
+	<a-marker type="pattern" url="resources/Star-02.patt" id="ciaociao7" registerevents>
 	<a-box position='0 0.5 0' material='color: blue;'></a-box>
 	</a-marker>
 	
-	<a-marker type="pattern" url="resources/Star-03.patt">
+	<a-marker type="pattern" url="resources/Star-03.patt" id="ciaociao8" registerevents>
 	<a-box position='0 0.5 0' material='color: red;'></a-box>
 	</a-marker>
 	
-	<a-marker type="pattern" url="resources/Star-04.patt">
+	<a-marker type="pattern" url="resources/Star-04.patt" id="ciaociao9" registerevents>
 	<a-box position='0 0.5 0' material='color: black;'></a-box>
 	</a-marker>
 	
-	<a-marker type="pattern" url="resources/VanG-05.patt">
+	<a-marker type="pattern" url="resources/VanG-05.patt" id="ciaociao5" registerevents>
 	<a-box position='0 0.5 0' material='color: black;'></a-box>
 	</a-marker>
 	
-	
+	-->
 	
 	<a-marker type="pattern" url="resources/Plane.patt">
 	<a-box position='0 0.5 0' material='color: black;'></a-box>
@@ -85,7 +106,7 @@ THREEx.ArToolkitContext.baseURL = 'https://rawgit.com/jeromeetienne/ar.js/master
 	
 	</a-scene>
 	</body>
-</head>
+
 </html>
 
 
