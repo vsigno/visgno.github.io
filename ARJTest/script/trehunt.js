@@ -33,13 +33,26 @@ AFRAME.registerComponent('registerevents', {
 					markerDict.markerpa="true";
 								
 				var sceneEl = document.querySelector('a-scene');
-				
-				sceneEl.querySelector('#star-box').setAttribute("material", "color: green");
+								
 				}
 				
 				if(markerId=='markercasa' && 	markerDict.markerpa=="true"){
 				markerDict.markercasa="true";
 				console.log('you found casa');
+				
+				var sceneEl = document.querySelector('a-scene');
+				
+				//var entityEl = document.createElement('a-animation');
+				
+				//entityEl.setAttribute("attribute","rotation","dur","1000","fill","forwards","to","0 360 0","repeat","indefinite"); 
+				
+				//sceneEl.querySelector('#markercasa').appendChild(entityEl);
+				
+				
+				sceneEl.querySelector('#star-box').setAttribute("material", "color: green");
+				sceneEl.querySelector('#star-box').setAttribute("animation", "property: rotation; dir: alternate; dur: 1000; easing: easeInSine; loop: true; from:0 0 0; to:45 360 0");
+				
+				
 				}
 				else if(markerId=='markercasa' && 	markerDict.markerpa=="false"){
 				
