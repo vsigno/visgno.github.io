@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Augmented Trail - Playing the Archive</title>
+    <meta name="description" content="Basic Scene with Environment - A-Frame">
+
+
+<script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
+<script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+
+
+<!--Remote Version AR.Js 1.6.0-->
+<!--<script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.6.0/aframe/build/aframe-ar.js"></script>-->
+
+<!--DEV Version AR.Js-->
+<script src="https://cdn.rawgit.com/jeromeetienne/AR.js/dev/aframe/build/aframe-ar.js"></script>
+
+<!--Local version AR js 1.5.5-->
+<!--<script src="script/aframe-ar.js"></script>-->
+
+
+<!--Do not need this?-->
+<!--<script> THREEx.ArToolkitContext.baseURL = 'https://rawgit.com/jeromeetienne/ar.js/master/three.js/' </script>-->
+
+	<script src="script/draco_decoder.js"></script>
+    <script src="script/DRACOLoader.js"></script>
+    <script src="script/draco_model_component.js"></script>
+	<script src="script/trehunt.js"></script>
+	
+	
+	
+</head>
+<body style='margin : 0px; overflow: hidden;'>
+
+	<a-scene embedded arjs='sourceType: webcam; patternRatio: 0.9;'>
+	
+	<a-assets>
+        <img id="boxTexture" src="https://i.imgur.com/mYmmbrp.jpg">
+		
+		<a-asset-item id="sheffieldsch" src="resources/SheffieldTexture4.gltf" position="0 0.8 0" scale="1.5 1.5 1.5" rotation="45 0 0"></a-asset-item>
+		
+		<a-asset-item id="ajWalk" src="resources/ajwalk/WalkingAJ.gltf" position="0 0.5 0" scale="1 1 1"></a-asset-item>
+		
+		
+    </a-assets>
+	
+	
+	<a-marker-camera preset='hiro' id='marker-hiro' registerevents>
+	
+	<a-gltf-model src="#sheffieldsch" position="0 0 0"></a-gltf-model>
+	<!--<a-entity drc-model="drcUrl: resources/dubDarcMedium.drc" position="0 0.5 0" scale="4 4 4" rotation="-90 0 0" material="color: #ff8000; shader: standard;"></a-entity>-->
+	
+	</a-marker-camera>
+	
+	<a-marker type="pattern" url="resources/Music.patt">
+	<a-box position='0 0.5 0' material='color: blue;'></a-box>
+	</a-marker>
+	
+	
+	<a-marker type="pattern" url="resources/Clock.patt">
+	
+	<a-gltf-model src="#ajWalk" position="0 0 0" animation-mixer></a-gltf-model>
+		
+	</a-marker>
+	
+	<a-marker  type="pattern" url="resources/StarMarker.patt" id='marker-star' registerevents>
+	<a-box id='star-box' position='0 0.5 0' material='color: red;'></a-box>
+	
+	</a-marker>
+	
+	<!--Color Marker-->
+	<!--
+	<a-marker  type="pattern" url="resources/Star-01.patt" id="ciaociao6" registerevents>
+	<a-box position='0 0.5 0' material='color: green;'></a-box>
+	</a-marker>
+	
+	<a-marker type="pattern" url="resources/Star-02.patt" id="ciaociao7" registerevents>
+	<a-box position='0 0.5 0' material='color: blue;'></a-box>
+	</a-marker>
+	
+	<a-marker type="pattern" url="resources/Star-03.patt" id="ciaociao8" registerevents>
+	<a-box position='0 0.5 0' material='color: red;'></a-box>
+	</a-marker>
+	
+	<a-marker type="pattern" url="resources/Star-04.patt" id="ciaociao9" registerevents>
+	<a-box position='0 0.5 0' material='color: black;'></a-box>
+	</a-marker>
+	
+	<a-marker type="pattern" url="resources/VanG-05.patt" id="ciaociao5" registerevents>
+	<a-box position='0 0.5 0' material='color: black;'></a-box>
+	</a-marker>
+	
+	-->
+	
+	<a-marker type="pattern" url="resources/Plane.patt">
+	<a-box position='0 0.5 0' material='color: black;'></a-box>
+	</a-marker>
+	
+	
+	</a-scene>
+	</body>
+
+</html>
+
+
