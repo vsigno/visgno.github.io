@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Augmented Trail - Playing the Archive</title>
+    <title>2Augmented Trail - Playing the Archive</title>
     <meta name="description" content="Basic Scene with Environment - A-Frame">
 
 
@@ -31,7 +31,7 @@
 </head>
 <body style='margin : 0px; overflow: hidden;'>
 
-	<a-scene embedded arjs='sourceType: webcam; patternRatio: 0.9;'>
+	<a-scene embedded arjs='sourceType: webcam; patternRatio: 0.9; trackingMethod: best;'>
 	
 	<a-assets>
         <img id="boxTexture" src="https://i.imgur.com/mYmmbrp.jpg">
@@ -60,7 +60,7 @@
 		<a-box id='star-box' position='0 0 0' material='color: red;'></a-box>
 	</a-marker>
 	
-	<a-camera></a-camera>
+	<a-entity camera></a-entity>
 	
 	</a-scene>
 	</body>
