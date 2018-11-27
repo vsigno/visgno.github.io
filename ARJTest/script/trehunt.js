@@ -1,7 +1,13 @@
 //Global Variable
 var markerDict=new Object;
 
-AFRAME.registerComponent('marktest', {
+let angle = 3 * Math.PI / 180;
+let cx = 0;
+let cy = 0;
+let radius = 2;
+
+
+AFRAME.registerComponent('markInit', {
 	init:function (){
 		console.log('test');
 	
@@ -19,10 +25,11 @@ AFRAME.registerComponent('marktest', {
 
 
 
-
 AFRAME.registerComponent('registerevents', {
 		init: function () {
-			
+			 
+			 this.tick = AFRAME.utils.throttleTick(this.tick, 150, this);
+
 			const marker = this.el;
 			
 			marker.addEventListener("markerFound", ()=> {
@@ -42,15 +49,15 @@ AFRAME.registerComponent('registerevents', {
 				
 				var sceneEl = document.querySelector('a-scene');
 				
-				//var entityEl = document.createElement('a-animation');
-				
-				//entityEl.setAttribute("attribute","rotation","dur","1000","fill","forwards","to","0 360 0","repeat","indefinite"); 
-				
-				//sceneEl.querySelector('#markercasa').appendChild(entityEl);
-				
+								
 				
 				sceneEl.querySelector('#star-box').setAttribute("material", "color: green");
 				sceneEl.querySelector('#star-box').setAttribute("animation", "property: rotation; dir: alternate; dur: 1000; easing: easeInSine; loop: true; from:0 0 0; to:45 360 0");
+				
+				//sceneEl.querySelector('#thesound').setAttribute("sound", "loop:true");
+				//sceneEl.querySelector('#thesound').setAttribute("animation","property: position; dir:alternate; loop:true; dur: 4000; from: -3 1 0; to: 3 -1 0;");
+				//sceneEl.querySelector('#thesound').setAttribute('position', {x: newX, y: newY, z: 0});
+				sceneEl.querySelector('#thesound').components.resonanceaudiosrc.playSound();
 				
 				
 				}
@@ -59,18 +66,7 @@ AFRAME.registerComponent('registerevents', {
 				console.log('try again');
 				}
 				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
-				
+								
 				
 				
 			});
@@ -78,8 +74,25 @@ AFRAME.registerComponent('registerevents', {
 			marker.addEventListener("markerLost",() =>{
 				var markerId = marker.id;
 				console.log('markerLost', markerId);
+				
+				var sceneEl = document.querySelector('a-scene');
+				//sceneEl.querySelector('#thesound').components.audio.stopSound();
+				sceneEl.querySelector('#thesound').components.resonanceaudiosrc.pauseSound();
+				
 				// TODO: Add your own code here to react to the marker being lost.
 			});
+		},
+	tick:function(time,timeDelta) {
+  	// increase the angle of rotation
+        angle += 3 * Math.PI / 180;
+			console.log(angle);
+        // calculate the new ball.x / ball.y
+         var newX = cx + radius * Math.cos(angle);
+         var newY = cy + radius+4 * Math.sin(angle);
+		 
+		 var sceneEl = document.querySelector('a-scene');
+		 sceneEl.querySelector('#thesound').setAttribute('position', {x: newX, y: newY, z: -1});
+		 
 		}
 	});
 		
