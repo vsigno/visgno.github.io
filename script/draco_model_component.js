@@ -72,8 +72,8 @@ AFRAME.registerComponent('drc-model', {
             geometry.position.x = -midX * scale;
             geometry.position.y = -midY * scale;
             geometry.position.z = -midZ * scale;
-            geometry.castShadow = true;
-            geometry.receiveShadow = true;
+            //geometry.castShadow = true;
+            //geometry.receiveShadow = true;
             self.model = geometry;
             
             el.setObject3D('mesh', geometry);
