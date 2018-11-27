@@ -27,16 +27,33 @@ AFRAME.registerComponent('drc-model', {
         var el = this.el;
         var drcLoader = this.drcLoader;
         drcLoader.load(drcUrl, function(bufferGeometry) {
-            var material = new THREE.MeshStandardMaterial({vertexColors: THREE.VertexColors});
+            //var material = new THREE.MeshStandardMaterial({vertexColors: THREE.VertexColors});
 				console.log('ready...');
             let geometry;
             // Point cloud does not have face indices.
             if (bufferGeometry.index == null) {
-              geometry = new THREE.Points(bufferGeometry, material);
+              
+			  
+			  var material = new THREE.PointsMaterial({
+                        size:0.1,
+                        vertexColors: THREE.VertexColors,
+                        transparent: !0,
+                        opacity: 1,
+                        depthWrite: !0
+                    });
+			  
+			  
+			  
+			  geometry = new THREE.Points(bufferGeometry, material);
 			  console.log('PointCloud');
+			  
+			  
             } else {
               bufferGeometry.computeVertexNormals();
-              geometry = new THREE.Mesh(bufferGeometry, material);
+			  
+			  var material = new THREE.MeshStandardMaterial({vertexColors: THREE.VertexColors});
+              
+			  geometry = new THREE.Mesh(bufferGeometry, material);
 			  console.log('mesh');
             }
             
