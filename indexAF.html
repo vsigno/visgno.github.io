@@ -60,6 +60,7 @@ var atext = sceneEl.querySelector('a-text');
 	
       <a-assets>
         <img id="boxTexture" src="https://i.imgur.com/mYmmbrp.jpg">
+		<a-asset-item id="pointcl" drc-model="drcUrl: GTLSQEOP/point_cloud_no_qp.drc" position="0 0 0" scale="1 1 1" rotation="0 0 0"></a-asset-item>
 		
       </a-assets>
      	   
@@ -70,8 +71,8 @@ var atext = sceneEl.querySelector('a-text');
 
 		   <!--<a-entity drc-model="drcUrl: GTLSQEOP/dubDarcMedium.drc" position="0 0 -4" scale="10 10 10" rotation="-90 0 0" material="color: #ff8000; shader: standard;"></a-entity>-->
 		   
-		   <a-entity drc-model="drcUrl: GTLSQEOP/point_cloud_no_qp.drc" position="0 0 0" scale="1 1 1" rotation="0 0 0" ></a-entity>
-		   
+		   <!--<a-entity drc-model="drcUrl: GTLSQEOP/point_cloud_no_qp.drc" position="0 0 0" scale="1 1 1" rotation="0 0 0" ></a-entity>-->
+		   <a-entity drc-model="#pointcl"></a-entity>
 		   
 		  
 		   
