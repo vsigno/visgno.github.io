@@ -35,7 +35,7 @@ AFRAME.registerComponent('drc-model', {
               
 			  
 			  var material = new THREE.PointsMaterial({
-                        size:0.05,
+                        size:0.1,
                         vertexColors: THREE.VertexColors,
                         transparent: !0,
                         opacity: 1,
