@@ -28,14 +28,16 @@ AFRAME.registerComponent('drc-model', {
         var drcLoader = this.drcLoader;
         drcLoader.load(drcUrl, function(bufferGeometry) {
             var material = new THREE.MeshStandardMaterial({vertexColors: THREE.VertexColors});
-
+				console.log('ready...');
             let geometry;
             // Point cloud does not have face indices.
             if (bufferGeometry.index == null) {
               geometry = new THREE.Points(bufferGeometry, material);
+			  console.log('PointCloud');
             } else {
               bufferGeometry.computeVertexNormals();
               geometry = new THREE.Mesh(bufferGeometry, material);
+			  console.log('mesh');
             }
             
             // Compute range of the geometry coordinates for proper rendering.
