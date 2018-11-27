@@ -43,6 +43,14 @@ AFRAME.registerComponent('registerevents', {
 								
 				}
 				
+				if(markerId=='markertree'){
+					markerDict.markertree="true";
+					console.log('you found the video');
+					var sceneEl = document.querySelector('a-scene');
+					sceneEl.querySelector('#gameVideo').play();
+					
+				}
+				
 				if(markerId=='markercasa' && 	markerDict.markerpa=="true"){
 				markerDict.markercasa="true";
 				console.log('you found casa');
@@ -78,6 +86,7 @@ AFRAME.registerComponent('registerevents', {
 				var sceneEl = document.querySelector('a-scene');
 				//sceneEl.querySelector('#thesound').components.audio.stopSound();
 				sceneEl.querySelector('#thesound').components.resonanceaudiosrc.pauseSound();
+				sceneEl.querySelector('#gameVideo').pause();
 				
 				// TODO: Add your own code here to react to the marker being lost.
 			});
@@ -85,7 +94,7 @@ AFRAME.registerComponent('registerevents', {
 	tick:function(time,timeDelta) {
   	// increase the angle of rotation
         angle += 3 * Math.PI / 180;
-			console.log(angle);
+			//console.log(angle);
         // calculate the new ball.x / ball.y
          var newX = cx + radius * Math.cos(angle);
          var newY = cy + radius+4 * Math.sin(angle);

@@ -45,16 +45,18 @@
 
 <body style='margin : 0px; overflow: hidden;'>
 
-	<a-scene embedded arjs='sourceType: webcam; patternRatio: 0.9; trackingMethod: best;'>
+	<a-scene color-space="sRGB" renderer="gammaOutput: true" embedded arjs='sourceType: webcam; patternRatio: 0.9; trackingMethod: best;'>
 	
 	<a-assets markInit>
         <img id="boxTexture" src="https://i.imgur.com/mYmmbrp.jpg">
 		
 		<a-asset-item id="sheffieldsch" src="resources/SheffieldTexture4.gltf" position="0 0.8 0" scale="1.5 1.5 1.5" rotation="45 0 0"></a-asset-item>
 		
-		<a-asset-item id="ajWalk" src="resources/ajwalk/WalkingAJ.gltf" position="0 0.5 0" scale="1 1 1"></a-asset-item>
+		<a-asset-item id="ajWalk" src="resources/ajwalk/WalkingAJRecenter.gltf" position="0 0.1 0" scale="1 1 1"></a-asset-item>
 		
 		<audio id="song" src="resources/DigDug.mp3"></audio>
+		
+		<video id="gameVideo" loop="true" src="resources/Solo_Mocap_low.mp4"></video>
 				
     </a-assets>
 	
@@ -84,6 +86,7 @@
 	
 	<a-marker  type="pattern" url="resources/TreeTH.patt" id='markertree' registerevents>
 		<a-box id='star-box' position='0 0 0' material='color: red;'></a-box>
+		<a-video id='videoplane' src="#gameVideo" width="2.5" height="1.5" position="0 1 -1" rotation="-90 0 0" material="shader:standard;"></a-video>
 	</a-marker>
 	
 	<a-entity camera></a-entity>
