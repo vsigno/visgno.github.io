@@ -57,24 +57,11 @@ AFRAME.registerComponent('registerevents', {
 				
 				var sceneEl = document.querySelector('a-scene');
 				
-								
 				
 				sceneEl.querySelector('#star-box').setAttribute("material", "color: green");
 				sceneEl.querySelector('#star-box').setAttribute("animation", "property: rotation; dir: alternate; dur: 1000; easing: easeInSine; loop: true; from:0 0 0; to:45 360 0");
 				
-				//sceneEl.querySelector('#thesound').setAttribute("sound", "loop:true");
-				//sceneEl.querySelector('#thesound').setAttribute("animation","property: position; dir:alternate; loop:true; dur: 4000; from: -3 1 0; to: 3 -1 0;");
-				//sceneEl.querySelector('#thesound').setAttribute('position', {x: newX, y: newY, z: 0});
-				var thesoundvar = sceneEl.querySelector('#thesound').components.resonanceaudiosrc.playSound();
-				
-				if (thesoundvar !== undefined) {
-  thesoundvar.then(_ => {
-    // Autoplay started!
-  }).catch(error => {
-    // Autoplay was prevented.
-    // Show a "Play" button so that user can start playback.
-  });
-}
+				sceneEl.querySelector('#thesound').components.resonanceaudiosrc.playSound();
 				
 				
 				}
@@ -97,20 +84,6 @@ AFRAME.registerComponent('registerevents', {
 				
 				
 				var thesoundvar = sceneEl.querySelector('#thesound').components.resonanceaudiosrc.pauseSound();
-
-
-if (thesoundvar !== undefined) {
-  thesoundvar.then(_ => {
-    // Autoplay started!
-  }).catch(error => {
-    // Autoplay was prevented.
-    // Show a "Play" button so that user can start playback.
-  });
-}
-
-
-
-
 				sceneEl.querySelector('#gameVideo').pause();
 				
 				// TODO: Add your own code here to react to the marker being lost.
@@ -118,16 +91,19 @@ if (thesoundvar !== undefined) {
 		},
 		
 	tick:function(time,timeDelta) {
-			// increase the angle of rotation
+		var sceneEl = document.querySelector('a-scene');
+		
+		if(sceneEl.querySelector('#thesound')!=null){
+		// increase the angle of rotation
         angle += 3 * Math.PI / 180;
 			//console.log(angle);
         // calculate the new ball.x / ball.y
          var newX = cx + radius * Math.cos(angle);
          var newY = cy + radius+4 * Math.sin(angle);
 		 
-		 var sceneEl = document.querySelector('a-scene');
-		 sceneEl.querySelector('#thesound').setAttribute('position', {x: newX, y: newY, z: -1});
 		 
+		 sceneEl.querySelector('#thesound').setAttribute('position', {x: newX, y: newY, z: -1});
+		}
 		}
 	});
 		
