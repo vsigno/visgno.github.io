@@ -61,7 +61,10 @@ AFRAME.registerComponent('registerevents', {
 				sceneEl.querySelector('#star-box').setAttribute("material", "color: green");
 				sceneEl.querySelector('#star-box').setAttribute("animation", "property: rotation; dir: alternate; dur: 1000; easing: easeInSine; loop: true; from:0 0 0; to:45 360 0");
 				
-				sceneEl.querySelector('#thesound').components.resonanceaudiosrc.playSound();
+				sceneEl.querySelector('#thesound').components.sound.playSound();
+				
+				//ResonanceAudio
+				//sceneEl.querySelector('#thesound').components.resonanceaudiosrc.playSound();
 				
 				
 				}
@@ -80,10 +83,10 @@ AFRAME.registerComponent('registerevents', {
 				console.log('markerLost', markerId);
 				
 				var sceneEl = document.querySelector('a-scene');
-				//sceneEl.querySelector('#thesound').components.audio.stopSound();
+				sceneEl.querySelector('#thesound').components.sound.stopSound();
 				
-				
-				var thesoundvar = sceneEl.querySelector('#thesound').components.resonanceaudiosrc.pauseSound();
+				//resonanceaudio
+				//var thesoundvar = sceneEl.querySelector('#thesound').components.resonanceaudiosrc.pauseSound();
 				sceneEl.querySelector('#gameVideo').pause();
 				
 				// TODO: Add your own code here to react to the marker being lost.
