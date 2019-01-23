@@ -43,21 +43,28 @@ AFRAME.registerComponent('registerevents', {
 								
 				}
 				
+				if(markerId=='markertree'){
+					markerDict.markertree="true";
+					console.log('you found the video');
+					var sceneEl = document.querySelector('a-scene');
+					sceneEl.querySelector('#gameVideo').play();
+					
+				}
+				
 				if(markerId=='markercasa' && 	markerDict.markerpa=="true"){
 				markerDict.markercasa="true";
 				console.log('you found casa');
 				
 				var sceneEl = document.querySelector('a-scene');
 				
-								
 				
 				sceneEl.querySelector('#star-box').setAttribute("material", "color: green");
 				sceneEl.querySelector('#star-box').setAttribute("animation", "property: rotation; dir: alternate; dur: 1000; easing: easeInSine; loop: true; from:0 0 0; to:45 360 0");
 				
-				//sceneEl.querySelector('#thesound').setAttribute("sound", "loop:true");
-				//sceneEl.querySelector('#thesound').setAttribute("animation","property: position; dir:alternate; loop:true; dur: 4000; from: -3 1 0; to: 3 -1 0;");
-				//sceneEl.querySelector('#thesound').setAttribute('position', {x: newX, y: newY, z: 0});
-				sceneEl.querySelector('#thesound').components.resonanceaudiosrc.playSound();
+				sceneEl.querySelector('#thesound').components.sound.playSound();
+				
+				//ResonanceAudio
+				//sceneEl.querySelector('#thesound').components.resonanceaudiosrc.playSound();
 				
 				
 				}
@@ -76,23 +83,30 @@ AFRAME.registerComponent('registerevents', {
 				console.log('markerLost', markerId);
 				
 				var sceneEl = document.querySelector('a-scene');
-				//sceneEl.querySelector('#thesound').components.audio.stopSound();
-				sceneEl.querySelector('#thesound').components.resonanceaudiosrc.pauseSound();
+				sceneEl.querySelector('#thesound').components.sound.stopSound();
+				
+				//resonanceaudio
+				//var thesoundvar = sceneEl.querySelector('#thesound').components.resonanceaudiosrc.pauseSound();
+				sceneEl.querySelector('#gameVideo').pause();
 				
 				// TODO: Add your own code here to react to the marker being lost.
 			});
 		},
+		
 	tick:function(time,timeDelta) {
-  	// increase the angle of rotation
+		var sceneEl = document.querySelector('a-scene');
+		
+		if(sceneEl.querySelector('#thesound')!=null){
+		// increase the angle of rotation
         angle += 3 * Math.PI / 180;
-			console.log(angle);
+			//console.log(angle);
         // calculate the new ball.x / ball.y
          var newX = cx + radius * Math.cos(angle);
          var newY = cy + radius+4 * Math.sin(angle);
 		 
-		 var sceneEl = document.querySelector('a-scene');
-		 sceneEl.querySelector('#thesound').setAttribute('position', {x: newX, y: newY, z: -1});
 		 
+		 sceneEl.querySelector('#thesound').setAttribute('position', {x: newX, y: newY, z: -1});
+		}
 		}
 	});
 		
