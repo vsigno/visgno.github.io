@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Basic Scene with Environment - A-Frame</title>
-    <meta name="description" content="Basic Scene with Environment - A-Frame">
+    <title>Dublin Castle</title>
+    <meta name="description" content="3D model from Point Cloud">
 <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
 <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.6.0/aframe/build/aframe-ar.js"></script>
 <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
@@ -20,42 +20,21 @@ THREEx.ArToolkitContext.baseURL = 'https://rawgit.com/jeromeetienne/ar.js/master
 <body style='margin : 0px; overflow: hidden;'>
 	<a-scene embedded arjs='sourceType: webcam;'>
 	
+	<a-light type="ambient" color="#EFE9EE"></a-light>
+	<a-light color="white" position="-1 1 0"></a-light>
+	
 	<a-assets>
-        <img id="boxTexture" src="https://i.imgur.com/mYmmbrp.jpg">
-		
-		<a-asset-item id="sheffieldsch" src="resources/SheffieldTexture4.gltf" position="0 0.8 0" scale="1.5 1.5 1.5" rotation="45 0 0"></a-asset-item>
-		
-		<a-asset-item id="ajWalk" src="resources/ajwalk/WalkingAJ.gltf" position="0 0.5 0" scale="1 1 1"></a-asset-item>
-			
-		
-		
+		<a-asset-item id"dublincastle" src="resources/Dublin.gltf"
     </a-assets>
-	
-	<a-marker-camera preset='hiro'>
-	
-	<a-gltf-model src="#sheffieldsch" position="0 0 0"></a-gltf-model>
-	<!--<a-entity drc-model="drcUrl: resources/dubDarcMedium.drc" position="0 0.5 0" scale="4 4 4" rotation="-90 0 0" material="color: #ff8000; shader: standard;"></a-entity>-->
-	
-	</a-marker-camera>
-	
-	<a-marker type="pattern" url="resources/Music.patt">
-	<a-box position='0 0.5 0' material='color: blue;'></a-box>
-	</a-marker>
-	
+		
 	
 	<a-marker type="pattern" url="resources/Clock.patt">
 	
-	<a-gltf-model src="#ajWalk" position="0 0 0" animation-mixer></a-gltf-model>
+	<a-gltf-model src="#dublincastle" position="0 0 0"></a-gltf-model>
 		
 	</a-marker>
 	
-	<a-marker type="pattern" url="resources/StarMarker.patt">
-	<a-box position='0 0.5 0' material='color: red;'></a-box>
-	</a-marker>
 	
-	<a-marker type="pattern" url="resources/Plane.patt">
-	<a-box position='0 0.5 0' material='color: black;'></a-box>
-	</a-marker>
 	
 	
 	</a-scene>

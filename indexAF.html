@@ -13,6 +13,9 @@
 	<script src="script/draco_decoder.js"></script>
     <script src="script/DRACOLoader.js"></script>
     <script src="script/draco_model_component.js"></script>
+	
+	
+	
 	<script src="script/geometry_helper.js"></script>
 	
  <script>
@@ -50,8 +53,9 @@ var atext = sceneEl.querySelector('a-text');
     <!-- Try changing the preset to one of default, contact, egypt, checkerboard, forest, goaland, yavapai, goldmine, 
          threetowers, poison, arches, tron, japan, dream, volcano, starry, osiris. -->
     <!-- See more environment options: https://github.com/feiss/aframe-environment-component#parameters -->
-    <a-scene stats environment="preset: forest" gltf-model="dracoDecoderPath:GTLSQEOP/dracodecoder/;">
-	
+    <a-scene stats >
+	<a-light type="ambient" color="#EFE9EE"></a-light>
+	<a-light color="white" position="-1 1 0"></a-light>
 	<a-entity getlocation></a-entity>
 	
 	
@@ -74,7 +78,7 @@ var atext = sceneEl.querySelector('a-text');
 		<!--<a-entity drc-model="drcUrl: GTLSQEOP/PointCloudLondon.drc" position="0 0 0" scale="10 10 10" rotation="0 0 0" material="shader: standard; color: #ff8000; vertexColors:vertex; depthTest:false" ></a-entity>-->
 		   
 		   
-		<a-entity gltf-model="GTLSQEOP/DublinDraco.gltf "></a-entity>
+		<a-entity gltf-model="GTLSQEOP/Dublin.gltf" material="shader:standard;"></a-entity>
 
 		   
 		   
