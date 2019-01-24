@@ -18,21 +18,19 @@ THREEx.ArToolkitContext.baseURL = 'https://rawgit.com/jeromeetienne/ar.js/master
 
 
 <body style='margin : 0px; overflow: hidden;'>
-	<a-scene color-space="sRGB" renderer="gammaOutput: true" embedded arjs='sourceType: webcam; patternRatio: 0.9; trackingMethod: best;'>
-	
-	<a-light type="ambient" color"#EFE9EE"></a-light>
-	<a-light color="white" position="-1 1 0"></a-light>
+	<a-scene color-space="sRGB" renderer="gammaOutput: true" embedded arjs='sourceType: webcam; patternRatio: 0.9; trackingMethod: best; debugUIEnabled: false; hidden'>
 	
 	
+		
 	
 	<a-assets>
-		<a-asset-item id="dublincastle" src="resources/Dublin.gltf" position="0 0 0" scale="0.1 0.1 0.1" ></a-asset-item>
+		<a-asset-item id="dublincastle" src="resources/Dublin.gltf" position="0 0 0"  ></a-asset-item>
     </a-assets>
 	
 	
-	<a-marker type="pattern" url="resources/TreeTH.patt">
+	<a-marker type="pattern" url="resources/castle.patt">
 	
-	<a-gltf-model src="#dublincastle" position="0 0 0"></a-gltf-model>
+	<a-gltf-model src="#dublincastle" position="0 0 0" scale="0.1 0.1 0.1"></a-gltf-model>
 		
 	</a-marker>
 	
