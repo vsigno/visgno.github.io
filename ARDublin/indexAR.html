@@ -4,7 +4,7 @@
     <title>Dublin Castle</title>
     <meta name="description" content="Dublin Castle">
 <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
-<script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.6.0/aframe/build/aframe-ar.js"></script>
+<script src="https://cdn.rawgit.com/jeromeetienne/AR.js/dev/aframe/build/aframe-ar.js"></script>
 <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
 
 
@@ -18,7 +18,7 @@ THREEx.ArToolkitContext.baseURL = 'https://rawgit.com/jeromeetienne/ar.js/master
 
 
 <body style='margin : 0px; overflow: hidden;'>
-	<a-scene embedded arjs='sourceType: webcam;'>
+	<a-scene color-space="sRGB" renderer="gammaOutput: true" embedded arjs='sourceType: webcam; patternRatio: 0.9; trackingMethod: best;'>
 	
 	<a-assets>
 		<a-asset-item id="dublincastle" src="resources/Dublin.gltf" position="0 0 0"></a-asset-item>
