@@ -1,4 +1,7 @@
 {
+  "extensionsUsed": [
+    "KHR_materials_unlit"
+  ],
     "accessors" : [
         {
             "bufferView" : 0,
@@ -133,7 +136,7 @@
                     "index" : 0
                 },
 				
-				"roughnessFactor": 0.9,
+				"roughnessFactor": 1,
             "metallicFactor": 0.0
 				},
 				"extensions": {
