@@ -3,7 +3,7 @@
   <head>
     <title>Basic Scene with Environment s- A-Frame</title>
     <meta name="description" content="Basic Scene with Environment - A-Frame">
-    <script src="https://aframe.io/releases/0.8.0/aframe.min.js"></script>
+    <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
 	<script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
 	
 	<!--<script src="https://unpkg.com/aframe-pointcloud-component/dist/aframe-pointcloud-component.min.js"></script>-->
@@ -50,7 +50,7 @@ var atext = sceneEl.querySelector('a-text');
     <!-- Try changing the preset to one of default, contact, egypt, checkerboard, forest, goaland, yavapai, goldmine, 
          threetowers, poison, arches, tron, japan, dream, volcano, starry, osiris. -->
     <!-- See more environment options: https://github.com/feiss/aframe-environment-component#parameters -->
-    <a-scene stats environment="preset: forest">
+    <a-scene stats environment="preset: forest" gltf-model="dracoDecoderPath:GTLSQEOP/dracodecoder/;">
 	
 	<a-entity getlocation></a-entity>
 	
@@ -70,8 +70,12 @@ var atext = sceneEl.querySelector('a-text');
 
 
 		   
-		 <a-entity drc-model="drcUrl: GTLSQEOP/dubDarcMedium.drc" position="0 0 -4" scale="10 10 10" rotation="-90 0 0" material="color: #ff8000; shader: standard;"></a-entity>
+		<!--<a-entity drc-model="drcUrl: GTLSQEOP/dubDarcMedium.drc" position="0 0 -4" scale="10 10 10" rotation="-90 0 0" material="color: #ff8000; shader: standard;"></a-entity>-->
 		<!--<a-entity drc-model="drcUrl: GTLSQEOP/PointCloudLondon.drc" position="0 0 0" scale="10 10 10" rotation="0 0 0" material="shader: standard; color: #ff8000; vertexColors:vertex; depthTest:false" ></a-entity>-->
+		   
+		   
+		<a-entity gltf-model="GTLSQEOP/DublinDraco.gltf "></a-entity>
+
 		   
 		   
 		  
