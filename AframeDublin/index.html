@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Virtual Dublin</title>
+    <meta name="description" content="Hello, WebVR! • A-Frame">
+    <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
+	<script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
+	
+	<script src="https://unpkg.com/aframe-pointcloud-component/dist/aframe-pointcloud-component.min.js"></script>
+	
+	<script src="https://unpkg.com/aframe-potree-loader-component/dist/aframe-potree-loader-component.min.js"></script>
+	
+	<script src="js/draco_decoder.js"></script>
+    <script src="js/DRACOLoader.js"></script>
+    <script src="js/draco_model_component.js"></script>
+	<script src="js/geometry_helper.js"></script>
+	
+  </head>
+  <body>
+    <a-scene background="color: #ECECEC" stats>
+	
+	 <a-assets>
+     
+		<a-asset-item> 
+		
+		</a-asset-item>
+	 </a-assets>
+	<!--
+	<a-pointcloud 
+        scale="1 1 1"
+		rotation=" -90 0 0"
+        position="0 1 0" 
+        src="url(resource/DublinCastle_DensePointCloud_1M.ply)" 
+        size="0.01"
+        depthWrite="false">
+      </a-pointcloud>
+	  -->
+	  <!--<a-entity drc-model="drcUrl: resource/drcpoint.drc" position="0 0 -4" scale="100 100 100" rotation="-90 0 0" ></a-entity>-->
+	  
+	  
+	   <a-entity potree-loader="
+        src: resource/dub;
+        pointBudget: 1000000;
+
+        pointSize: 0.01;
+        pointColorType: rgb;
+        minimumNodePixelSize: 10;
+        "
+        position="-1 1 0"
+        rotation="-90 0 0"
+      ></a-entity>
+	  
+	  <!--
+      <a-box position="-1 0.5 -3" rotation="0 45 0" color="#4CC3D9" shadow></a-box>
+      <a-sphere position="0 1.25 -5" radius="1.25" color="#EF2D5E" shadow></a-sphere>
+      <a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D" shadow></a-cylinder>
+      <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4" shadow></a-plane>
+    -->
+	
+	
+	
+	
+	</a-scene>
+  </body>
+</html>
