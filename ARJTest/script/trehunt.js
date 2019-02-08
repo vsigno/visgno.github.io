@@ -48,6 +48,8 @@ AFRAME.registerComponent('registerevents', {
 					console.log('you found the video');
 					var sceneEl = document.querySelector('a-scene');
 					sceneEl.querySelector('#gameVideo').play();
+					sceneEl.querySelector('#gameVideo').muted=false;
+					
 					
 				}
 				
