@@ -8,6 +8,7 @@
 <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
 <script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>
 <script src="https://unpkg.com/aframe-animation-component@^4.1.2/dist/aframe-animation-component.min.js"></script>
+<script src="https://unpkg.com/aframe-chromakey-material/dist/aframe-chromakey-material.min.js"></script>
 
 
 <!--Remote Version AR.Js 1.6.0-->
@@ -56,6 +57,7 @@
 		<audio id="song" src="resources/DigDug.mp3"></audio>
 		
 		<video id="gameVideo" loop="true" src="resources/Solo_Mocap_low.mp4"></video>
+		<video id="greenscreenvideo" loop="true" src="resources/stval_1.mp4" ></video>
 				
     </a-assets>
 	
@@ -85,7 +87,10 @@
 	
 	<a-marker  type="pattern" url="resources/TreeTH.patt" id='markertree' registerevents>
 		<a-box id='star-box' position='0 0 0' material='color: red;'></a-box>
-		<a-video id='videoplane' src="#gameVideo" width="2.5" height="1.5" position="0 1 -1" rotation="-90 0 0" material="shader:standard;"></a-video>
+		<!--<a-video id='videoplane' src="#gameVideo" width="2.5" height="1.5" position="0 1 -1" rotation="-90 0 0" material="shader:standard;"></a-video>-->
+		<a-video id="vidactivate" class="video" material="shader: chromakey; src: #greenscreenvideo; color: 0 1 0"  ></a-video>
+		
+		
 	</a-marker>
 	
 	<a-entity camera></a-entity>
