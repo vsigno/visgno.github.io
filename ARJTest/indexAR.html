@@ -101,10 +101,11 @@
 	
 	 <script>
 		var videoEl = document.querySelector('#gameVideo');
-		console.log('Play');
+		var sceneEl = document.querySelector('a-scene');
 		document.querySelector('#star-box').addEventListener('click', function() 
 		{
-		
+		sceneEl.querySelector('#star-box').setAttribute("material", "color: green");
+		console.log('Mute False');
 		videoEl.muted=false;
 	});
   
