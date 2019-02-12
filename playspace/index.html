@@ -45,7 +45,7 @@
 		
 		<video id="mocapVideo"  src="resources/Solo_Mocap_low.mp4"  loop muted webkit-playsinline playsinline></video>
 		
-		<video id="chromaVideo" src="resources/stval_1.mp4"  loop muted webkit-playsinline playsinline ></video>
+		<video id="chromaVideo" src="resources/stval_1.mp4"   loop muted webkit-playsinline playsinline ></video>
 		
 		<img id="opies" src="resources/opies.jpg">
 		
@@ -63,6 +63,15 @@
 		<a-box id='star-box' position='0 0 0' scale='0.5 0.5 0.5' material='color: red;'></a-box>
 		
 		<a-video id='videoA' src="#mocapVideo" width="2.5" height="1.5" position="0 0.6 0" rotation="-90 0 0" material="shader:standard;"></a-video>
+	
+	</a-marker>
+	
+	<!--Video Chroma key - Epsilon-->
+	<a-marker  type="pattern" url="resources/markers/epsilon.patt" id='markerepsilon' registerevents >
+		
+		<a-box id='star-box' position='0 0 0' scale='0.5 0.5 0.5' material='color: white;'></a-box>
+		
+		<a-video id="videoB" class="video" position="0 1 0" rotation="-90 0 0" material="shader: chromakey; src: #chromaVideo; color: 0 1 0"  ></a-video>
 	
 	</a-marker>
 	
@@ -90,14 +99,7 @@
 	
 	</a-marker>
 	
-	<!--Video Chroma key - Epsilon-->
-	<a-marker  type="pattern" url="resources/markers/epsilon.patt" id='markerepsilon' registerevents >
-		
-		<a-box id='star-box' position='0 0 0' scale='0.5 0.5 0.5' material='color: white;'></a-box>
-		
-		<a-video id="videoB" class="video" position="0 1 0" rotation="-90 0 0" material="shader: chromakey; src: #chromaVideo; color: 0 1 0"  ></a-video>
 	
-	</a-marker>
 	
 		
 	<a-entity camera>
@@ -108,6 +110,27 @@
 	
 	</a-scene>
 	
+	 <script>
+	 
+		var sceneEl = document.querySelector('a-scene');
+		
+		var videoChroma = document.querySelector('#chromaVideo');
+		var videoMocap = document.querySelector('#mocapVideo');
+		
+		if(videoChroma.paused==false)
+		{
+		videoChroma.muted=false;
+		videoChroma.pause();
+		
+		}
+		
+		if(videoMocap.paused==false)
+		{
+		videoMocap.muted=false;
+		videoMocap.pause();
+		}
+		  
+		</script>
 	
 	
 	
