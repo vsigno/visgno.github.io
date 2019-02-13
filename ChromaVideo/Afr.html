@@ -24,6 +24,7 @@
 	var videoEl = document.querySelector('#greenscreenvideo');
 	document.querySelector('#playvideo').addEventListener('click', function() 
 	{
+	console.log('Play');
 	videoEl.play();
 	videoEl.muted=false;
 	
@@ -48,7 +49,10 @@
   <a-sky color="#ECECEC"></a-sky>
   
     <a-assets>
-		<video id="greenscreenvideo" src="resources/stval_1.mp4" autoplay loop muted webkit-playsinline playsinline ></video>
+	
+	<!--	<video id="greenscreenvideo" src="resources/stval_1.mp4" autoplay loop muted webkit-playsinline playsinline ></video>-->
+	
+	<video id="greenscreenvideo" src="resources/stval_1.mp4" loop playsinline ></video>
 		<img id="playtx" src="resources/play.png">
 		<img id="pausetx" src="resources/pause.png">
     </a-assets>
