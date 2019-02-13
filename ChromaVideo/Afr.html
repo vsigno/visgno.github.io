@@ -4,13 +4,16 @@
   <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
   <script src="https://unpkg.com/aframe-chromakey-material/dist/aframe-chromakey-material.min.js"></script>
 
+  <script>
+  AFRAME.registerComponent('accepts-clicks', {  init: function() {    this.el.addEventListener('touchend', handleClickEvent);    this.el.addEventListener('click', handleClickEvent);  } });
+  </script>
   
   
   </head>
 
 <body>
 
-  <a-scene>
+  <a-scene accepts-clicks>
   <a-sky color="#ECECEC"></a-sky>
   
     <a-assets>
