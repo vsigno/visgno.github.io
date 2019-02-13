@@ -1,10 +1,12 @@
+<!DOCTYPE html>
 <html>
 <head>
   <title>Chroma Video</title>
   <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
   <script src="https://unpkg.com/aframe-chromakey-material/dist/aframe-chromakey-material.min.js"></script>
 
- 
+ <!--needed for Edge-->
+	<script src="https://cdn.jsdelivr.net/npm/fast-text-encoding@1.0.0/text.min.js"></script>
   
   
   </head>
@@ -15,10 +17,32 @@
   AFRAME.registerComponent('accepts-clicks', 
   { 
   init: function() {
-	this.el.addEventListener('touchend', handleClickEvent);    
-	this.el.addEventListener('click', handleClickEvent);  
-	} });
+	this.el.addEventListener('click', function (evt) 
+	{ 
+	console.log ("CLICK ON CURSOR LISTENER"); 
+	
+	var videoEl = document.querySelector('#greenscreenvideo');
+	document.querySelector('#playvideo').addEventListener('click', function() 
+	{
+	videoEl.play();
+	videoEl.muted=false;
+	
+	});
+	
+	document.querySelector('#pausevideo').addEventListener('click', function() 
+	{
+	console.log('Pause');
+	
+	videoEl.pause();
+	videoEl.muted=true;
+	});
+	
+	
+	}); } });
   </script>
+  
+  
+  
   
   <a-scene accepts-clicks>
   <a-sky color="#ECECEC"></a-sky>
@@ -52,9 +76,10 @@
   </a-scene>
   
   <script>
+  
   var videoEl = document.querySelector('#greenscreenvideo');
   videoEl.pause();
-    
+    /*
   document.querySelector('#playvideo').addEventListener('click', function() 
 	{
 	videoEl.play();
@@ -69,7 +94,7 @@
 	videoEl.pause();
 	videoEl.muted=true;
 	});
-  
+  */
   </script>
   
 </body>
