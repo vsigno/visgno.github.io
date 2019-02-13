@@ -2,12 +2,12 @@
 <html>
 <head>
   <title>Chroma Video</title>
-  
+
     <style>
   .wrapper {
     text-align: center;
 	}
-	
+
 .button {
   background-color: #4CAF50;
   border: none;
@@ -19,7 +19,7 @@
   cursor: pointer;
   position:absolute;
   top:50%;
-  
+
 }
 
 .button:hover {
@@ -28,154 +28,96 @@
 </style>
 
 
-  <script src="https://aframe.io/releases/0.8.2/aframe.min.js"></script>
+  <script src="https://aframe.io/releases/0.9.0/aframe.min.js"></script>
   <script src="https://unpkg.com/aframe-chromakey-material/dist/aframe-chromakey-material.min.js"></script>
 
  <!--needed for Edge-->
 	<script src="https://cdn.jsdelivr.net/npm/fast-text-encoding@1.0.0/text.min.js"></script>
-  
-  
+
   </head>
 
 <body>
 
- <script>
-  AFRAME.registerComponent('checktheclick', {
-  init: function () {
-    var sceneEl = document.querySelector('a-scene').querySelector('a-assets');
-    var video = sceneEl.querySelector('#greenscreenvideo');
-    var canvas = document.getElementsByClassName('a-canvas');
-    canvas[0].addEventListener('click', function () {
-      if (video.paused == true) {
-        video.play();
-		console.log ("video play");
-      } else {
-        video.pause();
-		console.log ("video pause");
-      }
-    }, false);
-  }
-});
-  </script>
-  
-  
-  
-	
+
+
+
+
+
   <a-scene checktheclick>
   <a-sky color="#ECECEC"></a-sky>
-  
+
     <a-assets>
-	
-	<video id="greenscreenvideo" src="resources/stval_1.mp4" autoplay loop muted playsinline ></video>
-	<!--<video id="greenscreenvideo" autoplay muted loop playsinline>
-  <source src="https://vsigno.github.io/ChromaVideo/resources/stval_1.mp4" type="video/mp4" >
-	</video>
-	-->
-	  
+
+	<video id="greenscreenvideo" src="resources/stval_1.mp4" autoplay loop muted webkit-playsinline playsinline ></video>
+
 
 	<img id="playtx" src="resources/play.png">
 	<img id="pausetx" src="resources/pause.png">
 
     </a-assets>
-	
-	
+
+
     <!--<a-entity material="shader: chromakey; src: #greenscreenvideo; color: 0.0 1.0 0.0" geometry="primitive: box"></a-entity>-->
-	
-	<a-video id="vidactivate" class="video" material="shader: chromakey; src: #greenscreenvideo; color: 0 1 0"  ></a-video>
-	
+
+	<a-video  id="vidactivate" class="video" material="shader: chromakey; src: #greenscreenvideo; color: 0 1 0"  ></a-video>
+
 	  <a-box id="playvideo" position="-1 0.5 -3" rotation="0 45 0"  material="shader: standard; src: #playtx"></a-box>
-	  
+
       <a-sphere  id="pausevideo" position="0 1.25 -5" radius="1.25" material="shader: standard; src: #pausetx; repeat: 20 20"></a-sphere>
       <a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder>
       <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-plane>
-      
-	
-	
-	
+
+
+
+
+
 	<a-entity position="0 -1 2">
 		<a-camera>
 		<a-cursor></a-cursor>
 		</a-camera>
 	</a-entity>
-  
+
   </a-scene>
-  <!--
+
 	<div id="wrapperid" class="wrapper">
-		
+
 		<button id="entervr" class="button" type="button">
-			Let's Start
+			Play
 		</button>
 	 </div>
-  -->
-  
-  
+
+
+
+
 <script>
-/*
-//the button
-var wrapperDiv=document.querySelector('#wrapperid');
-var vrenter=document.querySelector('#entervr')
-
-var go=function(){
-wrapperDiv.parentNode.removeChild(wrapperDiv);
-}
-
-vrenter.addEventListener('click',go);
-//end the button
 
 //just in case pause the video
   var videoEl = document.querySelector('#greenscreenvideo');
   videoEl.pause();
 console.log ("video pause");
 
+//the button
+var wrapperDiv=document.querySelector('#wrapperid');
+var vrenter=document.querySelector('#entervr')
 
-var genacanvas=document.querySelector('.a-canvas');
- 
-genacanvas.addEventListener('click', function (evt) 
-	{ 
-	console.log ("the other"); 
-	
-	var videoEl = document.querySelector('#greenscreenvideo');
-	
-	document.querySelector('#playvideo').addEventListener('click', function() 
-	{
-	console.log('Play');
-	videoEl.play();
-	videoEl.muted=false;
-	
-	});
-	
-	document.querySelector('#pausevideo').addEventListener('click', function() 
-	{
-	console.log('Pause');
-	
-	videoEl.pause();
-	videoEl.muted=true;
-	});
+var go=function(){
+  var videoEl_1 = document.querySelector('#greenscreenvideo');
 
-});
-*/
+  if (!videoEl_1) { return; }
+      videoEl_1.paused ? videoEl_1.play() : videoEl_1.pause();
+videoEl_1.muted=false;
+//  videoEl_1.play();
+//  videoEl_1.muted=false;
 
+//wrapperDiv.parentNode.removeChild(wrapperDiv);
+}
+
+vrenter.addEventListener('click',go);
+
+//end the button
 </script>
-  
-  
-  <script>
-    /*
-  document.querySelector('#playvideo').addEventListener('click', function() 
-	{
-	videoEl.play();
-	videoEl.muted=false;
-	
-	});
-  
-  document.querySelector('#pausevideo').addEventListener('click', function() 
-	{
-	console.log('Pause');
-	
-	videoEl.pause();
-	videoEl.muted=true;
-	});
-  */
-  </script>
-  
+
+
+
 </body>
 </html>
