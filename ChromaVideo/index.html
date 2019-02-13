@@ -91,6 +91,20 @@
 
 <script>
 
+document.addEventListener("DOMContentLoaded", function(event){
+var button=document.querySelector('#entervr')
+var iOS=false,
+p=navigator.platform;
+if(p==='iPad'||p==='iPhone'p==='iPod'){
+iOS=true;
+}
+if(iOS===false){
+button.style.visibility='hidden';}
+else{button.style.visibility='visible';
+}
+}
+
+
 //just in case pause the video
   var videoEl = document.querySelector('#greenscreenvideo');
   videoEl.pause();
