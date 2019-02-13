@@ -56,16 +56,16 @@
   
   
 	
-  <a-scene accepts-clicks>
+  <a-scene >
   <a-sky color="#ECECEC"></a-sky>
   
     <a-assets>
 	
-	<!--	<video id="greenscreenvideo" src="resources/stval_1.mp4" autoplay loop muted webkit-playsinline playsinline ></video>-->
-	<video id="greenscreenvideo" autoplay muted loop playsinline>
+	<video id="greenscreenvideo" src="resources/stval_1.mp4" autoplay loop muted playsinline ></video>
+	<!--<video id="greenscreenvideo" autoplay muted loop playsinline>
   <source src="https://vsigno.github.io/ChromaVideo/resources/stval_1.mp4" type="video/mp4" >
 	</video>
-	
+	-->
 	  
 
 	<img id="playtx" src="resources/play.png">
@@ -105,6 +105,7 @@
   
   
 <script>
+//the button
 var wrapperDiv=document.querySelector('#wrapperid');
 var vrenter=document.querySelector('#entervr')
 
@@ -112,9 +113,14 @@ var go=function(){
 wrapperDiv.parentNode.removeChild(wrapperDiv);
 }
 
-
-
 vrenter.addEventListener('click',go);
+//end the button
+
+//just in case pause the video
+  var videoEl = document.querySelector('#greenscreenvideo');
+  videoEl.pause();
+console.log ("video pause");
+
 
 var genacanvas=document.querySelector('.a-canvas');
  
@@ -143,23 +149,10 @@ genacanvas.addEventListener('click', function (evt)
 });
 
 
-
-
-
-
-
-
 </script>
   
   
   <script>
-  
-  
-  
-  
-  
-  var videoEl = document.querySelector('#greenscreenvideo');
-  videoEl.pause();
     /*
   document.querySelector('#playvideo').addEventListener('click', function() 
 	{
