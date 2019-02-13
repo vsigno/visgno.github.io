@@ -40,23 +40,28 @@
 <body>
 
  <script>
-  AFRAME.registerComponent('accepts-clicks', 
-  { 
-  init: function() {
-	this.el.addEventListener('click', function (evt) 
-	{ 
-	console.log ("CLICK ON CURSOR LISTENER"); 
-	
-	
-	
-	
-	}); } });
+  AFRAME.registerComponent('checktheclick', {
+  init: function () {
+    var sceneEl = document.querySelector('a-scene').querySelector('a-assets');
+    var video = sceneEl.querySelector('#greenscreenvideo');
+    var canvas = document.getElementsByClassName('a-canvas');
+    canvas[0].addEventListener('click', function () {
+      if (video.paused == true) {
+        video.play();
+		console.log ("video play");
+      } else {
+        video.pause();
+		console.log ("video pause");
+      }
+    }, false);
+  }
+});
   </script>
   
   
   
 	
-  <a-scene >
+  <a-scene checktheclick>
   <a-sky color="#ECECEC"></a-sky>
   
     <a-assets>
@@ -94,17 +99,18 @@
 	</a-entity>
   
   </a-scene>
-  
+  <!--
 	<div id="wrapperid" class="wrapper">
-		<!--<button id="entervr" class="button" onclick="location.href='Afr.html'" type="button">-->
+		
 		<button id="entervr" class="button" type="button">
 			Let's Start
 		</button>
 	 </div>
-  
+  -->
   
   
 <script>
+/*
 //the button
 var wrapperDiv=document.querySelector('#wrapperid');
 var vrenter=document.querySelector('#entervr')
@@ -147,7 +153,7 @@ genacanvas.addEventListener('click', function (evt)
 	});
 
 });
-
+*/
 
 </script>
   
