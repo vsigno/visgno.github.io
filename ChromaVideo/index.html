@@ -87,7 +87,32 @@
 	 </div>
 
 
-
+ <script>
+  AFRAME.registerComponent('checktheclick', {
+  init: function () {
+    var sceneEl = document.querySelector('a-scene').querySelector('a-assets');
+	
+    var video = sceneEl.querySelector('#greenscreenvideo');
+	
+	
+	document.querySelector('#playvideo').addEventListener('click', function() 
+	{
+	console.log('Play');
+	videoEl.play();
+	videoEl.muted=false;
+	
+	});
+	
+	document.querySelector('#pausevideo').addEventListener('click', function() 
+	{
+	console.log('Pause');
+	
+	videoEl.pause();
+	
+	});
+	
+}});
+  </script>
 
 <script>
 
@@ -95,14 +120,14 @@ document.addEventListener("DOMContentLoaded", function(event){
 var button=document.querySelector('#entervr')
 var iOS=false,
 p=navigator.platform;
-if(p==='iPad'||p==='iPhone'p==='iPod'){
+if(p==='iPad'||p==='iPhone'||p==='iPod'){
 iOS=true;
 }
 if(iOS===false){
 button.style.visibility='hidden';}
 else{button.style.visibility='visible';
 }
-}
+});
 
 
 //just in case pause the video
