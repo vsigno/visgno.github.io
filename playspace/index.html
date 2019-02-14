@@ -163,6 +163,9 @@
 //Works with iOS
 document.addEventListener("DOMContentLoaded", function(event)
 {
+
+
+
 var button=document.querySelector('#entervr')
 button.addEventListener('click',go);
 var iOS=false,
@@ -185,15 +188,21 @@ button.style.visibility='hidden';
 
 var go=function(){
 console.log("Toggle the video");
+var videos1=document.querySelector('#markerepsilon');
+var videos2=document.querySelector('#markerswords');
+console.log(videos1.getAttribute('visible'));
 
 
-
-	if (!videoChroma) { return; }
+	if (!videoChroma ) { return; }
+		if(videos1.getAttribute('visible')==true){
 		videoChroma.paused ? videoChroma.play() : videoChroma.pause();
-		videoChroma.muted=false;
+		videoChroma.muted=false;}
+		
+		
 	if (!videoMocap) { return; }
+	if(videos2.getAttribute('visible')==true){
 		videoMocap.paused ? videoMocap.play() : videoMocap.pause();
-		videoMocap.muted=false;
+		videoMocap.muted=false;}
 		
 		
 }
