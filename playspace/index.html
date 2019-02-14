@@ -139,7 +139,7 @@
 		<div id="wrapperid" class="wrapper">
 
 		<button id="entervr" class="button" type="button">
-			Play
+			Press to begin
 		</button>
 	 </div>
 	
@@ -177,6 +177,22 @@ button.style.visibility='hidden';}
 
 var go=function(){
 console.log("Toggle the video");
+
+if(!videoChroma && !videoMocap)
+{
+videoChroma.play();
+videoChroma.muted=false;
+videoChroma.load();
+videoChroma.pause();
+
+videoMocap.play();
+videoMocap.muted=false;
+videoMocap.load();
+videoMocap.pause();
+
+}
+
+/*
   if (!videoChroma) { return; }
 		videoChroma.paused ? videoChroma.play() : videoChroma.pause();
 		videoChroma.muted=false;
@@ -184,7 +200,7 @@ console.log("Toggle the video");
   if (!videoMocap) { return; }
 		videoMocap.paused ? videoMocap.play() : videoMocap.pause();
 		videoMocap.muted=false;
-		
+	*/	
 		
 		
 }
