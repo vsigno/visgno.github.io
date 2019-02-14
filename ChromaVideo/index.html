@@ -27,9 +27,8 @@
 }
 </style>
 
-
-  <script src="https://aframe.io/releases/0.9.0/aframe.min.js"></script>
-  <script src="https://unpkg.com/aframe-chromakey-material/dist/aframe-chromakey-material.min.js"></script>
+	<script src="https://aframe.io/releases/0.9.0/aframe.min.js"></script>
+	<script src="https://unpkg.com/aframe-chromakey-material/dist/aframe-chromakey-material.min.js"></script>
 
  <!--needed for Edge-->
 	<script src="https://cdn.jsdelivr.net/npm/fast-text-encoding@1.0.0/text.min.js"></script>
@@ -37,12 +36,6 @@
   </head>
 
 <body>
-
-
-
-
-
-
   <a-scene checktheclick>
   <a-sky color="#ECECEC"></a-sky>
 
@@ -67,10 +60,6 @@
       <a-cylinder position="1 0.75 -3" radius="0.5" height="1.5" color="#FFC65D"></a-cylinder>
       <a-plane position="0 0 -4" rotation="-90 0 0" width="4" height="4" color="#7BC8A4"></a-plane>
 
-
-
-
-
 	<a-entity position="0 -1 2">
 		<a-camera>
 		<a-cursor></a-cursor>
@@ -88,72 +77,65 @@
 
 
  <script>
+ //Works with all the devices and OS but iOS
   AFRAME.registerComponent('checktheclick', {
   init: function () {
     var sceneEl = document.querySelector('a-scene').querySelector('a-assets');
 	
     var video = sceneEl.querySelector('#greenscreenvideo');
 	
-	
 	document.querySelector('#playvideo').addEventListener('click', function() 
 	{
 	console.log('Play');
 	videoEl.play();
 	videoEl.muted=false;
-	
 	});
 	
 	document.querySelector('#pausevideo').addEventListener('click', function() 
 	{
 	console.log('Pause');
-	
 	videoEl.pause();
-	
 	});
 	
-}});
-  </script>
+	}});
+	
+</script>
 
 <script>
 
-document.addEventListener("DOMContentLoaded", function(event){
-var button=document.querySelector('#entervr')
-var iOS=false,
-p=navigator.platform;
-if(p==='iPad'||p==='iPhone'||p==='iPod'){
-iOS=true;
-}
-if(iOS===false){
-button.style.visibility='hidden';}
-else{button.style.visibility='visible';
-}
-});
-
-
-//just in case pause the video
+//Just in case pause the video
   var videoEl = document.querySelector('#greenscreenvideo');
   videoEl.pause();
-console.log ("video pause");
+	console.log ("video pause due to autoplay declaration");
 
-//the button
+
+//Works with iOS
+document.addEventListener("DOMContentLoaded", function(event)
+{
+var button=document.querySelector('#entervr')
+button.addEventListener('click',go);
+var iOS=false,
+p=navigator.platform;
+
+if(p==='iPad'||p==='iPhone'||p==='iPod'){
+iOS=true;
+button.style.visibility='visible';
 var wrapperDiv=document.querySelector('#wrapperid');
-var vrenter=document.querySelector('#entervr')
-
-var go=function(){
-  var videoEl_1 = document.querySelector('#greenscreenvideo');
-
-  if (!videoEl_1) { return; }
-      videoEl_1.paused ? videoEl_1.play() : videoEl_1.pause();
-videoEl_1.muted=false;
-//  videoEl_1.play();
-//  videoEl_1.muted=false;
-
-//wrapperDiv.parentNode.removeChild(wrapperDiv);
 }
 
-vrenter.addEventListener('click',go);
+if(iOS===false){
+button.style.visibility='hidden';}
+});
 
-//end the button
+var go=function(){
+console.log("Toggle the video");
+  if (!videoEl) { return; }
+		videoEl.paused ? videoEl.play() : videoEl.pause();
+		videoEl.muted=false;
+//wrapperDiv.parentNode.removeChild(wrapperDiv);
+}
+//the button
+
 </script>
 
 
