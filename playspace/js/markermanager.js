@@ -1,6 +1,8 @@
 //Global Variable
 var markerDict=new Object;
 
+var checktap=false;
+
 let angle = 3 * Math.PI / 180;
 let cx = 0;
 let cy = 0;
@@ -27,6 +29,8 @@ AFRAME.registerComponent('markInit', {
 
 AFRAME.registerComponent('registerevents', {
 		init: function () {
+			 
+			 
 			 
 			this.tick = AFRAME.utils.throttleTick(this.tick, 150, this);
 

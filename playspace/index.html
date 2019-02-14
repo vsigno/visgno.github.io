@@ -57,6 +57,7 @@
 	<script src="js/markermanager.js"></script>
 	
 	
+	
 		
 	</head>
 	
@@ -139,16 +140,18 @@
 		<div id="wrapperid" class="wrapper">
 
 		<button id="entervr" class="button" type="button">
-			Press to begin1
+			Press to begin
 		</button>
 	 </div>
+	
 	
 	
 	<script>
 
 //Just in case pause the videos
-		var sceneEl = document.querySelector('a-scene');
+		var checktap=false
 		
+		var sceneEl = document.querySelector('a-scene');
 		var videoChroma = document.querySelector('#chromaVideo');
 		var videoMocap = document.querySelector('#mocapVideo');
   
@@ -162,17 +165,22 @@ document.addEventListener("DOMContentLoaded", function(event)
 {
 var button=document.querySelector('#entervr')
 button.addEventListener('click',go);
-var iOS=true,
+var iOS=false,
 p=navigator.platform;
 
 if(p==='iPad'||p==='iPhone'||p==='iPod'){
-iOS=true;
+iOS=false;
+checktap=false;
 button.style.visibility='visible';
+
 var wrapperDiv=document.querySelector('#wrapperid');
 }
 
-if(iOS===false){
-button.style.visibility='hidden';}
+if(iOS===true){
+checktap=true;
+button.style.visibility='hidden';
+}
+
 });
 
 var go=function(){
@@ -180,6 +188,8 @@ console.log("Toggle the video");
 
 if(!videoChroma && !videoMocap)
 {
+checktap=true;
+
 videoChroma.play();
 videoChroma.muted=false;
 videoChroma.pause();
@@ -190,12 +200,11 @@ videoMocap.pause();
 
 }
 
-/*
-  if (!videoChroma) { return; }
+	/*
+	if (!videoChroma) { return; }
 		videoChroma.paused ? videoChroma.play() : videoChroma.pause();
 		videoChroma.muted=false;
-
-  if (!videoMocap) { return; }
+	if (!videoMocap) { return; }
 		videoMocap.paused ? videoMocap.play() : videoMocap.pause();
 		videoMocap.muted=false;
 	*/	
@@ -237,4 +246,5 @@ videoMocap.pause();
 	
 	
 	</body>
+	
 	</html>
