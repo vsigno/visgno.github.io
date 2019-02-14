@@ -169,14 +169,14 @@ var iOS=false,
 p=navigator.platform;
 
 if(p==='iPad'||p==='iPhone'||p==='iPod'){
-iOS=false;
+iOS=true;
 checktap=false;
 button.style.visibility='visible';
 
 var wrapperDiv=document.querySelector('#wrapperid');
 }
 
-if(iOS===true){
+if(iOS===false){
 checktap=true;
 button.style.visibility='hidden';
 }
