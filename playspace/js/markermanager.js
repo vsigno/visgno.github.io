@@ -141,7 +141,7 @@ AFRAME.registerComponent('registerevents', {
 		},
 		
 	tick:function(time,timeDelta) {
-		var sceneEl = document.querySelector('a-scene');
+		/*var sceneEl = document.querySelector('a-scene');
 		
 		if(sceneEl.querySelector('#thesound')!=null){
 		// increase the angle of rotation
@@ -153,6 +153,9 @@ AFRAME.registerComponent('registerevents', {
 		 
 		 
 		 sceneEl.querySelector('#thesound').setAttribute('position', {x: newX, y: newY, z: -1});
+		 sceneEl.querySelector('#boxsound').setAttribute('position', {x:newY*0.1 , y: 0, z: newX*0.1});
 		}
+		*/
 		}
+		
 	});
