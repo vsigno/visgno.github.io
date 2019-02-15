@@ -142,7 +142,7 @@
 		<div id="wrapperid" class="wrapper">
 
 		<button id="entervr" class="button" type="button">
-			Press to begin
+			Play
 		</button>
 	 </div>
 	
@@ -162,11 +162,9 @@
 			console.log ("video pause due to autoplay declaration");
 
 
-//Works with iOS
+//if iOS true
 document.addEventListener("DOMContentLoaded", function(event)
 {
-
-
 
 var button=document.querySelector('#entervr')
 button.addEventListener('click',go);
@@ -174,14 +172,14 @@ var iOS=false,
 p=navigator.platform;
 
 if(p==='iPad'||p==='iPhone'||p==='iPod'){
-iOS=true;
+iOS=true;//
 checktap=false;
 button.style.visibility='visible';
 
 var wrapperDiv=document.querySelector('#wrapperid');
 }
 
-if(iOS===false){
+if(iOS===false){//
 checktap=true;
 button.style.visibility='hidden';
 }
@@ -198,12 +196,14 @@ console.log(videos1.getAttribute('visible'));
 	if (!videoChroma ) { return; }
 		if(videos1.getAttribute('visible')==true){
 		videoChroma.paused ? videoChroma.play() : videoChroma.pause();
+		videoChroma.paused ? document.getElementById("entervr").innerHTML="Pause":document.getElementById("entervr").innerHTML="Play";
 		videoChroma.muted=false;}
 		
 		
 	if (!videoMocap) { return; }
 	if(videos2.getAttribute('visible')==true){
 		videoMocap.paused ? videoMocap.play() : videoMocap.pause();
+		videoChroma.paused ? document.getElementById("entervr").innerHTML="Pause":document.getElementById("entervr").innerHTML="Play";
 		videoMocap.muted=false;}
 		
 		

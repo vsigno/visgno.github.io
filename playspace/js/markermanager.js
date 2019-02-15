@@ -132,7 +132,9 @@ AFRAME.registerComponent('registerevents', {
 				
 				var sceneEl = document.querySelector('a-scene');
 				
+				if(sceneEl.querySelector('#thesound').components.sound.isPlaying==true){
 				sceneEl.querySelector('#thesound').components.sound.stopSound();
+				console.log("Stop the sound");}
 				
 				sceneEl.querySelector('#chromaVideo').pause();
 				sceneEl.querySelector('#mocapVideo').pause();
@@ -141,6 +143,9 @@ AFRAME.registerComponent('registerevents', {
 		},
 		
 	tick:function(time,timeDelta) {
+		
+		
+		
 		/*var sceneEl = document.querySelector('a-scene');
 		
 		if(sceneEl.querySelector('#thesound')!=null){
