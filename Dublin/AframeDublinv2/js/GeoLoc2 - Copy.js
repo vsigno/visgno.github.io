@@ -22,25 +22,38 @@ AFRAME.registerComponent('parsedlocation', {
 		//Debug
 	//reading through the array
 	
-			//true center point
-			var lonWGS84cen = -6.267569;
-            var latWGS84cen = 53.343144;
+			//var lonWGS84cen = -6.267569;
+            //var latWGS84cen = 53.343144;
 			
-			 //Fake Location
-			//var lonWGS84cen = -6.266452;
-            //var latWGS84cen = 53.3436578;
+			 
+			var lonWGS84cen = -6.265420;
+            var latWGS84cen = 53.342285;
 			
-			
-		//var lonWGS84cen = -6.262723;
-        //var latWGS84cen = 53.341688;
+		//	var lonWGS84cen = -6.262723;
+          //  var latWGS84cen = 53.341688;
 		
 			
 			
 		var sourcePrj = new proj4.defs('EPSG:4326');    //source coordinates will be in Longitude/Latitude
 		var destPrj = new proj4.defs('EPSG:3857');     //destination coordinates in LCC, south of France	
-	
-		var pcen = new proj4.Point(lonWGS84cen,latWGS84cen);   //any object will do as long as it has 'x' and 'y' properties
-		var pcennew = new proj4(sourcePrj, destPrj, pcen); 
+			
+			
+            var num = lonWGS84cen * 0.017453292519943295; // 0.017453292519943295--> Pi/180
+            var x = 6378137.0 * num; // 6378137.0 --> Equatorial Radius, WGS84
+            var a = latWGS84cen * 0.017453292519943295; // 0.017453292519943295--> Pi/180
+
+            var loncen = x;
+            var latcen = 3189068.5 * Math.log((1.0 + Math.sin(a)) / (1.0 - Math.sin(a)));
+/*		
+		console.log("Old version");
+				console.log("Longitude: " + loncen);
+				console.log("Latitude: " + latcen);
+	*/	
+			
+		
+		
+			var pcen = new proj4.Point(lonWGS84cen,latWGS84cen);   //any object will do as long as it has 'x' and 'y' properties
+			var pcennew = new proj4(sourcePrj, destPrj, pcen); 
 		
 			console.log("New version");
 			console.log("Longitude: " + pcen.x);

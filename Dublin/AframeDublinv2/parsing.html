@@ -111,6 +111,9 @@
      
 		<a-asset-item id="court" src="resource/Courtlow.glb"  >
 		
+		<a-asset-item id="dublinCen" src="resource/dublinCenter2.gltf"  >
+		<a-asset-item id="nodes" src="resource/nodes.gltf"  >
+		
 		<video id="Video" src="resource/Dublin_castle1915.mp4" loop webkit-playsinline playsinline ></video>
 		
 		<img id="Image" src="resource/Escape.jpg">
@@ -154,6 +157,20 @@
 	<a-gltf-model id="courtModel" src="#court" scale="1 1 1" rotation="-97.650 -2.550 -22.320" position="0 -80.8 0">
 		</a-gltf-model>
 </a-entity>
+
+<a-entity>
+	<a-gltf-model src="#dublinCen" scale="1 1 1" rotation="0 0 0" position="0 0 0">
+		</a-gltf-model>
+</a-entity>
+
+<a-entity>
+	<a-gltf-model src="#nodes" scale="1 1 1" rotation="0 0 0" position="0 0 0">
+		</a-gltf-model>
+</a-entity>
+
+
+<a-sphere id="ref" color="red" position="0 0 0" radius="1" > </sphere>
+
 	
 <a-entity id="NIAH" parsedlocation></a-entity>
 
