@@ -58,8 +58,8 @@ AFRAME.registerComponent('parsedlocation', {
 	{
 		//console.log(json_loc.features[i].properties.SMRS);
 	
-		//if (json_loc.features[i].geometry !=null && (json_loc.features[i].properties.SMRS=='DU018-020488-' || json_loc.features[i].properties.SMRS=='DU018-020142-' || json_loc.features[i].properties.SMRS=='DU018-020592-' )){
-			if(	json_loc.features[i].geometry !=null){
+		if (json_loc.features[i].geometry !=null && (json_loc.features[i].properties.SMRS=='DU018-020488-' || json_loc.features[i].properties.SMRS=='DU018-020142-' || json_loc.features[i].properties.SMRS=='DU018-020592-' )){
+			//if(	json_loc.features[i].geometry !=null){
 		
 
 		var locations = json_loc.features[i].geometry.coordinates;
@@ -85,7 +85,7 @@ AFRAME.registerComponent('parsedlocation', {
 	var sceneEl = document.querySelector('a-scene');
 	var entityEl= sceneEl.querySelector('#NIAH');
 	var mon = document.createElement('a-entity');
-	var ref = sceneEl.querySelector('#ref');
+	
 	
 	
 	var tempx = pcen3857.x-lonWGS84;
@@ -116,7 +116,7 @@ AFRAME.registerComponent('parsedlocation', {
 	entityEl.setAttribute('position', {x: 0, y: -1, z: 0});			
 	entityEl.appendChild(mon);
 	
-	ref.setAttribute('position', {x: 0, y: 3, z: 0});			
+	
 	
 	}	
 	}
