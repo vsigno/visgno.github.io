@@ -26,8 +26,9 @@ AFRAME.registerComponent('parsedlocation', {
             //var latWGS84cen = 53.343144;
 			
 			//Centre model DublinCentre_WM_3857.gltf 
-			var lonWGS84cen = -6.266010;
+			var lonWGS84cen = -6.266050;
 			var latWGS84cen = 53.342101;
+			 
 			 
 			
 			//Fake Location dublinCenter.gltf
@@ -57,8 +58,8 @@ AFRAME.registerComponent('parsedlocation', {
 	{
 		//console.log(json_loc.features[i].properties.SMRS);
 	
-		if(	json_loc.features[i].geometry !=null && (json_loc.features[i].properties.SMRS=='DU018-020488-' || json_loc.features[i].properties.SMRS=='DU018-020142-' || json_loc.features[i].properties.SMRS=='DU018-020592-' )){
-			//if(	json_loc.features[i].geometry !=null){
+		//if (json_loc.features[i].geometry !=null && (json_loc.features[i].properties.SMRS=='DU018-020488-' || json_loc.features[i].properties.SMRS=='DU018-020142-' || json_loc.features[i].properties.SMRS=='DU018-020592-' )){
+			if(	json_loc.features[i].geometry !=null){
 		
 
 		var locations = json_loc.features[i].geometry.coordinates;
@@ -86,13 +87,21 @@ AFRAME.registerComponent('parsedlocation', {
 	var mon = document.createElement('a-entity');
 	var ref = sceneEl.querySelector('#ref');
 	
-	var tempx = pcen3857.y-latWGS84;
-	var tempy = pcen3857.x-lonWGS84;
+	
+	var tempx = pcen3857.x-lonWGS84;
+	var tempy = pcen3857.y-latWGS84;
+	
+	/*
+	var tempx = lonWGS84-pcen3857.x;
+	var tempy = latWGS84-pcen3857.y;
+	*/
+	
 	console.log("this is it"+tempx+"  "+tempy);
 	
 	mon.setAttribute('geometry', {primitive: 'box', depth:10, height:10, width: 10});
 	//mon.setAttribute('position', {x: p2.x-(-pcen3857.x), y: 0, z: p2.y-(pcen3857.y)});
-	mon.setAttribute('position', {x: tempx, y: 0, z: tempy});
+	
+	mon.setAttribute('position', {x: -tempx, y: 0, z: tempy});
 	
 	mon.setAttribute('data', json_loc.features[i].properties.SMRS);
 			
