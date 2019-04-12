@@ -58,8 +58,8 @@ AFRAME.registerComponent('parsedlocation', {
 	{
 		//console.log(json_loc.features[i].properties.SMRS);
 	
-		if (json_loc.features[i].geometry !=null && (json_loc.features[i].properties.SMRS=='DU018-020488-' || json_loc.features[i].properties.SMRS=='DU018-020142-' || json_loc.features[i].properties.SMRS=='DU018-020592-' )){
-			//if(	json_loc.features[i].geometry !=null){
+		//if (json_loc.features[i].geometry !=null && (json_loc.features[i].properties.SMRS=='DU018-020488-' || json_loc.features[i].properties.SMRS=='DU018-020142-' || json_loc.features[i].properties.SMRS=='DU018-020592-' )){
+			if(	json_loc.features[i].geometry !=null){
 		
 
 		var locations = json_loc.features[i].geometry.coordinates;
