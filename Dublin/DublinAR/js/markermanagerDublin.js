@@ -106,21 +106,11 @@ AFRAME.registerComponent('registerevents', {
 				{
 					markerDict.markerswords="true";
 				
-					console.log('you found the video');
+					console.log('you found the pointCloud');
 					
 					var sceneEl = document.querySelector('a-scene');
 					
-					if(sceneEl.querySelector('#mocapVideo').paused==true)
-					{
-						sceneEl.querySelector('#mocapVideo').play();
-						sceneEl.querySelector('#mocapVideo').muted=false;
-					}
-					else
-					{
-					sceneEl.querySelector('#mocapVideo').load();
-					sceneEl.querySelector('#mocapVideo').play();
-					sceneEl.querySelector('#mocapVideo').muted=false;
-					}
+					
 				}
 				
 				
@@ -132,12 +122,7 @@ AFRAME.registerComponent('registerevents', {
 				
 				var sceneEl = document.querySelector('a-scene');
 				
-				if(sceneEl.querySelector('#thesound').components.sound.isPlaying==true){
-				sceneEl.querySelector('#thesound').components.sound.stopSound();
-				console.log("Stop the sound");}
-				
-				sceneEl.querySelector('#chromaVideo').pause();
-				sceneEl.querySelector('#mocapVideo').pause();
+			
 				
 			});
 		},
