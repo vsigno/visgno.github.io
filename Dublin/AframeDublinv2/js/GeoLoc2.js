@@ -47,30 +47,36 @@ AFRAME.registerComponent('parsedlocation', {
 		var pcen4326 = new proj4.Point(lonWGS84cen,latWGS84cen);   //any object will do as long as it has 'x' and 'y' properties
 		var pcen3857 = new proj4(sourcePrj, destPrj, pcen4326); 
 		
-			console.log("Proj4 conversion");
-			console.log("Longitude: " + pcen4326.x);
-			console.log("Latitude: " + pcen4326.y);
-			console.log("Longitude: " + pcen3857.x);
-			console.log("Latitude: " + pcen3857.y);
+			//console.log("Proj4 conversion");
+			//console.log("Longitude: " + pcen4326.x);
+			//console.log("Latitude: " + pcen4326.y);
+			//console.log("Longitude: " + pcen3857.x);
+			//console.log("Latitude: " + pcen3857.y);
 			
+			console.log(json_loc.features.length);
 		
 	for (var i = 0; i < json_loc.features.length; i++) 
 	{
 		//console.log(json_loc.features[i].properties.SMRS);
 	
 		//if (json_loc.features[i].geometry !=null && (json_loc.features[i].properties.SMRS=='DU018-020488-' || json_loc.features[i].properties.SMRS=='DU018-020142-' || json_loc.features[i].properties.SMRS=='DU018-020592-' )){
-			if(	json_loc.features[i].geometry !=null){
+		if(	json_loc.features[i].geometry !=null){
 		
 
-		var locations = json_loc.features[i].geometry.coordinates;
-			console.log(locations[0],locations[1]);	
 		
-            // doing calculations in double precision for greater accuracy along the way
+		
+		
+		var locations = json_loc.features[i].geometry.coordinates;
+			//console.log(locations[0],locations[1]);	
+		
+            
             var lonWGS84 = locations[0];
             var latWGS84 = locations[1];
-
+/*
 			var p = new proj4.Point(lonWGS84,latWGS84);
 			var p2 = new proj4(sourcePrj, destPrj, p); 	
+*/
+
 
 			/*
             var num = lonWGS84 * 0.017453292519943295; // 0.017453292519943295--> Pi/180
@@ -96,17 +102,20 @@ AFRAME.registerComponent('parsedlocation', {
 	var tempy = latWGS84-pcen3857.y;
 	*/
 	
-	console.log("this is it"+tempx+"  "+tempy);
+	var dist=Math.hypot(tempx-0, tempy-0);
+	
+	
+	if(dist<200){
 	
 	mon.setAttribute('geometry', {primitive: 'box', depth:10, height:10, width: 10});
-	//mon.setAttribute('position', {x: p2.x-(-pcen3857.x), y: 0, z: p2.y-(pcen3857.y)});
 	
-	mon.setAttribute('position', {x: -tempx, y: 0, z: tempy});
+	//mon.setAttribute('position', {x: -tempx, y: 0, z: tempy});
+	mon.object3D.position.set(-tempx,0,tempy);
 	
 	mon.setAttribute('data', json_loc.features[i].properties.SMRS);
 			
-			console.log("Longitude: " + lonWGS84);
-			console.log("Latitude: " + latWGS84);
+			//console.log("Longitude: " + lonWGS84);
+			//console.log("Latitude: " + latWGS84);
 			
 			//console.log("Longitude: " + p2.x);
 			//console.log("Latitude: " + p2.y);
@@ -115,7 +124,7 @@ AFRAME.registerComponent('parsedlocation', {
 
 	entityEl.setAttribute('position', {x: 0, y: -1, z: 0});			
 	entityEl.appendChild(mon);
-	
+	}
 	
 	
 	}	
