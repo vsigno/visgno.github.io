@@ -106,7 +106,7 @@
 		
 		<!--<a-image src="#chrBk" position='0 0.76 -0.1' width='2.6' height='2' rotation="0 0 0" ></a-image>-->
 		
-		<a-video id="videoB" class="video" position="0 0.583 0" rotation="0 0 0" scale="2 2 2" material="shader: chromakey; src: #chromaVideo; color: 0 1 0"  ></a-video>	
+		<a-video id="videoB" class="video" position="0 0.583 0" rotation="0 0 0" scale="2 2 2" material="shader: chromakey; src: #chromaVideoios; color: 0 1 0"  ></a-video>	
 		
 		<!--<a-plane src="#grass" transparent='true' position='0 0 0.1' width='2.6' height='0.5' rotation="0 0 0" ></a-plane>-->
 		
@@ -165,7 +165,6 @@
 		
 		var sceneEl = document.querySelector('a-scene');
 		var videoChroma = document.querySelector('#chromaVideo');
-		
 		var videoChromaios = document.querySelector('#chromaVideoios');
 		
 		var videoMocap = document.querySelector('#mocapVideo');
@@ -173,6 +172,8 @@
 		var videoAMarker=document.querySelector('#videoB');
   
 		videoChroma.pause();
+		videoChromaios.pause();
+		
 		videoMocap.pause();
 			console.log ("video pause due to autoplay declaration");
 
@@ -200,12 +201,9 @@ if(iOS===false){//
 checktap=true;
 button.style.visibility='hidden';
 
+videoAMarker.setAttribute('material',{src: '#chromaVideo'});
 }
 
-else
-{
-videoAMarker.setAttribute('material',{src: '#chromaVideoios'});
-}
 
 });
 
@@ -216,17 +214,17 @@ var videos2=document.querySelector('#markerswords');
 console.log(videos1.getAttribute('visible'));
 
 
-	if (!videoChroma ) { return; }
+	if (!videoChromaios ) { return; }
 		if(videos1.getAttribute('visible')==true){
-		videoChroma.paused ? videoChroma.play() : videoChroma.pause();
-		videoChroma.paused ? document.getElementById("entervr").innerHTML="Pause":document.getElementById("entervr").innerHTML="Play";
-		videoChroma.muted=false;}
+		videoChromaios.paused ? videoChromaios.play() : videoChromaios.pause();
+		videoChromaios.paused ? document.getElementById("entervr").innerHTML="Pause":document.getElementById("entervr").innerHTML="Play";
+		videoChromaios.muted=false;}
 		
 		
 	if (!videoMocap) { return; }
 	if(videos2.getAttribute('visible')==true){
 		videoMocap.paused ? videoMocap.play() : videoMocap.pause();
-		videoChroma.paused ? document.getElementById("entervr").innerHTML="Pause":document.getElementById("entervr").innerHTML="Play";
+		videoMocap.paused ? document.getElementById("entervr").innerHTML="Pause":document.getElementById("entervr").innerHTML="Play";
 		videoMocap.muted=false;}
 		
 		
