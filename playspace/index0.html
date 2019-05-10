@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Play Space AR - Playing the Archive</title>
+    <meta name="description" content="Play Space AR - Playing the Archive">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3pro.css">
+	
+	 <style>
+	#playspace
+	{
+		background-color:#cf0000;
+		height:100px;
+		
+		}
+	 
+	 body
+	 {
+	 	 background-color: #cccccc;
+	 }
+	.wrapper 
+	{
+    text-align: center;
+	}
+
+.button {
+  background-color: #4CAF50;
+  border: none;
+  bottom:0px;
+  color: white;
+  padding: 55px 65px;
+  text-align: center;
+  font-size: 26px;
+  cursor: pointer;
+  position:centre;
+  left:0px;
+
+}
+
+.button:hover {
+  background-color: green;
+}
+</style>
+	
+
+</head>
+	
+	<body>
+
+
+<div id="page">
+
+	<div id="playspace">PLAYSPACE</div>
+	
+	<div id="list">
+	<h4>Welcome to the Play Space Experience</h4>
+										<ul>
+											<li>Press enter to start the AR experience</li>
+											<li>We need to have access to your Camera</li>
+											<li>no data are send or store by us</li>
+											<li>media content are optimized but mobile data usage. Switch to WiFI for better experience</li>
+											<li>Do you want to know more about the project? <a href="https://playingthearchive.net" target="_blank" >
+<img border="0" src="resources/logoPtA.png" width="50" height="50">
+</a></li>
+										</ul>
+	</div>
+
+<div id="wrapperid" class="wrapper">
+
+		<button id="chooseDev" class="button" type="button">
+			ENTER
+		</button>
+	 </div>
+	 
+	 </div>
+	 
+<script>
+
+var iOS=false;	
+
+document.addEventListener("DOMContentLoaded", function(event)
+{
+
+var button=document.querySelector('#chooseDev')
+
+button.addEventListener('click',go);
+
+});
+
+	var go=function(){
+		device=navigator.platform;
+		
+		console.log("Which device are you?  I am a  "+ device);
+
+		
+			if (device==='iPad'||device==='iPhone'||device==='iPod'===true) 
+				{
+					console.log("I am an Apple");
+					window.location='/apple.html';
+				}
+			else
+				{
+					console.log("I am NOT an Apple");
+					window.location='/android.html';
+				}
+		
+		
+}
+//the button
+
+</script>
+</body>
+	
+	</html>
