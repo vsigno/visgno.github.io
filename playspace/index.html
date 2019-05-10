@@ -72,7 +72,7 @@
 		
 		<video id="mocapVideo"  src="resources/Solo_Mocap_low.mp4" loop muted webkit-playsinline playsinline></video>
 		
-		<!--<video id="chromaVideo" src="resources/stval_1.mp4" loop muted webkit-playsinline playsinline ></video>-->
+		<video id="chromaVideoios" src="resources/stval_1.mp4" loop muted webkit-playsinline playsinline ></video>
 		<video id="chromaVideo" src="resources/CardDuo_Both_vorbis_05.webm" loop muted webkit-playsinline playsinline ></video>
 		
 		<img id="opies" src="resources/opies.jpg">
@@ -165,7 +165,12 @@
 		
 		var sceneEl = document.querySelector('a-scene');
 		var videoChroma = document.querySelector('#chromaVideo');
+		
+		var videoChromaios = document.querySelector('#chromaVideoios');
+		
 		var videoMocap = document.querySelector('#mocapVideo');
+		
+		var videoAMarker=document.querySelector('#videoB');
   
 		videoChroma.pause();
 		videoMocap.pause();
@@ -185,6 +190,8 @@ if(p==='iPad'||p==='iPhone'||p==='iPod'){
 iOS=true;//
 checktap=false;
 button.style.visibility='visible';
+
+videoAMarker.setAttribute('material',{src: '#chromaVideoios'});
 
 var wrapperDiv=document.querySelector('#wrapperid');
 }
