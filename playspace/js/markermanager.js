@@ -87,6 +87,23 @@ AFRAME.registerComponent('registerevents', {
 					
 					var sceneEl = document.querySelector('a-scene');
 					
+					var device=navigator.platform;
+					if(device==='iPad'||device==='iPhone'||device==='iPod')
+					{
+					if(sceneEl.querySelector('#chromaVideoios').paused==true)
+					{
+						sceneEl.querySelector('#chromaVideoios').play();
+						sceneEl.querySelector('#chromaVideoios').muted=false;
+					}
+					else
+					{
+					sceneEl.querySelector('#chromaVideoios').load();
+					sceneEl.querySelector('#chromaVideoios').play();
+					sceneEl.querySelector('#chromaVideoios').muted=false;
+					}
+					}
+					
+					else{
 					if(sceneEl.querySelector('#chromaVideo').paused==true)
 					{
 						sceneEl.querySelector('#chromaVideo').play();
@@ -97,6 +114,7 @@ AFRAME.registerComponent('registerevents', {
 					sceneEl.querySelector('#chromaVideo').load();
 					sceneEl.querySelector('#chromaVideo').play();
 					sceneEl.querySelector('#chromaVideo').muted=false;
+					}
 					}
 				}
 				
@@ -136,7 +154,18 @@ AFRAME.registerComponent('registerevents', {
 				sceneEl.querySelector('#thesound').components.sound.stopSound();
 				console.log("Stop the sound");}
 				
-				sceneEl.querySelector('#chromaVideo').pause();
+				device=navigator.platform;
+					if(device==='iPad'||device==='iPhone'||device==='iPod')
+					{
+				
+				sceneEl.querySelector('#chromaVideoios').pause();
+					}
+					else
+					{
+						sceneEl.querySelector('#chromaVideo').pause();
+					}
+				
+				
 				sceneEl.querySelector('#mocapVideo').pause();
 				
 			});
