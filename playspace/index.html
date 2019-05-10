@@ -191,7 +191,7 @@ iOS=true;//
 checktap=false;
 button.style.visibility='visible';
 
-videoAMarker.setAttribute('material',{src: '#chromaVideoios'});
+
 
 var wrapperDiv=document.querySelector('#wrapperid');
 }
@@ -199,6 +199,12 @@ var wrapperDiv=document.querySelector('#wrapperid');
 if(iOS===false){//
 checktap=true;
 button.style.visibility='hidden';
+
+}
+
+else
+{
+videoAMarker.setAttribute('material',{src: '#chromaVideoios'});
 }
 
 });
