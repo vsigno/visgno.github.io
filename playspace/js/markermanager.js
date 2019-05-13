@@ -117,7 +117,7 @@ AFRAME.registerComponent('registerevents', {
 					sceneEl.querySelector('#chromaVideo').play();
 					sceneEl.querySelector('#chromaVideo').muted=false;
 					}
-					}
+					//}
 				}
 				
 				
