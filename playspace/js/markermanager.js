@@ -157,15 +157,16 @@ AFRAME.registerComponent('registerevents', {
 				console.log("Stop the sound");}
 				
 				device=navigator.platform;
+				/*
 					if(device==='iPad'||device==='iPhone'||device==='iPod')
 					{
 				
 				sceneEl.querySelector('#chromaVideoios').pause();
 					}
 					else
-					{
+					{*/
 						sceneEl.querySelector('#chromaVideo').pause();
-					}
+					//}
 				
 				
 				sceneEl.querySelector('#mocapVideo').pause();
