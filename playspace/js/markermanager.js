@@ -88,6 +88,7 @@ AFRAME.registerComponent('registerevents', {
 					var sceneEl = document.querySelector('a-scene');
 					
 					var device=navigator.platform;
+					/*
 					if(device==='iPad'||device==='iPhone'||device==='iPod')
 					{
 					if(sceneEl.querySelector('#chromaVideoios').paused==true)
@@ -104,6 +105,7 @@ AFRAME.registerComponent('registerevents', {
 					}
 					
 					else{
+						*/
 					if(sceneEl.querySelector('#chromaVideo').paused==true)
 					{
 						sceneEl.querySelector('#chromaVideo').play();
