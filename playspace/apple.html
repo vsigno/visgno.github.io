@@ -165,10 +165,7 @@
 		
 		var videoAMarker=document.querySelector('#videoB');
   
-		videoChroma.pause();
 		
-		videoMocap.pause();
-			console.log ("video pause due to autoplay declaration");
 
 
 //if iOS true
@@ -176,6 +173,10 @@ document.addEventListener("DOMContentLoaded", function(event)
 {
 videoChroma.setAttribute("src","resources/"+"CardDuo_Both_v2"+".mp4");//just modify the directory and the exstension. File name need to be the same
 console.log(videoChroma.getAttribute("src"));
+	videoChroma.pause();
+	videoMocap.pause();
+		console.log ("video pause due to autoplay declaration");
+
 
 var button=document.querySelector('#entervr')
 button.addEventListener('click',go);
