@@ -33,14 +33,14 @@
 	<script src="https://cdn.jsdelivr.net/npm/fast-text-encoding@1.0.0/text.min.js"></script>
 
 
-	<!--stable version 0.8.0 | Dev version 0.9.0 | Local version 0.8.2 -->
+	<!--stable version 0.9.0 | Local version 0.8.2 -->
 	 <script src="https://aframe.io/releases/0.9.0/aframe.min.js"></script>
 	<!--<script src="js/aframe.min.js"></script>
 	<script src="js/aframe.min.js.map"></script>-->
 
-	<!--DEV Version AR.Js 1.6.3-->
-	<!--<script src="https://cdn.rawgit.com/jeromeetienne/AR.js/dev/aframe/build/aframe-ar.js"></script>-->
-	<script src="js/aframe-ar.js"></script>
+	<!--Stable Version AR.Js 1.7.1 | Local 1.6.3-->
+	<script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.7.1/aframe/build/aframe-ar.js"></script>
+	<!--<script src="js/aframe-ar.js"></script>-->
 
 
 	<!-- Load GLTF Animation-->
@@ -53,8 +53,8 @@
 
 
 
-
-	<script src="js/markermanager.js"></script>
+<!--local manager script for the markers-->
+	<script src="js/playmarkersmng.js"></script>
 
 
 
@@ -64,9 +64,9 @@
 	<body>
 
 	<!-- add to a-scene arjs="" debugUIEnabled: false;-->
-	<a-scene vr-mode-ui="enabled: false" color-space="sRGB" renderer="gammaOutput: true" embedded arjs='debugUIEnabled: false; sourceType: webcam; patternRatio: 0.85; trackingMethod: best;'>
+	<a-scene markers_start vr-mode-ui="enabled: false" color-space="sRGB" renderer="gammaOutput: true" embedded arjs='debugUIEnabled: false; sourceType: webcam; patternRatio: 0.85; trackingMethod: best;'>
 
-	<a-assets markInit>
+	<a-assets markInit >
 
 		<audio id="song" src="resources/DigDug.mp3"></audio>
 
@@ -89,47 +89,59 @@
 	<!--Markers-->
 
 	<!--Video - Swords-->
-	<a-marker  type="pattern" url="resources/markers/new_May/pattern-Individual_Blocks-01.patt" id='markerswords' registerevents >
+<!--
+	<a-marker  type="pattern" url="resources/markers/new_May/pattern-Individual_Blocks-1.patt" id='markerswords' registerevents >
 		<a-box id='star-box' position='0 -0.25 0' scale='1 0.01 1' material='shader: standard; color:#fef2e2;'></a-box>
-    <a-entity id="color" position="0 0.7 0"
+
+    <a-entity id="text" position="0 0.7 0" rotation="-90 0 0"
                     animation="property: components.text.material.uniforms.color.value; type: color; to: red; dir: alternate; loop: true"
-                    text="color: white; align: center; value: Animating color; width: 1.5">
-		<a-video id='videoA' src="#mocapVideo" width="2.5" height="1.5" position="0 0.2 0" rotation="-90 0 0" material="shader:flat;"></a-video>
+                    text="color: white; align: center; value: Animating color; width: 5.5"> </a-entity>
+
+    <a-video id='videoA' src="#mocapVideo" width="2.5" height="1.5" position="0 0.2 0" rotation="-90 0 0" material="shader:flat;"></a-video>
 
 	</a-marker>
+-->
+
 
 	<!--Video Chroma key - Epsilon-->
-	<a-marker  type="pattern" url="resources/markers/new_May/pattern-Individual_Blocks-02.patt" id='markerepsilon' registerevents >
+  <!--
+	<a-marker  type="pattern" url="resources/markers/new_May/pattern-Individual_Blocks-2.patt" id='markerepsilon' registerevents >
 
 		<a-box id='star-box' position='0 -0.25 0' scale='1 0.01 1' material='shader: standard; color:#fef2e2;'></a-box>
 
 		<a-video id="videoB" class="video" position="0 0.583 0" rotation="0 0 0" scale="2 2 2" material="shader: chromakey; src: #chromaVideo; color: 0 1 0"  ></a-video>
 
 	</a-marker>
+-->
 
-	<!--Images - Shield-->
-	<a-marker  type="pattern" url="resources/markers/new_May/pattern-Individual_Blocks-03.patt" id='markershield' registerevents >
+  <!--Images - Shield-->
+<!--
+  <a-marker  type="pattern" url="resources/markers/new_May/pattern-Individual_Blocks-3.patt" id='markershield' registerevents >
 		<a-box id='star-box' position='0 -0.25 0' scale='1 0.01 1' material='shader: standard; color:#fef2e2;'></a-box>
 		<a-image src="#opies" position='0 0.1 0' width='1.6' height='1' rotation="-90 0 0" ></a-image>
 	</a-marker>
+-->
 
 	<!--Sound - Hydra-->
-	<a-marker  type="pattern" url="resources/markers/new_May/pattern-Individual_Blocks-04.patt" id='markerhydra' registerevents >
+<!--
+	<a-marker  type="pattern" url="resources/markers/new_May/pattern-Individual_Blocks-4.patt" id='markerhydra' registerevents >
 	<a-entity animation="property: rotation; from:0 0 0; to: 0 360 0; loop: true; dur: 5000;easing:linear"; >
 		<a-sphere id='boxsound' position='0 0 1' scale='0.25 0.25 0.25' material="shader: standard; src: #marble;" animation="property: rotation; from:0 0 360; to: 0 0 0; loop: true; dur: 800;easing:linear";></a-sphere>
 		<a-entity id="thesound" position="0 2 3" sound="src:#song; positional:true; loop:true" ></a-entity>
 	</a-entity>
 
 	</a-marker>
+-->
 
-	<!--3D model - Toycar-->
-	<a-marker  type="pattern" url="resources/markers/new_May/pattern-Individual_Blocks-05.patt" id='markertoycar' registerevents >
+  <!--3D model - Toycar-->
+<!--
+  <a-marker  type="pattern" url="resources/markers/new_May/pattern-Individual_Blocks-5.patt" id='markertoycar' registerevents >
 		<a-box id='star-box' position='0 0 0' scale='1 0.1 1' material='shader: standard; src:#hopscotch;'></a-box>
 
 		<a-gltf-model src="#ajWalk" position="0 0.15 -0.3" rotation="0 90 0" scale='0.5 0.5 0.5' animation-mixer></a-gltf-model>
 
 	</a-marker>
-
+-->
 
 
 

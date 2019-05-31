@@ -1,13 +1,64 @@
 //Global Variable
 var markerDict=new Object;
+var markersURLArray=[];
+var markersNameArray=[];
 
 var checktap=false;
 
-//Marble animation rotation
 let angle = 3 * Math.PI / 180;
 let cx = 0;
 let cy = 0;
 let radius = 2;
+
+
+
+AFRAME.registerComponent('markers_start',{
+	init:function(){
+		console.log('Add markers to the scene');
+
+		//build the list of the markers_start
+
+		for(var i=1; i<17; i++)
+		{
+			var url="resources/markers/new_May/pattern-Individual_Blocks-"+i+".patt";
+			markersURLArray.push(url);
+			markersNameArray.push('Marker_'+i);
+			console.log(url);
+		}
+
+			var sceneEl = document.querySelector('a-scene');
+
+			//var k=0;
+			for(var k=0; k<16; k++)
+			{
+			var markerEl = document.createElement('a-marker');
+			markerEl.setAttribute('type','pattern');
+			markerEl.setAttribute('url',markersURLArray[k]);
+			markerEl.setAttribute('id',markersNameArray[k]);
+			//markerEl.setAttribute('id','markerswords');
+
+			markerEl.setAttribute('registerevents','');
+			sceneEl.appendChild(markerEl);
+
+			//Adding a dummy text
+			var textEl = document.createElement('a-entity');
+			textEl.setAttribute('id','text');
+			textEl.setAttribute('position',{x: 0, y: 0.7, z: 0});
+			textEl.setAttribute('rotation',{x:-90, y: 0, z: 0});
+
+			textEl.setAttribute('text',{color: 'red', align: 'center', value:markersNameArray[k], width: '5.5'});
+
+			markerEl.appendChild(textEl);
+		}
+
+
+
+
+
+	}
+});
+
+
 
 
 AFRAME.registerComponent('markInit', {
@@ -89,24 +140,7 @@ AFRAME.registerComponent('registerevents', {
 					var sceneEl = document.querySelector('a-scene');
 
 					var device=navigator.platform;
-					/*
-					if(device==='iPad'||device==='iPhone'||device==='iPod')
-					{
-					if(sceneEl.querySelector('#chromaVideoios').paused==true)
-					{
-						sceneEl.querySelector('#chromaVideoios').play();
-						sceneEl.querySelector('#chromaVideoios').muted=false;
-					}
-					else
-					{
-					sceneEl.querySelector('#chromaVideoios').load();
-					sceneEl.querySelector('#chromaVideoios').play();
-					sceneEl.querySelector('#chromaVideoios').muted=false;
-					}
-					}
 
-					else{
-						*/
 					if(sceneEl.querySelector('#chromaVideo').paused==true)
 					{
 						sceneEl.querySelector('#chromaVideo').play();
@@ -118,7 +152,7 @@ AFRAME.registerComponent('registerevents', {
 					sceneEl.querySelector('#chromaVideo').play();
 					sceneEl.querySelector('#chromaVideo').muted=false;
 					}
-					//}
+
 				}
 
 
@@ -151,26 +185,19 @@ AFRAME.registerComponent('registerevents', {
 				var markerId = marker.id;
 				console.log('markerLost', markerId);
 
-				var sceneEl = document.querySelector('a-scene');
+	//			var sceneEl = document.querySelector('a-scene');
 
-				if(sceneEl.querySelector('#thesound').components.sound.isPlaying==true){
+		/*		if(sceneEl.querySelector('#thesound').components.sound.isPlaying==true){
 				sceneEl.querySelector('#thesound').components.sound.stopSound();
 				console.log("Stop the sound");}
+*/
+			//	device=navigator.platform;
 
-				device=navigator.platform;
-				/*
-					if(device==='iPad'||device==='iPhone'||device==='iPod')
-					{
-
-				sceneEl.querySelector('#chromaVideoios').pause();
-					}
-					else
-					{*/
-						sceneEl.querySelector('#chromaVideo').pause();
-					//}
+				//		sceneEl.querySelector('#chromaVideo').pause();
 
 
-				sceneEl.querySelector('#mocapVideo').pause();
+
+			//	sceneEl.querySelector('#mocapVideo').pause();
 
 			});
 		},
@@ -178,22 +205,6 @@ AFRAME.registerComponent('registerevents', {
 	tick:function(time,timeDelta) {
 
 
-
-		/*var sceneEl = document.querySelector('a-scene');
-
-		if(sceneEl.querySelector('#thesound')!=null){
-		// increase the angle of rotation
-        angle += 3 * Math.PI / 180;
-			//console.log(angle);
-        // calculate the new ball.x / ball.y
-         var newX = cx + radius * Math.cos(angle);
-         var newY = cy + radius+4 * Math.sin(angle);
-
-
-		 sceneEl.querySelector('#thesound').setAttribute('position', {x: newX, y: newY, z: -1});
-		 sceneEl.querySelector('#boxsound').setAttribute('position', {x:newY*0.1 , y: 0, z: newX*0.1});
-		}
-		*/
 		}
 
 	});
