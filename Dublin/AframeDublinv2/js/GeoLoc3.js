@@ -41,8 +41,12 @@ AFRAME.registerComponent('parsedlocation', {
 			console.log(json_loc.features.length);
 
 			//Centre model DublinCentre_WM_3857.gltf
-			var lonWGS84cen = -6.266050;
-			var latWGS84cen = 53.342101;
+			//var lonWGS84cen = -6.266050;
+			//var latWGS84cen = 53.342101;
+
+      //Centre model DublinLargArea.glb
+      var lonWGS84cen = -6.267287;
+			var latWGS84cen = 53.343071;
 
 		var sourcePrj = new proj4.defs('EPSG:4326');    //source coordinates will be in Longitude/Latitude 4326
 		var destPrj = new proj4.defs('EPSG:3857');     //destination coordinates in WebMercator 3857

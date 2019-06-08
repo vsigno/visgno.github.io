@@ -156,9 +156,10 @@
 
 		<!--<a-asset-item id="court" src="resource/Courtlow.glb"  >-->
 
-		<a-asset-item id="dublinCen" src="resource/DublinCentre_WM_3857.gltf"  >
+		<!--<a-asset-item id="dublinCen" src="resource/DublinCentre_WM_3857.gltf"  >-->
+    <a-asset-item id="dublinCen" src="resource/models/dublin/DublinLargArea.glb"  >
 
-		<a-asset-item id="nodes" src="resource/Monument3857.gltf"  >
+
     <a-asset-item id="conepin" src="resource/models/conepin.glb" scale="1 1 1"  >
 
 
@@ -212,10 +213,6 @@
 		</a-gltf-model>
 </a-entity>
 
-<a-entity>
-	<a-gltf-model src="#nodes" scale="1 1 1" rotation="0 0 0" position="0 0 0">
-		</a-gltf-model>
-</a-entity>
 
 
 <a-sphere id="ref" color="red" position="0 0 0" radius="1" > </a-sphere>
@@ -226,6 +223,8 @@
 
 <!-- position="-0.285 0.035 2.265"
 scale="0.6 0.6 0.6"-->
+
+<!-- location pre new model center: -6.266050,53.342101;-->
 <a-entity
        id="map"
        position="-0.285 0.035 2.265"
@@ -239,7 +238,7 @@ scale="0.6 0.6 0.6"-->
 
        tangram-map="
        apiKey: UJcQwnnfQnWcPtKe2aYaEw;
-       center: -6.266050,53.342101;
+       center: -6.267287,53.343071;
        zoom: 17;
        pxToWorldRatio: 1;
        style: #zip-style; "
