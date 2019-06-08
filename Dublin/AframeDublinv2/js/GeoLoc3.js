@@ -136,6 +136,7 @@ if(	json_loc.features[i].LATITUDE !=null){
 var sceneEl = document.querySelector('a-scene');
 var entityEl= sceneEl.querySelector('#NIARCH');
 var mon = document.createElement('a-entity');
+var monImg = document.createElement('a-image');
 
 var tempx = pcen3857.x-p2.x;
 var tempy = pcen3857.y-p2.y;
@@ -154,6 +155,30 @@ mon.setAttribute('dataarch', {SURVEY_ID:json_loc.features[i].SURVEY_ID,IMAGE_LIN
 
 entityEl.setAttribute('position', {x: 0, y: -1, z: 0});
 entityEl.appendChild(mon);
+
+if(json_loc.features[i].IMAGE_LINK!=null){
+/* fix this--
+  var img = document.createElement('img');
+
+  img.crossOrigin = 'anonymous'; // no credentials flag. Same as img.crossOrigin='anonymous'
+  img.src = json_loc.features[i].IMAGE_LINK;
+  console.log(img);
+*/
+monImg.setAttribute("crossorigin","Anonymous");
+monImg.setAttribute("src",json_loc.features[i].IMAGE_LINK);
+monImg.setAttribute("position",{x: 0, y: 2, z: 0});
+monImg.setAttribute("height",60);
+monImg.setAttribute("width",50);
+
+
+
+
+}
+
+
+mon.appendChild(monImg);
+
+
 }
 }
 }
