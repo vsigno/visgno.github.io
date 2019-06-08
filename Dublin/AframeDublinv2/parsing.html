@@ -12,13 +12,17 @@
 
 	<script src="https://unpkg.com/aframe-potree-loader-component/dist/aframe-potree-loader-component.min.js"></script>
 
+<!--Tangram-->
 	<script src="https://unpkg.com/aframe-tangram-component/dist/aframe-tangram-component.min.js"></script>
 
 
 	<script src="js/papaparse.min.js"></script>
+
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script src="js/GeoLoc2.js"></script>
+	<script src="js/GeoLoc3.js"></script>
 	<script src="js/proj4.js"></script>
+<script src="js/map-controls.js"></script>
+
 
 
   <script>
@@ -78,6 +82,44 @@
   });
   </script>
 
+
+  <script>
+   AFRAME.registerComponent('cursor-listenerb', {
+    init: function () {
+	var check=true;
+    this.el.addEventListener('click', function (evt) {
+	  if(check==true)
+	  {
+    console.log("Clicked")
+	  check=false;
+	  }
+	  else
+	  {
+      console.log("Nope")
+
+	  check=true;
+	  }
+        console.log('I was clicked at: ',!check, evt.detail.intersection.point);
+        console.log(this);
+        this.setAttribute('material','color','blue');
+
+
+      });
+    }
+  });
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
   <script>
 
   AFRAME.registerComponent('raycaster-listen', {
@@ -117,6 +159,8 @@
 		<a-asset-item id="dublinCen" src="resource/DublinCentre_WM_3857.gltf"  >
 
 		<a-asset-item id="nodes" src="resource/Monument3857.gltf"  >
+    <a-asset-item id="conepin" src="resource/models/conepin.glb" scale="1 1 1"  >
+
 
 		<video id="Video" src="resource/Dublin_castle1915.mp4" loop webkit-playsinline playsinline ></video>
 
@@ -128,7 +172,7 @@
 
 
 
-	<a-camera position="-4 280 -1.5" >
+	<a-camera wasd-controls="acceleration: 1000" position="-4 280 -1.5" >
         <a-cursor id="raycaster"   color="#FAFAFA"  raycaster="objects: [data-clickable]"></a-cursor>
 
 	</a-camera>
@@ -157,10 +201,11 @@
 
 
 
-	<a-entity>
+<!--	<a-entity>
 	<a-gltf-model id="courtModel" src="#court" scale="1 1 1" rotation="-97.650 -2.550 -22.320" position="0 -80.8 0">
 		</a-gltf-model>
 </a-entity>
+-->
 
 <a-entity>
 	<a-gltf-model src="#dublinCen" scale="1 1 1" rotation="0 0 0" position="0 0 0">
@@ -177,11 +222,38 @@
 
 
 <a-entity id="NIAH" parsedlocation></a-entity>
+<a-entity id="NIARCH" ></a-entity>
 
+<!-- position="-0.285 0.035 2.265"
+scale="0.6 0.6 0.6"-->
+<a-entity
+       id="map"
+       position="-0.285 0.035 2.265"
+       scale="1.2 1.2 1.2"
+       rotation="-90 0 0"
+       geometry="primitive: plane; width: 2048; height: 2048;"
+
+       material="shader: flat;"
+
+
+
+       tangram-map="
+       apiKey: UJcQwnnfQnWcPtKe2aYaEw;
+       center: -6.266050,53.342101;
+       zoom: 17;
+       pxToWorldRatio: 1;
+       style: #zip-style; "
+       >
+     </a-entity>
+
+
+
+
+<!--
 <a-tangram-map
     api-key="UJcQwnnfQnWcPtKe2aYaEw"
     position="0 2 0"
-  rotation="-90 0 0"
+    rotation="-90 0 0"
     width="1000"
     height="1000"
     map-style="#zip-style"
@@ -191,7 +263,7 @@
     >
 
   </a-tangram-map>
-
+-->
 
 
 	<!--
