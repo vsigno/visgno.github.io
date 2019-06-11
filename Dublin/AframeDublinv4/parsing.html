@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Virtual Dublin Castle - City Module -</title>
+    <meta name="description" content="VRCastle WebVR">
+
+    <!--jQuery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!--AFrame framework 0.9.0-->
+
+      <script src="https://aframe.io/releases/0.9.0/aframe.min.js"></script>
+
+    <!--Tangram map Layer-->
+    	<script src="https://unpkg.com/aframe-tangram-component/dist/aframe-tangram-component.min.js"></script>
+
+      <!--Event system Aframe-->
+      <script src="https://unpkg.com/aframe-event-set-component@4.2.1/dist/aframe-event-set-component.min.js"></script>
+
+      <!--https://github.com/OSGeo/PROJ PROJ - Cartographic Projections and Coordinate Transformations Library-->
+        <script src="js/proj4.js"></script>
+
+      <!--Main system script-->
+	     <script src="js/GeoLoc3.js"></script>
+
+       <script type='text/javascript' src='js/dat.gui.min.js'></script>
+
+
+  <script>
+   AFRAME.registerComponent('cursor-listener', {
+    init: function () {
+	var check=true;
+	var sceneEl = document.querySelector('a-scene');
+
+	var panel=this.el.querySelector('#imgT')
+
+      this.el.addEventListener('click', function (evt) {
+	  if(check==true)
+	  {
+	  panel.emit("go");
+
+	  panel.setAttribute('visible',true);
+
+	  if(panel.getAttribute('video')!=null){
+
+	  var video = document.querySelector('#Video').play();
+
+	  }
+
+	  check=false;
+	  }
+	  else
+	  {
+	  if(panel.getAttribute('video')!=null){
+
+	  var video = document.querySelector('#Video').pause();
+
+	  }
+	  panel.emit("nope");
+	  check=true;
+	  }
+        console.log('I was clicked at: ',!check, evt.detail.intersection.point);
+
+
+
+      });
+    }
+  });
+  </script>
+
+
+  <script>
+   AFRAME.registerComponent('cursor-listenerb', {
+    init: function () {
+	var check=true;
+    this.el.addEventListener('click', function (evt) {
+	  if(check==true)
+	  {
+    console.log("Clicked")
+	  check=false;
+	  }
+	  else
+	  {
+      console.log("Nope")
+
+	  check=true;
+	  }
+        //console.log('I was clicked at: ',!check, evt.detail.intersection.point);
+        //console.log('Hello! I am:'+ this+'  '+evt.detail.collidingEntity);
+      this.getObject3D('mesh').material.color = new THREE.Color('#AAA');
+        console.log(this.getAttribute('datamon').CLASSDESC);
+      });
+    }
+  });
+  </script>
+
+
+  <script>
+
+  AFRAME.registerComponent('raycaster-listen', {
+	init: function () {
+    // Use events to figure out what raycaster is listening so we don't have to
+    // hardcode the raycaster.
+    this.el.addEventListener('raycaster-intersected', evt => {
+      this.raycaster = evt.detail.el;
+    });
+    this.el.addEventListener('raycaster-intersected-cleared', evt => {
+      this.raycaster = null;
+    });
+  },
+
+  tick: function () {
+    if (!this.raycaster) { return; }  // Not intersecting.
+
+    let intersection = this.raycaster.components.raycaster.getIntersection(this.el);
+    if (!intersection) { return; }
+    console.log(intersection.distance);
+  }
+});
+  </script>
+
+
+<!-- Creating a Three.Js GUI-->
+<script>
+AFRAME.registerComponent('guithree',{
+  init:function(){
+
+    var sceneEl = document.querySelector('a-scene');
+
+    var monuments= sceneEl.querySelector('#NIAH').object3D;
+    var architectures= sceneEl.querySelector('#NIARCH').object3D;
+    var arch= sceneEl.querySelector('#NIARCH');
+    var historicalmap= sceneEl.querySelector('#historicalmap').object3D;
+    historicalmap.visible=false;
+
+    var thearchchild=arch.children;
+
+
+    var years=
+    {
+    yfrom:1660,
+    yto:1925,
+    }
+
+    var gui = new dat.GUI({name:"Virtual Dublin"});
+    gui.add(monuments, 'visible').name('Monuments');
+    gui.add(architectures, 'visible').name('Architectures');
+    gui.add(historicalmap, 'visible').name('Historical Map');
+
+    gui.add(years, 'yfrom',1660,1924).name('Year From:').onChange(setYearFrom);
+    gui.add(years, 'yto',1661,1925).name('Year To:').onChange(setYearTo);
+
+
+    function setYearFrom(value) {
+      for (var k = 0;k < thearchchild.length; k++)
+      {
+        if(thearchchild[k].getAttribute('dataarch').DATEFROM<value)
+        {
+            thearchchild[k].object3D.visible=false;
+        }
+        else{thearchchild[k].object3D.visible=true;}
+      }
+    }
+
+      function setYearTo(value) {
+        for (var k = 0;k < thearchchild.length; k++)
+        {
+          if(thearchchild[k].getAttribute('dataarch').DATETO>value)
+          {
+              thearchchild[k].object3D.visible=false;
+          }
+          else{thearchchild[k].object3D.visible=true;}
+        }
+
+    }
+//console.log(thearchchild[0].getAttribute('dataarch').DATETO);
+//add if building year
+
+
+
+
+  }
+});
+</script>
+
+
+  </head>
+
+
+  <body>
+
+  <!--<a-scene cursor="rayOrigin: mouse" background="color: #ECECEC" stats>-->
+  <a-scene background="color: #ECECEC" stats   >
+
+	 <a-assets >
+
+		<!--<a-asset-item id="court" src="resource/Courtlow.glb"  >-->
+
+		<!--<a-asset-item id="dublinCen" src="resource/DublinCentre_WM_3857.gltf"  >-->
+    <a-asset-item id="dublinCen" src="resource/models/dublin/DublinLargArea.glb"  >
+
+    <!--Historical Image-->
+    <img id="castle1847" src="resource/Castle1847Mod.jpg">
+
+
+		<img id="Image" src="resource/Escape.jpg">
+
+			<a-asset-item id="zip-style" src="https://www.nextzen.org/carto/bubble-wrap-style/9/bubble-wrap-style.zip" />
+
+	 </a-assets>
+
+
+
+	<a-camera wasd-controls="acceleration: 1000" position="-4 280 -1.5" >
+        <a-cursor id="raycaster"   color="#FAFAFA"  raycaster="objects: [data-clickable]"></a-cursor>
+
+	</a-camera>
+
+
+
+
+
+<!--	<a-entity>
+	<a-gltf-model id="courtModel" src="#court" scale="1 1 1" rotation="-97.650 -2.550 -22.320" position="0 -80.8 0">
+		</a-gltf-model>
+</a-entity>
+-->
+
+<a-entity>
+	<a-gltf-model src="#dublinCen" scale="1 1 1" rotation="0 0 0" position="0 0 0">
+		</a-gltf-model>
+</a-entity>
+
+<a-plane id="historicalmap" src="#castle1847" height="923.8" width="686.4" rotation="-90 0 0" position="86.242 1 3.001"></a-plane>
+
+
+<a-sphere id="ref" color="red" position="0 0 0" radius="1" > </a-sphere>
+
+
+<a-entity id="NIAH" parsedlocation  ></a-entity>
+<a-entity id="NIARCH" ></a-entity>
+
+
+<a-entity guithree
+       id="map"
+       position="-0.285 0.035 2.265"
+       scale="1.2 1.2 1.2"
+       rotation="-90 0 0"
+       geometry="primitive: plane; width: 2048; height: 2048;"
+
+       material="shader: flat;"
+
+       tangram-map="
+       apiKey: UJcQwnnfQnWcPtKe2aYaEw;
+       center: -6.267287,53.343071;
+       zoom: 17;
+       pxToWorldRatio: 1;
+       style: #zip-style; "
+       >
+</a-entity>
+
+<!--Initialise the Gui at the end-->
+<a-entity ></a-entity>
+	<!--
+	  <a-entity>
+
+		<a-gltf-model data-clickable src="#castletrigger" scale="0.3 0.3 0.3" rotation="0 -15 0" position="-4 -0.75 -5" material="color:red"
+		animation="property:visible; startEvents:mouseenter; dur:300;  to:false"
+		animation__2="property:visible; startEvents:mouseleave; dur:300;  to:true">
+		</a-gltf-model>
+
+	</a-entity>
+	-->
+
+
+
+
+
+	<!--
+	event-set__up="_event: mouseup; _target: #imgT; visible:true"
+			event-set__down="_event: mouseup; _target: #imgT; visible:false"
+		-->
+
+
+
+	</a-scene>
+  </body>
+</html>
