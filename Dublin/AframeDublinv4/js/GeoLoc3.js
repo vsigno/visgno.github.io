@@ -19,10 +19,16 @@ AFRAME.registerComponent('dataarch', {
     DATEFROM:{type: 'string'},
     DATETO:{type: 'string'},
     ORIGINAL_TYPE:{type: 'string'},
+    APPRAISAL:{type:'string'},
   }
 
 });
 
+AFRAME.registerComponent('infoName', {
+init:function(){console.log("Name of This");}
+});
+
+//NEED TO BE FIXED
 //request images on crossOrigin Anonymous
 function webRequest(url)
 {
@@ -186,11 +192,15 @@ if(dist<1000){
   var material = new THREE.MeshStandardMaterial( {color: 0xff0000 } );
   var cone = new THREE.Mesh( geometry, material );
   mon.setObject3D('mesh',cone);
+
+  mon.setAttribute('cursor-listenerc','');
+  mon.setAttribute('data-clickable','');
+
   mon.object3D.position.set(-tempx,20,tempy);
   mon.object3D.rotation.set(THREE.Math.degToRad(180),0,0);
 
   mon.setAttribute('dataarch', {SURVEY_ID:json_loc.features[i].SURVEY_ID,IMAGE_LINK:json_loc.features[i].IMAGE_LINK,WEBSITE_LINK:json_loc.features[i].WEBSITE_LINK,DATEFROM:json_loc.features[i].DATEFROM,
-  DATETO:json_loc.features[i].DATETO,ORIGINAL_TYPE:json_loc.features[i].ORIGINAL_TYPE});
+  DATETO:json_loc.features[i].DATETO,ORIGINAL_TYPE:json_loc.features[i].ORIGINAL_TYPE, APPRAISAL:json_loc.features[i].APPRAISAL});
 
   if(listYear.includes(json_loc.features[i].DATEFROM)==false)
   {

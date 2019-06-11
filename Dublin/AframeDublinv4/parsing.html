@@ -20,11 +20,13 @@
       <!--https://github.com/OSGeo/PROJ PROJ - Cartographic Projections and Coordinate Transformations Library-->
         <script src="js/proj4.js"></script>
 
-      <!--Main system script-->
 	     <script src="js/GeoLoc3.js"></script>
+       <!--Main system script-->
 
+      <!--ThreeJs GUI-->
        <script type='text/javascript' src='js/dat.gui.min.js'></script>
 
+<script src="https://unpkg.com/aframe-look-at-component@0.8.x/dist/aframe-look-at-component.min.js"></script>
 
   <script>
    AFRAME.registerComponent('cursor-listener', {
@@ -72,27 +74,93 @@
   <script>
    AFRAME.registerComponent('cursor-listenerb', {
     init: function () {
-	var check=true;
-    this.el.addEventListener('click', function (evt) {
-	  if(check==true)
-	  {
-    console.log("Clicked")
-	  check=false;
-	  }
-	  else
-	  {
-      console.log("Nope")
+	  var check=true;
+    var sceneEl = document.querySelector('a-scene');
 
-	  check=true;
-	  }
-        //console.log('I was clicked at: ',!check, evt.detail.intersection.point);
-        //console.log('Hello! I am:'+ this+'  '+evt.detail.collidingEntity);
-      this.getObject3D('mesh').material.color = new THREE.Color('#AAA');
-        console.log(this.getAttribute('datamon').CLASSDESC);
+    this.el.addEventListener('click', function (evt) {
+	     if(check==true)
+	       {
+           console.log("Now is here")
+           this.getObject3D('mesh').material.color = new THREE.Color('#00FF00');
+           console.log(this.getAttribute('datamon').CLASSDESC);
+
+           var textEl = document.createElement('a-entity');
+         			textEl.setAttribute('id','text');
+         			textEl.setAttribute('position',{x: 0, y: -50, z: 0});
+         			textEl.setAttribute('rotation',{x:180, y: 0, z: 0});
+              textEl.setAttribute('look-at','#userCamera');
+
+
+         			textEl.setAttribute('text',{color: 'red', align: 'center', side:'double', value:this.getAttribute('datamon').CLASSDESC, width: '1000'});
+
+              console.log(sceneEl.querySelector('#userCamera').object3D.position);
+         			this.appendChild(textEl);
+
+
+
+	         check=false;
+	        }
+	      else
+	       {
+           console.log("Now is not")
+           this.getObject3D('mesh').material.color = new THREE.Color('#0000FF');
+	          check=true;
+
+            this.removeChild(this.querySelector('#text'));
+	         }
+
       });
     }
   });
   </script>
+
+
+  <script>
+   AFRAME.registerComponent('cursor-listenerc', {
+    init: function () {
+	  var check=true;
+    var sceneEl = document.querySelector('a-scene');
+
+    this.el.addEventListener('click', function (evt) {
+	     if(check==true)
+	       {
+           console.log("Now is here")
+           this.getObject3D('mesh').material.color = new THREE.Color('#00FF00');
+           console.log(this.getAttribute('dataarch').ORIGINAL_TYPE);
+
+           var textEl = document.createElement('a-entity');
+         			textEl.setAttribute('id','text');
+         			textEl.setAttribute('position',{x: 0, y: -50, z: 0});
+         			textEl.setAttribute('rotation',{x:180, y: 0, z: 0});
+              textEl.setAttribute('look-at','#userCamera');
+
+
+         			textEl.setAttribute('text',{color: 'red', align: 'center', side:'double', value:this.getAttribute('dataarch').APPRAISAL, width: '1000'});
+
+              console.log(sceneEl.querySelector('#userCamera').object3D.position);
+         			this.appendChild(textEl);
+
+
+
+	         check=false;
+	        }
+	      else
+	       {
+           console.log("Now is not")
+           this.getObject3D('mesh').material.color = new THREE.Color('#ff0000');
+	          check=true;
+
+            this.removeChild(this.querySelector('#text'));
+	         }
+
+      });
+    }
+  });
+  </script>
+
+
+
+
 
 
   <script>
@@ -130,6 +198,12 @@ AFRAME.registerComponent('guithree',{
     var monuments= sceneEl.querySelector('#NIAH').object3D;
     var architectures= sceneEl.querySelector('#NIARCH').object3D;
     var arch= sceneEl.querySelector('#NIARCH');
+
+    var dublinModel=sceneEl.querySelector('#dublinModel').object3D;
+
+
+    var checkMat=false;
+
     var historicalmap= sceneEl.querySelector('#historicalmap').object3D;
     historicalmap.visible=false;
 
@@ -142,14 +216,53 @@ AFRAME.registerComponent('guithree',{
     yto:1925,
     }
 
+    var opacity={opac:1,}
+
     var gui = new dat.GUI({name:"Virtual Dublin"});
     gui.add(monuments, 'visible').name('Monuments');
     gui.add(architectures, 'visible').name('Architectures');
     gui.add(historicalmap, 'visible').name('Historical Map');
+    gui.add(dublinModel, 'visible').name('Dublin Model');
+
+    gui.add(opacity, 'opac',0,1).name('Opacity').onChange(modelOpacity);
 
     gui.add(years, 'yfrom',1660,1924).name('Year From:').onChange(setYearFrom);
     gui.add(years, 'yto',1661,1925).name('Year To:').onChange(setYearTo);
 
+/*
+    const dublinModelMesh = sceneEl.querySelector('#dublinModel').getObject3D('mesh');
+    const material = new THREE.MeshLambertMaterial ( {color: 0xff0000 } );
+      if (dublinModelMesh) {
+        dublinModelMesh.traverse(function (node) {
+          if (node.isMesh) node.material = material;
+          });
+          }
+*/
+    function modelOpacity(value)
+    {
+      if(checkMat==false)
+      {
+          const dublinModelMesh = sceneEl.querySelector('#dublinModel').getObject3D('mesh');
+          const material = new THREE.MeshLambertMaterial ( {color: 0xaeaeae } );
+        if (dublinModelMesh) {
+            dublinModelMesh.traverse(function (node) {
+            if (node.isMesh)
+            {node.material = material;
+              node.material.transparent=true;
+            }
+          });
+        }
+          checkMat=true;
+          console.log("DONE Material");
+      }
+      const dublinModelMesh = sceneEl.querySelector('#dublinModel').getObject3D('mesh');
+      if (dublinModelMesh) {
+        dublinModelMesh.traverse(function (node) {
+          if (node.isMesh) node.material.opacity = value;
+        });
+      }
+
+    }
 
     function setYearFrom(value) {
       for (var k = 0;k < thearchchild.length; k++)
@@ -173,11 +286,6 @@ AFRAME.registerComponent('guithree',{
         }
 
     }
-//console.log(thearchchild[0].getAttribute('dataarch').DATETO);
-//add if building year
-
-
-
 
   }
 });
@@ -211,7 +319,7 @@ AFRAME.registerComponent('guithree',{
 
 
 
-	<a-camera wasd-controls="acceleration: 1000" position="-4 280 -1.5" >
+	<a-camera id="userCamera" wasd-controls="acceleration: 1000" position="-4 280 -1.5" >
         <a-cursor id="raycaster"   color="#FAFAFA"  raycaster="objects: [data-clickable]"></a-cursor>
 
 	</a-camera>
@@ -227,11 +335,11 @@ AFRAME.registerComponent('guithree',{
 -->
 
 <a-entity>
-	<a-gltf-model src="#dublinCen" scale="1 1 1" rotation="0 0 0" position="0 0 0">
+	<a-gltf-model id="dublinModel" src="#dublinCen" scale="1 1 1" rotation="0 0 0" position="0 0 0">
 		</a-gltf-model>
 </a-entity>
 
-<a-plane id="historicalmap" src="#castle1847" height="923.8" width="686.4" rotation="-90 0 0" position="86.242 1 3.001"></a-plane>
+<a-plane id="historicalmap" src="#castle1847" height="923.8" width="686.4" rotation="-90 0 0" position="86.242 5 3.001"></a-plane>
 
 
 <a-sphere id="ref" color="red" position="0 0 0" radius="1" > </a-sphere>
@@ -241,7 +349,7 @@ AFRAME.registerComponent('guithree',{
 <a-entity id="NIARCH" ></a-entity>
 
 
-<a-entity guithree
+<a-entity
        id="map"
        position="-0.285 0.035 2.265"
        scale="1.2 1.2 1.2"
@@ -260,7 +368,7 @@ AFRAME.registerComponent('guithree',{
 </a-entity>
 
 <!--Initialise the Gui at the end-->
-<a-entity ></a-entity>
+<a-entity guithree ></a-entity>
 	<!--
 	  <a-entity>
 
