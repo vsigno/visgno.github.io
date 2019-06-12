@@ -93,6 +93,7 @@
 
 		 <a-asset-item id="planeHole-obj" src="resource/PlaneHole.obj"></a-asset-item>
 		 <a-asset-item id="win" src="resource/window.gltf"></a-asset-item>
+     <video id="Video" src="resource/Dublin_castle1915.mp4" loop webkit-playsinline playsinline ></video>
 
 	</a-assets>
 
@@ -105,11 +106,13 @@
 	<!--3D model - PointCloud Dublin-->
 	<a-marker  type="pattern" url="resource/markers/pattern-Individual_Blocks-1.patt" id='markerswords' registerevents >
 	<!--the plane must be on the top, render order is important-->
-		<a-obj-model  modify-materials  position="0 0 0" scale="2 2 2" src="#planeHole-obj" ></a-obj-model>
+		<a-obj-model  modify-materials  position="0 0 0" scale="1 1 1" src="#planeHole-obj"  ></a-obj-model>
 
-		<a-obj-model position="0 0 0" scale="2 2 2" src="#Obj-obj" mtl="#Obj-mtl"></a-obj-model>
+		<a-obj-model position="0 0 0" scale="1 1 1" src="#Obj-obj" mtl="#Obj-mtl" material="shader:flat;"></a-obj-model>
 
-		<a-obj-model position="0 0 0" scale="2 2 2" src="#frame-obj" mtl="#frame-mtl"></a-obj-model>
+		<a-obj-model position="0 0 0" scale="1 1 1" src="#frame-obj" mtl="#frame-mtl"></a-obj-model>
+
+    <a-video src="#Video"  scale="1 1 1" rotation="-90 0 0" position="0 -0.5 0" height="2" width="4" material="shader:flat;"></a-video>
 
   <!--
 		<a-box scale="0.5 0.5 0.5" scale="1 1 1" position="0 -0.5 0" color="blue" rotation="0 0 0"
