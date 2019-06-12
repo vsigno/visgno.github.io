@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Virtual Dublin - District Module</title>
+    <meta name="description" content="VRCastle WebVR">
+
+    <!--AFrame framework 0.9.0-->
+    <script src="https://aframe.io/releases/0.9.0/aframe.min.js"></script>
+
+    <!--Event system Aframe-->
+	  <script src="https://unpkg.com/aframe-event-set-component@4.2.1/dist/aframe-event-set-component.min.js"></script>
+
+  <!--PoTree Loader-->
+	  <script src="https://unpkg.com/aframe-potree-loader-component/dist/aframe-potree-loader-component.min.js"></script>
+    <!-- Look at component-->
+    <script src="https://unpkg.com/aframe-look-at-component@0.8.x/dist/aframe-look-at-component.min.js"></script>
+
+  <script>
+   AFRAME.registerComponent('cursor-listener', {
+    init: function () {
+	var check=true;
+	var sceneEl = document.querySelector('a-scene');
+
+	var panel=this.el.querySelector('#imgT')
+
+      this.el.addEventListener('click', function (evt) {
+	  if(check==true)
+	  {
+	  panel.emit("go");
+
+	  panel.setAttribute('visible',true);
+
+	  if(panel.getAttribute('video')!=null){
+
+	  var video = document.querySelector('#Video').play();
+
+	  }
+
+	  check=false;
+	  }
+	  else
+	  {
+	  if(panel.getAttribute('video')!=null){
+
+	  var video = document.querySelector('#Video').pause();
+
+	  }
+	  panel.emit("nope");
+	  check=true;
+	  }
+        console.log('I was clicked at: ',!check, evt.detail.intersection.point);
+
+      });
+    }
+  });
+  </script>
+
+
+  <script>
+  AFRAME.registerComponent("mylink", {
+    schema: {
+      href:{type: 'string'},
+    },
+  init: function() {
+    this.el.addEventListener("click", (e)=> {
+       window.location = this.data.href;
+    })
+  }
+  })
+  </script>
+
+
+  </head>
+  <body>
+
+
+  <a-scene cursor="rayOrigin: mouse" background="color: #ECECEC" stats>
+
+
+	 <a-assets>
+
+		<a-asset-item id="castletrigger" src="resource/Triggers_Castle.gltf"  >
+
+		<video id="Video" src="resource/Dublin_castle1915.mp4" loop webkit-playsinline playsinline ></video>
+
+		<img id="Image" src="resource/Escape.png">
+
+    <img id="moments" src="resource/img/moments.png">
+    <img id="heritage" src="resource/img/heritage.png">
+
+
+	 </a-assets>
+
+
+
+	<a-camera id="userCamera" position="-4 1.5 -1.5" >
+        <a-cursor id="raycaster"   color="#FAFAFA"  raycaster="objects: [data-clickable]"></a-cursor>
+
+	</a-camera>
+
+
+
+
+  <a-image src="#moments" scale="0.3 0.3 0.3" position="-2.6 -0.3 -3.4" cursor-listener data-clickable look-at="#userCamera">
+    <a-video video="yes" src="#Video" visible="true" id="imgT" scale="0 0 0" position="0 1.75 0" height="1" width="2" material="shader:flat;"
+    animation__open="startEvents:go; property:scale; dur:500; from:1 0 0; to:2 2 2"
+    animation__close="startEvents:nope; property:scale; dur:500; from:2 2 2; to:1 0 0">
+
+    </a-video>
+
+  </a-image>
+
+  <a-image src="#heritage" scale="0.3 0.3 0.3" position="-0.42 0.4 -2.0" cursor-listener data-clickable look-at="#userCamera">
+    <!--<a-image src="#Image" visible="true" id="imgT" scale="0 0 0" position="0 1 0" height="1.125" width="1"
+    animation__open="startEvents:go; property:scale; dur:500; from:0 0 0; to:2 2 2"
+    animation__close="startEvents:nope; property:scale; dur:500; from:2 2 2; to:0 0 0">
+
+  </a-image>-->
+
+  <a-plane src="#Image" visible="true" id="imgT" scale="0 0 0" position="0 2 0"
+  animation__open="startEvents:go; property:scale; dur:500; from:0 0 0; to:3 3 3"
+  animation__close="startEvents:nope; property:scale; dur:500; from:3 3 3; to:0 0 0"></a-plane>
+
+  </a-image>
+
+
+
+  <a-entity potree-loader="
+     src: resource/dub10;
+     pointBudget: 10000000;
+
+     pointSize: 0.05;
+     pointColorType: rgb;
+     minimumNodePixelSize: 1;
+     "
+     position="0 0 0"
+     rotation="-90 0 -145"
+   ></a-entity>
+
+
+
+
+
+
+
+
+
+
+
+      <a-sphere scale="0.15 0.15 0.15" position="-2 -0.5 -2.6" color="red" value="DublinCastle"
+            mylink="href: court.html;"></a-sphere>
+
+
+
+	<!--
+	  <a-entity>
+
+		<a-gltf-model data-clickable src="#castletrigger" scale="0.3 0.3 0.3" rotation="0 -15 0" position="-4 -0.75 -5" material="color:red"
+		animation="property:visible; startEvents:mouseenter; dur:300;  to:false"
+		animation__2="property:visible; startEvents:mouseleave; dur:300;  to:true">
+		</a-gltf-model>
+
+	</a-entity>
+	-->
+
+
+
+
+
+	<!--
+	event-set__up="_event: mouseup; _target: #imgT; visible:true"
+			event-set__down="_event: mouseup; _target: #imgT; visible:false"
+		-->
+
+
+
+	</a-scene>
+  </body>
+</html>

@@ -2,178 +2,152 @@
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Virtual Dublin Castle</title>
+    <title>Virtual Dublin - Architectural Module</title>
     <meta name="description" content="VRCastle WebVR">
     <script src="https://aframe.io/releases/0.9.0/aframe.min.js"></script>
-	
+
 	<!--<script src="https://rawgit.com/donmccurdy/aframe-extras/master/dist/aframe-extras.loaders.min.js"></script>-->
-		
-		 <script src="https://unpkg.com/aframe-event-set-component@4.2.1/dist/aframe-event-set-component.min.js"></script>
-	
+
+	 <script src="https://unpkg.com/aframe-event-set-component@4.2.1/dist/aframe-event-set-component.min.js"></script>
+
 	<script src="https://unpkg.com/aframe-potree-loader-component/dist/aframe-potree-loader-component.min.js"></script>
-	
-	
-  <script>
 
-  AFRAME.registerComponent('collider-check', {
-  dependencies: ['raycaster'],
+  <!-- Look at component-->
+<script src="https://unpkg.com/aframe-look-at-component@0.8.x/dist/aframe-look-at-component.min.js"></script>
 
-  init: function () {
-  
-    this.el.addEventListener('raycaster-intersection', function () {
-      console.log('Player hit something!');
-	  
-    });
-  }
-});
-  </script>
-  
   <script>
    AFRAME.registerComponent('cursor-listener', {
     init: function () {
 	var check=true;
 	var sceneEl = document.querySelector('a-scene');
-	
+
 	var panel=this.el.querySelector('#imgT')
-	
+
       this.el.addEventListener('click', function (evt) {
 	  if(check==true)
 	  {
 	  panel.emit("go");
-	  
+
 	  panel.setAttribute('visible',true);
-	  
+
 	  if(panel.getAttribute('video')!=null){
-	  
+
 	  var video = document.querySelector('#Video').play();
-	  
+
 	  }
-	  
+
 	  check=false;
 	  }
 	  else
 	  {
 	  if(panel.getAttribute('video')!=null){
-	  
+
 	  var video = document.querySelector('#Video').pause();
-	  
+
 	  }
 	  panel.emit("nope");
 	  check=true;
 	  }
         console.log('I was clicked at: ',!check, evt.detail.intersection.point);
-		
-		
-		
+
+
+
       });
     }
   });
   </script>
-  
-  <script>
 
-  AFRAME.registerComponent('raycaster-listen', {
-	init: function () {
-    // Use events to figure out what raycaster is listening so we don't have to
-    // hardcode the raycaster.
-    this.el.addEventListener('raycaster-intersected', evt => {
-      this.raycaster = evt.detail.el;
-    });
-    this.el.addEventListener('raycaster-intersected-cleared', evt => {
-      this.raycaster = null;
-    });
-  },
-
-  tick: function () {
-    if (!this.raycaster) { return; }  // Not intersecting.
-
-    let intersection = this.raycaster.components.raycaster.getIntersection(this.el);
-    if (!intersection) { return; }
-    console.log(intersection.distance);
-  }
-});
-  </script>
 
 
   </head>
   <body>
-  
-  
+
+
   <!--<a-scene cursor="rayOrigin: mouse" background="color: #ECECEC" stats>-->
-  <a-scene background="color: #ECECEC" >
-	
+  <a-scene background="color: #ECECEC" cursor="rayOrigin: mouse" stats >
+
 	 <a-assets>
-     
-		<a-asset-item id="court" src="resource/Courtlow.glb"  >
-		
+
+		<!--<a-asset-item id="court" src="resource/court_136k.glb"  ></a-asset-item>-->
+    <a-asset-item id="court-obj" src="resource/courtObj/Court136.obj"  ></a-asset-item>
+    <a-asset-item id="court-mtl" src="resource/courtObj/Court136.mtl"  ></a-asset-item>
+
 		<video id="Video" src="resource/Dublin_castle1915.mp4" loop webkit-playsinline playsinline ></video>
-		
+
 		<img id="Image" src="resource/Escape.jpg">
-		
-		
-		
+
+    <img id="moments" src="resource/img/moments.png">
+    <img id="heritage" src="resource/img/heritage.png">
+
 	 </a-assets>
-	
-	
-	
-	<a-camera position="-4 1.5 -1.5" >
-        <a-cursor id="raycaster"   color="#FAFAFA"  raycaster="objects: [data-clickable]"></a-cursor>
-		 
+
+
+
+	<a-camera id="userCamera" position="-4 1.5 -1.5" >
+      <!--  <a-cursor id="raycaster"   color="#FAFAFA"  raycaster="objects: [data-clickable]"></a-cursor>-->
+
 	</a-camera>
-	
+<!--
 			<a-sphere cursor-listener data-clickable color="blue" position="5.727 1.595 -5.229" rotation="0 -90 0" radius="0.15" >
-		
-				<a-image src="#Image" visible="false" id="imgT" position="0 0.75 0" height="1.125" width="1"  
-				animation__open="startEvents:go; property:scale; dur:500; from:0 0 0; to:1 1 1" 
+
+				<a-image src="#Image" visible="false" id="imgT" position="0 0.75 0" height="1.125" width="1"
+				animation__open="startEvents:go; property:scale; dur:500; from:0 0 0; to:1 1 1"
 				animation__close="startEvents:nope; property:scale; dur:500; from:1 1 1; to:0 0 0">
-			
+
 				</a-image>
-		
+
 			</a-sphere>
-		
-		
+    -->
+
+		<!--
 			<a-sphere cursor-listener data-clickable color="blue" position="-0.930 1.595 -10.49" radius="0.15" >
-		
-				<a-video video="yes" src="#Video" visible="false" id="imgT" position="0 0.75 0" height="1" width="2" material="shader:flat;"  
-				animation__open="startEvents:go; property:scale; dur:500; from:1 0 0; to:1 1 1" 
+
+				<a-video video="yes" src="#Video" visible="false" id="imgT" position="0 0.75 0" height="1" width="2" material="shader:flat;"
+				animation__open="startEvents:go; property:scale; dur:500; from:1 0 0; to:1 1 1"
 				animation__close="startEvents:nope; property:scale; dur:500; from:1 1 1; to:1 0 0">
-			
+
 				</a-video>
-		
+
 			</a-sphere>
-		
-		
-	
-	
+    -->
+    <a-image src="#heritage" scale="0.3 0.3 0.3" position="5.727 1.595 -5.229" cursor-listener data-clickable look-at="#userCamera">
+      <a-image src="#Image" visible="true" id="imgT" scale="0 0 0" position="0 2 0" height="1.125" width="1"
+      animation__open="startEvents:go; property:scale; dur:500; from:0 0 0; to:2 2 2"
+      animation__close="startEvents:nope; property:scale; dur:500; from:2 2 2; to:0 0 0">
+
+    </a-image>
+  <!--
+    <a-plane src="#Image" visible="true" id="imgT" scale="0 0 0" position="0 2 0"
+    animation__open="startEvents:go; property:scale; dur:500; from:0 0 0; to:3 3 3"
+    animation__close="startEvents:nope; property:scale; dur:500; from:3 3 3; to:0 0 0"></a-plane>
+  -->
+    </a-image>
+
+
+
+      <a-image src="#moments" scale="0.3 0.3 0.3" position="-0.930 1.595 -10.49" cursor-listener data-clickable look-at="#userCamera">
+        <a-video video="yes" src="#Video" visible="true" id="imgT" scale="0 0 0" position="0 2 0" height="1" width="2" material="shader:flat;"
+        animation__open="startEvents:go; property:scale; dur:500; from:1 0 0; to:2 2 2"
+        animation__close="startEvents:nope; property:scale; dur:500; from:2 2 2; to:1 0 0">
+
+        </a-video>
+
+<a-entity id="text" position="0 0.7 0" rotation="0 0 0" look-at="#userCamera" text="color:green; align:center; side:double; value:With a clatter of hooves...; width:9"></a-entity>
+      </a-image>
+
+
+<a-obj-model src="#court-obj" mtl="#court-mtl"scale="0.3 0.3 0.3"
+ rotation="-97.650 -2.550 -22.320"
+ position="-0.65 -19.8 -3.885"></a-obj-model>
+
+<!--
 	<a-entity>
-	<a-gltf-model src="#court" scale="0.3 0.3 0.3" rotation="-97.650 -2.550 -22.320" position="-0.65 -19.8 -3.885">
+	   <a-gltf-model src="#court" scale="0.3 0.3 0.3"
+      rotation="-97.650 -2.550 -22.320"
+      position="-0.65 -19.8 -3.885">
 		</a-gltf-model>
 </a-entity>
-	
-
-
-	<!--
-	  <a-entity>
-
-		<a-gltf-model data-clickable src="#castletrigger" scale="0.3 0.3 0.3" rotation="0 -15 0" position="-4 -0.75 -5" material="color:red" 
-		animation="property:visible; startEvents:mouseenter; dur:300;  to:false"
-		animation__2="property:visible; startEvents:mouseleave; dur:300;  to:true">
-		</a-gltf-model>
-
-	</a-entity>
-	-->	
-	
-	
-		
-		
-		
-	<!--
-	event-set__up="_event: mouseup; _target: #imgT; visible:true"
-			event-set__down="_event: mouseup; _target: #imgT; visible:false"
-		-->
-		
-	
-	
+-->
 	</a-scene>
   </body>
 </html>
