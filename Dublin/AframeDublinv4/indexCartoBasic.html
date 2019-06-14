@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Map - Display a map</title>
+
+  <link rel="stylesheet" href="jsb/vizicities.css">
+
+<script src="https://aframe.io/releases/0.9.0/aframe.min.js"></script>
+<script src="jsb/three.min.js"></script>
+<script src="jsb/vizicities.js"></script>
+
+
+
+
+  <script>
+  AFRAME.registerComponent('mappy', {
+   init: function () {
+     var coords = [40.739940, -73.988801];
+
+     var world = VIZI.world('vizicities').setView(coords);
+
+     VIZI.imageTileLayer('http://{s}.basemaps.cartocdn.com/light_nolabels/{z}/{x}/{y}.png', {
+       attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, &copy; <a href="http://cartodb.com/attributions">CartoDB</a>'
+     }).addTo(world);
+
+}});
+  </script>
+  <body>
+  <a-scene >
+
+      <a-box color="red"></a-box>
+
+      <a-entity id="vizicities" mappy></a-entity>
+
+    </a-scene>
+
+
+
+  </body>
+</html>
+
+<!--
+<!DOCTYPE html>
+<html>
+<head>
+  <title>OSM Buildings</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    #map {
+      width: 100%;
+      height: 100%;
+    }
+
+
+  </style>
+  <link rel="stylesheet" href="jsb/OSMBuildings.css">
+  <script src="jsb/OSMBuildings.js"></script>
+    <script src="https://aframe.io/releases/0.9.0/aframe.min.js"></script>
+
+
+</head>
+
+<body>
+  <a-scene>
+  <a-box color="red"></a-box>
+  <a-entity id="map" mappy></a-entity>
+</a-scene>
+
+
+
+<script>
+AFRAME.registerComponent('mappy', {
+ init: function () {
+  const osmb = new OSMBuildings({
+    container: 'map',
+    zoom: 16,
+    minZoom: 16,
+    maxZoom: 19,
+    position: { latitude: 52.52000, longitude: 13.41000 },
+    state: true, // stores map position/rotation in url
+    attribution: '© 3D <a href="https://osmbuildings.org/copyright/">OSM Buildings</a>'
+  });
+
+  osmb.addMapTiles(
+    'https://{s}.tiles.mapbox.com/v3/osmbuildings.kbpalbpk/{z}/{x}/{y}.png',
+    {
+      attribution: '© Data <a href="https://openstreetmap.org/copyright/">OpenStreetMap</a> · © Map <a href="https://mapbox.com/">Mapbox</a>'
+    }
+  );
+}});
+//  osmb.addGeoJSONTiles('https://{s}.data.osmbuildings.org/0.2/anonymous/tile/{z}/{x}/{y}.json');
+
+
+</script>
+</body>
+</html>
+-->

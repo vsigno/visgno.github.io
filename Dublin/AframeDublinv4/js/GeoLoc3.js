@@ -22,6 +22,10 @@ AFRAME.registerComponent('dataarch', {
     APPRAISAL:{type:'string'},
   }
 
+//API JDBKE 9875aca4c8cf09d55eeae2176d2f1c07c292e642
+
+
+
 });
 
 AFRAME.registerComponent('infoName', {
@@ -63,13 +67,16 @@ AFRAME.registerComponent('parsedlocation', {
 		$.getJSON("resource/MonumentPoint3857.json", function(json_loc) {
       //console.log(json_loc.features.length);
 
-			//Centre model DublinCentre_WM_3857.gltf
+
+
+
+      //Centre model DublinCentre_WM_3857.gltf
 			//var lonWGS84cen = -6.266050;
 			//var latWGS84cen = 53.342101;
 
       //Centre model DublinLargArea.glb
       var lonWGS84cen = -6.267287;
-			var latWGS84cen = 53.343071;
+      var latWGS84cen = 53.343071;
 
 		var sourcePrj = new proj4.defs('EPSG:4326');    //source coordinates will be in Longitude/Latitude 4326
 		var destPrj = new proj4.defs('EPSG:3857');     //destination coordinates in WebMercator 3857
