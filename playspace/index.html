@@ -4,33 +4,81 @@
     <title>Play Space AR - Playing the Archive</title>
     <meta name="description" content="Play Space AR - Playing the Archive">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3pro.css">
-
 	 <style>
+
+   html
+   {
+     overflow-x:hidden;
+   }
+   body
+	 {
+     background-image: url("resources/img/bkgrd.jpg");
+ 	   background-color: #cccccc;
+     background-size: cover;
+     margin:0;
+     font-family:Verdana,sans-serif;
+     line-height:1.5;
+	 }
+
+#poem{
+  text-align: center;
+  font-weight: bold;
+  font-size: 4.3vw;
+
+  font-family:"Segoe UI",Arial,sans-serif;
+  margin:10px 0 0 5px
+  background: rgb(255, 255, 255); /* Fallback for older browsers without RGBA-support */
+  background: rgba(255, 255, 255, 0.5);
+}
+
+#howTo{
+  font-size: 5vw;
+line-height: 1;
+  font-family:"Segoe UI",Arial,sans-serif;
+}
+ul.a {
+  list-style-type: square;
+  background: rgb(255, 255, 255); /* Fallback for older browsers without RGBA-support */
+  background: rgba(255, 255, 255, 0.5);
+  font-weight:100px;
+
+}
+
+#list
+{
+
+  height:50%;
+  font-size: 4vw;
+  font-family:"Segoe UI",Arial,sans-serif;
+}
+
 	#playspace
 	{
-		background-color:#cf0000;
-		height:100px;
-
+		background-color: #f57921;
+		height:25%;
+    text-align: center;
+    font-size: 9vw;
 		}
 
-	 body
-	 {
-	 	 background-color: #cccccc;
-	 }
 	.wrapper
 	{
     text-align: center;
+    position: fixed;
+   bottom: 0;
+   width: 100%;
 	}
 
 .button {
-  background-color: #4CAF50;
+  background-color: #0baf4e;
   border: none;
   bottom:0px;
-  color: white;
-  padding: 55px 65px;
+  color: #1BBC9B;
+
+  width: 100%;
+  height: 25%;
+
   text-align: center;
-  font-size: 26px;
+  font-size: 10vw;
   cursor: pointer;
   position:centre;
   left:0px;
@@ -50,24 +98,39 @@
 
 <div id="page">
 
-	<div id="playspace">PLAYSPACE</div>
+	<div id="playspace">A SENSE OF PLAY</div>
 
 	<div id="list">
-	<h4>Sense of Play</h4>
-										<ul>
-											<li>Press enter to start the AR experience</li>
-											<li>We need to have access to your Camera</li>
-											<li>no data are send or store by us</li>
-											<li>media content are optimized but mobile data usage. Switch to WiFI for better experience</li>
-											<li>Do you want to know more about the project? <a href="https://playingthearchive.net" target="_blank" >
-<img border="0" src="resources/logoPtA.png" width="50" height="50">
-</a></li>
+    <h4 id="poem">Here's a whizzer game to play <br>
+      That was a hit back in the day<br>
+      The Opie's found it long ago<br>
+      With help from children in the know<br>
+      Who shared the rules of games they knew,<br>
+      And now we're sharing them with you<br>
+      Use the code and you will meet<br>
+      A child who once lived on your street<br>
+      Who loved to play this in the past<br>
+      With help from them you'll learn it fast
+      </h4>
+      <h4 id="howTo">How it works</h4>
+										<ul class="a">
+                      <li>Connect to WiFi network if available for a better experience and reduce data usage</li>
+                      <li>Allow access to your camera when asked</li>
+                      <li>on iOS you'll need to tap Play to animate the character</li>
+                      <li>We do not collect any personal information about you during the WebAR experience</li>
+											<li>Visit <a href="https://playingthearchive.net" target="_blank" >PlayingTheArchive</a> to know more about the project
+                        </li>
 										</ul>
-	</div>
+
+<input type="checkbox"
+    onchange="document.getElementById('chooseDev').disabled = !this.checked; this.disabled=true; document.getElementById('chooseDev').style.color='white'; "/> I'm fine with that! 
+  </div>
+
+
 
 <div id="wrapperid" class="wrapper">
 
-		<button id="chooseDev" class="button" type="button">
+		<button id="chooseDev" class="button" type="button" disabled>
 			ENTER
 		</button>
 	 </div>
@@ -96,7 +159,7 @@ button.addEventListener('click',go);
 			if (device==='iPad'||device==='iPhone'||device==='iPod'===true)
 				{
 					console.log("I am an Apple");
-					window.location='iosJune.html';
+					window.location='iosJuneBt.html';
 				}
 			else
 				{

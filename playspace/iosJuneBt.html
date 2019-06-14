@@ -9,25 +9,40 @@
     text-align: center;
 	}
 
-.button {
-  background-color: #4CAF50;
-  border: none;
-  bottom:0px;
-  color: white;
-  padding: 55px 65px;
-  text-align: center;
-  font-size: 26px;
+
+  .button {
+  border: 0;
+  background:transparent;
+  box-sizing: border-box;
+  width: 0;
+  height: 75px;
+  border-color: transparent transparent transparent #202020;
+  transition: 100ms all ease;
   cursor: pointer;
+  border-style: solid;
+  border-width: 37px 0 37px 60px;
+  bottom:50px;
   position:absolute;
-  left:0px;
+  bottom:0px;
+  text-align: center;
+
+  left:50%;
+
+
 
 }
 
+.button.paused {
+  border-style: double;
+  border-width: 0px 0 0px 60px;
+}
 .button:hover {
-  background-color: green;
+  border-color: transparent transparent transparent #404040;
 }
-</style>
 
+
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
 	<!--needed for Edge-->
 	<script src="https://cdn.jsdelivr.net/npm/fast-text-encoding@1.0.0/text.min.js"></script>
@@ -75,9 +90,7 @@
 
 		<div id="wrapperid" class="wrapper">
 
-		<button id="entervr" class="button" type="button">
-			Play
-		</button>
+	    <button id="entervr" class="button" type="button">	</button>
 	 </div>
 
 
@@ -94,11 +107,20 @@
 	 //videoChroma.pause();
     //videoMocap.pause();
 		//	console.log ("video pause due to autoplay declaration");
-
+    $(document).ready(function() {
+      var btn = $(".button");
+      btn.click(function() {
+        btn.toggleClass("paused");
+        return false;
+      });
+    });
 
 //if iOS true
 document.addEventListener("DOMContentLoaded", function(event)
 {
+
+
+
 
 var button=document.querySelector('#entervr')
 
