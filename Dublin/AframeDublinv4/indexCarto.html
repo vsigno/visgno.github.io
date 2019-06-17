@@ -25,6 +25,9 @@
 	     <script src="js/GeoLoc3.js"></script>
        <!--Main system script-->
 
+	     <script src="jsb/map-controls.js"></script>
+       <script src="https://unpkg.com/aframe-mapbox-component/dist/aframe-mapbox-component.min.js"></script>
+
       <!--ThreeJs GUI-->
        <script type='text/javascript' src='js/dat.gui.min.js'></script>
 
@@ -229,6 +232,13 @@ AFRAME.registerComponent('guithree',{
 
     var thearchchild=arch.children;
 
+    var satMapbox=
+    {
+    value:true,
+    //map: 'mapbox://styles/mapbox/light-v9'
+    //satellite: 'mapbox://styles/mapbox/satellite-streets-v9'
+    }
+
 
     var years=
     {
@@ -242,6 +252,7 @@ AFRAME.registerComponent('guithree',{
     gui.add(monuments, 'visible').name('Monuments');
     gui.add(architectures, 'visible').name('Architectures');
     gui.add(historicalmap, 'visible').name('Historical Map');
+    gui.add(satMapbox,'value',true).name('Satellite').onChange(satmap);
     gui.add(dublinModel, 'visible').name('Dublin Model');
 
     gui.add(opacity, 'opac',0,1).name('Opacity').onChange(modelOpacity);
@@ -258,6 +269,19 @@ AFRAME.registerComponent('guithree',{
           });
           }
 */
+function satmap()
+{
+
+
+  var mapEl = document.querySelector('[mapbox]');
+  console.log(mapEl.getAttribute('material').src);
+  mapEl.setAttribute('mapbox',{center:'-0.106142,51.514519'});
+console.log(mapEl.getAttribute('mapbox','centre'));
+
+console.log(mapEl.getAttribute('material').src);
+var newMap=mapEl.getAttribute('material').src;
+mapEl.setAttribute('material',{src:newMap});
+}
     function modelOpacity(value)
     {
       if(checkMat==false)
@@ -353,6 +377,25 @@ AFRAME.registerComponent('guithree',{
 		</a-gltf-model>
 </a-entity>
 -->
+<a-entity>
+<a-mapbox
+
+position="0 0 0"
+rotation="-90 0 0"
+scale="60 60 60"
+mapbox=
+"
+center: -6.267287,53.343071;
+zoom:17;
+accessToken:pk.eyJ1IjoidnNpZ25vIiwiYSI6ImNpeXhoc3o0aTAwMTIyd3FwdjlycmtoOW0ifQ.K4OJGOvagarG5QyqBTErrw;
+style:mapbox://styles/mapbox/navigation-preview-day-v2;
+
+"
+
+
+width="20.48"
+height="20.48" buildextrud></a-mapbox> </a-entity>
+
 
 <a-entity>
 	<a-gltf-model id="dublinModel" src="#dublinCen" scale="1 1 1" rotation="0 0 0" position="0 0 0">
@@ -367,19 +410,19 @@ AFRAME.registerComponent('guithree',{
 <!--<a-sphere id="ref" color="red" position="0 0 0" radius="1" > </a-sphere>-->
 
 
-<a-entity id="NIAH" parsedlocation  ></a-entity>
+<a-entity id="NIAH"   ></a-entity>
 <a-entity id="NIARCH" ></a-entity>
 
-
+<!--
 <a-entity
        id="map"
        position="-0.285 0.035 2.265"
        scale="1.2 1.2 1.2"
        rotation="-90 0 0"
-       geometry="primitive: plane; width: 2048; height: 2048;"
+       geometry="primitive: plane; width: 128; height: 128;"
 
        material="shader: flat;"
-
+       map-controls
        tangram-map="
        apiKey: UJcQwnnfQnWcPtKe2aYaEw;
        center: -6.267287,53.343071;
@@ -388,6 +431,7 @@ AFRAME.registerComponent('guithree',{
        style: #zip-style; "
        >
 </a-entity>
+-->
 
 <!--Initialise the Gui at the end-->
 <a-entity guithree ></a-entity>

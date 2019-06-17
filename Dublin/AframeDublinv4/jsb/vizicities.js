@@ -2797,7 +2797,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	// though there is a helper reference in Engine.scene
 
 	exports['default'] = (function () {
-	  var scene = new _three2['default'].Scene();
+	  //var scene = new _three2['default'].Scene();
+		if(document.querySelector('a-scene')!=null){
+		var scene=document.querySelector('a-scene').object3D;}
 	  return scene;
 	})();
 
@@ -2821,7 +2823,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	// though there is a helper reference in Engine.scene
 
 	exports['default'] = (function () {
-	  var scene = new _three2['default'].Scene();
+	  //var scene = new _three2['default'].Scene();
+		if(document.querySelector('a-scene')!=null){
+		var scene=document.querySelector('a-scene').object3D;}
 	  return scene;
 	})();
 
@@ -3651,7 +3655,9 @@ return /******/ (function(modules) { // webpackBootstrap
 	// though there is a helper reference in Engine.pickingScene
 
 	exports['default'] = (function () {
-	  var scene = new _three2['default'].Scene();
+	  //var scene = new _three2['default'].Scene();
+		if(document.querySelector('a-scene')!=null){
+		var scene=document.querySelector('a-scene').object3D;}
 	  return scene;
 	})();
 
@@ -3949,7 +3955,9 @@ return /******/ (function(modules) { // webpackBootstrap
 		this.clear = false;
 
 		this.camera = new _three2["default"].OrthographicCamera(-1, 1, 1, -1, 0, 1);
-		this.scene = new _three2["default"].Scene();
+		//this.scene = new _three2["default"].Scene();
+		if(document.querySelector('a-scene')!=null){
+		this.scene=document.querySelector('a-scene').object3D;}
 
 		this.quad = new _three2["default"].Mesh(new _three2["default"].PlaneBufferGeometry(2, 2), null);
 		this.scene.add(this.quad);
@@ -4821,7 +4829,10 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	      // Add Sky Mesh
 	      this._sky = new _Sky2['default']();
-	      this._skyScene = new _three2['default'].Scene();
+	      //this._skyScene = new _three2['default'].Scene();
+				if(document.querySelector('a-scene')!=null){
+				this._skyScene=document.querySelector('a-scene').object3D;}
+
 	      this._skyScene.add(this._sky.mesh);
 
 	      // Add Sun Helper

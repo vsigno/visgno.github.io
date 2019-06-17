@@ -103,9 +103,9 @@
 
 
   <a-image src="#moments" scale="0.3 0.3 0.3" position="-2.6 -0.3 -3.4" cursor-listener data-clickable look-at="#userCamera">
-    <a-video video="yes" src="#Video" visible="true" id="imgT" scale="0 0 0" position="0 1.75 0" height="1" width="2" material="shader:flat;"
-    animation__open="startEvents:go; property:scale; dur:500; from:1 0 0; to:2 2 2"
-    animation__close="startEvents:nope; property:scale; dur:500; from:2 2 2; to:1 0 0">
+    <a-video video="yes" src="#Video" visible="true" id="imgT" scale="0 0 0" position="0 1.75 0"  material="shader:flat;"
+    animation__open="startEvents:go; property:scale; dur:500; from:1 0 0; to:4 2 2"
+    animation__close="startEvents:nope; property:scale; dur:500; from:4 2 2; to:1 0 0">
 
     </a-video>
 
@@ -119,11 +119,12 @@
   </a-image>-->
 
   <a-plane src="#Image" visible="true" id="imgT" scale="0 0 0" position="0 2 0"
-  animation__open="startEvents:go; property:scale; dur:500; from:0 0 0; to:3 3 3"
-  animation__close="startEvents:nope; property:scale; dur:500; from:3 3 3; to:0 0 0"></a-plane>
+  animation__open="startEvents:go; property:scale; dur:500; from:0 0 0; to:3 3 5"
+  animation__close="startEvents:nope; property:scale; dur:500; from:3 3 5; to:0 0 0"></a-plane>
 
   </a-image>
-
+  <a-sphere scale="0.15 0.15 0.15" position="-2 -0.5 -2.6" color="red" value="DublinCastle"
+        mylink="href: court.html;"></a-sphere>
 
 
   <a-entity potree-loader="
@@ -148,8 +149,7 @@
 
 
 
-      <a-sphere scale="0.15 0.15 0.15" position="-2 -0.5 -2.6" color="red" value="DublinCastle"
-            mylink="href: court.html;"></a-sphere>
+
 
 
 
