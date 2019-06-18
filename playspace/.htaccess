@@ -1,0 +1,5 @@
+CheckSpelling Off
+AddType x-httpd-php56 .php
+RewriteEngine On
+RewriteCond %{HTTPS} !=on
+RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301,NE]
