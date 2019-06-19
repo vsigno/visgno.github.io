@@ -88,12 +88,13 @@
 
            var textEl = document.createElement('a-entity');
          			textEl.setAttribute('id','text');
+
          			textEl.setAttribute('position',{x: 0, y: -50, z: 0});
          			textEl.setAttribute('rotation',{x:180, y: 0, z: 0});
               textEl.setAttribute('look-at','#userCamera');
 
 
-         			textEl.setAttribute('text',{color: 'red', align: 'center', side:'double', value:this.getAttribute('datamon').CLASSDESC, width: '1000'});
+         			textEl.setAttribute('text',{color: 'red', align: 'center', side:'double', value:this.getAttribute('datamon').CLASSDESC, height:'500', width: '500'});
 
               console.log(sceneEl.querySelector('#userCamera').object3D.position);
          			this.appendChild(textEl);
@@ -132,12 +133,15 @@
 
            var textEl = document.createElement('a-entity');
          			textEl.setAttribute('id','text');
-         			textEl.setAttribute('position',{x: 0, y: -50, z: 0});
+              //textEl.setAttribute('geometry',{primitive: 'plane', width: 300, height:200});
+              //textEl.setAttribute('material',{color:'white'});
+              textEl.setAttribute('position',{x: 0, y: -200, z: 0});
          			textEl.setAttribute('rotation',{x:180, y: 0, z: 0});
+
               textEl.setAttribute('look-at','#userCamera');
 
 
-         			textEl.setAttribute('text',{color: 'red', align: 'center', side:'double', value:this.getAttribute('dataarch').APPRAISAL, width: '1000'});
+         			textEl.setAttribute('text',{color: 'red', align: 'center', side:'double', value:this.getAttribute('dataarch').APPRAISAL, width: '300'});
 
               console.log(sceneEl.querySelector('#userCamera').object3D.position);
          			this.appendChild(textEl);
@@ -339,7 +343,7 @@ AFRAME.registerComponent('guithree',{
 
 
 
-	<a-camera id="userCamera" wasd-controls="acceleration: 1000" position="-4 280 -1.5" >
+	<a-camera id="userCamera" wasd-controls="acceleration: 3500" position="-4 280 -1.5" >
       <!--  <a-cursor id="raycaster"   color="#FAFAFA"  raycaster="objects: [data-clickable]"></a-cursor>-->
 
 	</a-camera>
@@ -355,7 +359,7 @@ AFRAME.registerComponent('guithree',{
 -->
 
 <a-entity>
-	<a-gltf-model id="dublinModel" src="#dublinCen" scale="1 1 1" rotation="0 0 0" position="0 0 0">
+	<a-gltf-model id="dublinModel" src="#dublinCen" scale="1 1 1" rotation="0 0 0" position="0 3 0">
 		</a-gltf-model>
 </a-entity>
 

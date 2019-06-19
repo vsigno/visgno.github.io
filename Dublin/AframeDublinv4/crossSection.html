@@ -223,7 +223,8 @@ function clippingPlanes(value)
   var sceneEl=document.querySelector('a-scene');
   var el=sceneEl.querySelector('#bldgCut');
   var magicplane=sceneEl.querySelector('#magicplane');
-  var localPlane=new THREE.Plane(new THREE.Vector3(0, -1, 0),value);
+  var localPlane=new THREE.Plane(new THREE.Vector3(-1, 0, 0),value);
+var localplaneArray=[new THREE.Plane(new THREE.Vector3(-1, 0, 0),value), new THREE.Plane(new THREE.Vector3(1, 0, 0),value)]
 
   //Geometry
   var material= new THREE.MeshLambertMaterial({
@@ -249,8 +250,8 @@ function clippingPlanes(value)
                       //node.material = material;
 
                       //just the clip plane, in the case the texture is there
-                      node.material.clippingPlanes = [localPlane];
-                    //  node.material.clippingPlanes = [localPlane];
+                      //node.material.clippingPlanes = [localPlane];
+                    node.material.clippingPlanes = localplaneArray;
                       //console.log("DONE Material");
                       node.material.transparent=true;
                     }

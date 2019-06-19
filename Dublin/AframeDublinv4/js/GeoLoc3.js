@@ -219,7 +219,7 @@ entityEl.setAttribute('position', {x: 0, y: -1, z: 0});
 entityEl.appendChild(mon);
 
 if(json_loc.features[i].IMAGE_LINK!=null){
-/* fix this--
+/* fix this-- Imgae http
   var img = document.createElement('img');
 
   img.crossOrigin = 'anonymous'; // no credentials flag. Same as img.crossOrigin='anonymous'
