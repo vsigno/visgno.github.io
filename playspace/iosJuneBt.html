@@ -110,7 +110,7 @@
     $(document).ready(function() {
       var btn = $(".button");
       btn.click(function() {
-        btn.toggleClass("paused");
+      //  btn.toggleClass("paused");
         return false;
       });
     });
@@ -142,15 +142,13 @@ if(p==='iPad'||p==='iPhone'||p==='iPod'){
 iOS=true;//
 checktap=false;
 button.style.visibility='visible';
-//button.style.visibility='hidden';
 
 var wrapperDiv=document.querySelector('#wrapperid');
 }
 
-if(iOS===false){//
+if(iOS===false){
 checktap=true;
 button.style.visibility='hidden';
-//button.style.visibility='visible';
 }
 
 });
@@ -158,29 +156,13 @@ button.style.visibility='hidden';
 var go=function(){
 console.log("Toggle the video");
 if(!video){return;}
-video.paused ? video.play() : video.pause();
+video.paused ? video.play() : video.play();
+
 //var videos1=document.querySelector('#markerepsilon');
 //var videos2=document.querySelector('#markerswords');
 //console.log(videos1.getAttribute('visible'));
 
-/*
-	if (!videoChroma ) { return; }
-		if(videos1.getAttribute('visible')==true){
-		videoChroma.paused ? videoChroma.play() : videoChroma.pause();
-		videoChroma.paused ? document.getElementById("entervr").innerHTML="Pause":document.getElementById("entervr").innerHTML="Play";
-		videoChroma.muted=false;}
-
-
-	if (!videoMocap) { return; }
-	if(videos2.getAttribute('visible')==true){
-		videoMocap.paused ? videoMocap.play() : videoMocap.pause();
-		videoChroma.paused ? document.getElementById("entervr").innerHTML="Pause":document.getElementById("entervr").innerHTML="Play";
-		videoMocap.muted=false;}
-*/
-
 }
-//the button
-
 </script>
 
 

@@ -43,6 +43,7 @@ AFRAME.registerComponent('markers_start',{
 			sceneEl.appendChild(markerEl);
 
 			//Adding a dummy text
+					/*
 			var textEl = document.createElement('a-entity');
 			textEl.setAttribute('id','text');
 			textEl.setAttribute('position',{x: 0, y: 0.7, z: 0});
@@ -51,7 +52,7 @@ AFRAME.registerComponent('markers_start',{
 			textEl.setAttribute('text',{color: 'red', align: 'center', value:markersNameArray[k], width: '5.5'});
 
 			markerEl.appendChild(textEl);
-
+					*/
 			//Adding a dummy videos
 
 			var videoEl=document.createElement('video');
@@ -70,7 +71,18 @@ AFRAME.registerComponent('markers_start',{
 			videoEntity.setAttribute('id','video'+(k+1));
 			videoEntity.setAttribute('class','video');
 			videoEntity.setAttribute('position',{x: 0, y: 0.583, z: 0});
-			videoEntity.setAttribute('rotation',{x:0, y: 0, z: 0});
+			if(k>11)
+			{
+			videoEntity.setAttribute('rotation',{x:-90, y: 0, z: 0});
+			}
+			else
+			{
+				videoEntity.setAttribute('rotation',{x:0, y: 0, z: 0});
+			}
+			videoEntity.setAttribute('scale',{x:2.31, y: 1.5, z: 1});
+
+
+
 			videoEntity.setAttribute('material',{shader:'chromakey',src:'#Video_Marker_'+(k+1),color:'0 1 0'});
 //			console.log(videoEntity);
 			markerEl.appendChild(videoEntity);

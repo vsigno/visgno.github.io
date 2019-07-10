@@ -9,12 +9,11 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
     <!--AFrame framework 0.9.0-->
-      <script src="https://aframe.io/releases/0.9.0/aframe.min.js"></script>
-
+      <!--<script src="https://aframe.io/releases/0.9.0/aframe.min.js"></script>-->
+      <script src='js/aframe.min.js'></script>
 
       <!--Event system Aframe-->
       <script src="https://unpkg.com/aframe-event-set-component@4.2.1/dist/aframe-event-set-component.min.js"></script>
-
 
       <!--ThreeJs GUI-->
        <script type='text/javascript' src='js/dat.gui.min.js'></script>
@@ -223,8 +222,10 @@ function clippingPlanes(value)
   var sceneEl=document.querySelector('a-scene');
   var el=sceneEl.querySelector('#bldgCut');
   var magicplane=sceneEl.querySelector('#magicplane');
-  var localPlane=new THREE.Plane(new THREE.Vector3(-1, 0, 0),value);
-var localplaneArray=[new THREE.Plane(new THREE.Vector3(-1, 0, 0),value), new THREE.Plane(new THREE.Vector3(1, 0, 0),value)]
+  //var localPlane=new THREE.Plane(new THREE.Vector3(-1, 0, 0),value);
+  var localPlane=new THREE.Plane(new THREE.Vector3(0, -1, 0),value);
+var localplaneArray=[localPlane];
+  //var localplaneArray=[new THREE.Plane(new THREE.Vector3(-1, 0, 0),value), new THREE.Plane(new THREE.Vector3(1, 0, 0),value)]
 
   //Geometry
   var material= new THREE.MeshLambertMaterial({
