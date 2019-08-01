@@ -1,0 +1,37 @@
+{
+  "request_time": "2016-08-11 15:29:36 +0100",
+  "line": "waterloo-city",
+  "line_name": "Waterloo & City",
+  "stations": [
+    {
+      "station_code": "BNK",
+      "atcocode": "940GZZLUBNK",
+      "name": "Bank",
+      "mode": "tube",
+      "longitude": -0.08851,
+      "latitude": 51.51324,
+      "lines": [
+        "northern",
+        "central",
+        "waterlooandcity"
+      ]
+    },
+    {
+      "station_code": "WLO",
+      "atcocode": "940GZZLUWLO",
+      "name": "Waterloo",
+      "mode": "tube",
+      "longitude": -0.11478,
+      "latitude": 51.5033,
+      "lines": [
+        "northern",
+        "waterlooandcity",
+        "bakerloo",
+        "jubilee"
+      ]
+    }
+  ],
+  "line_status": "Good Service",
+  "line_status_descripion": "Good Service",
+  "status_updated": "2016-08-11 15:26:41 +0100"
+}

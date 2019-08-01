@@ -1,0 +1,376 @@
+{
+  "request_time": "2016-08-11 15:21:50 +0100",
+  "line": "hammersmith-city",
+  "line_name": "Hammersmith & City",
+  "stations": [
+    {
+      "station_code": "ALE",
+      "atcocode": "940GZZLUADE",
+      "name": "Aldgate East",
+      "mode": "tube",
+      "longitude": -0.07238,
+      "latitude": 51.51504,
+      "lines": [
+        "district",
+        "hammersmith"
+      ]
+    },
+    {
+      "station_code": "BST",
+      "atcocode": "940GZZLUBST",
+      "name": "Baker Street",
+      "mode": "tube",
+      "longitude": -0.15653,
+      "latitude": 51.52273,
+      "lines": [
+        "metropolitan",
+        "jubilee",
+        "circle",
+        "hammersmith",
+        "bakerloo"
+      ]
+    },
+    {
+      "station_code": "BAR",
+      "atcocode": "940GZZLUBBN",
+      "name": "Barbican",
+      "mode": "tube",
+      "longitude": -0.09724,
+      "latitude": 51.52031,
+      "lines": [
+        "circle",
+        "hammersmith",
+        "metropolitan"
+      ]
+    },
+    {
+      "station_code": "BKG",
+      "atcocode": "940GZZLUBKG",
+      "name": "Barking",
+      "mode": "tube",
+      "longitude": 0.08106,
+      "latitude": 51.53933,
+      "lines": [
+        "district",
+        "hammersmith"
+      ]
+    },
+    {
+      "station_code": "BWR",
+      "atcocode": "940GZZLUBWR",
+      "name": "Bow Road",
+      "mode": "tube",
+      "longitude": -0.0252,
+      "latitude": 51.52673,
+      "lines": [
+        "district",
+        "hammersmith"
+      ]
+    },
+    {
+      "station_code": "BBB",
+      "atcocode": "940GZZLUBBB",
+      "name": "Bromley-by-Bow",
+      "mode": "tube",
+      "longitude": -0.01153,
+      "latitude": 51.52484,
+      "lines": [
+        "district",
+        "hammersmith"
+      ]
+    },
+    {
+      "station_code": "EHM",
+      "atcocode": "940GZZLUEHM",
+      "name": "East Ham",
+      "mode": "tube",
+      "longitude": 0.0512,
+      "latitude": 51.53895,
+      "lines": [
+        "district",
+        "hammersmith"
+      ]
+    },
+    {
+      "station_code": "ERD",
+      "atcocode": "940GZZLUERC",
+      "name": "Edgware Road (Cir)",
+      "mode": "tube",
+      "longitude": -0.16783,
+      "latitude": 51.51986,
+      "lines": [
+        "circle",
+        "district",
+        "hammersmith"
+      ]
+    },
+    {
+      "station_code": "ESQ",
+      "atcocode": "940GZZLUESQ",
+      "name": "Euston Square",
+      "mode": "tube",
+      "longitude": -0.13582,
+      "latitude": 51.52561,
+      "lines": [
+        "circle",
+        "hammersmith",
+        "metropolitan"
+      ]
+    },
+    {
+      "station_code": "FAR",
+      "atcocode": "940GZZLUFCN",
+      "name": "Farringdon",
+      "mode": "tube",
+      "longitude": -0.10516,
+      "latitude": 51.52043,
+      "lines": [
+        "circle",
+        "hammersmith",
+        "metropolitan"
+      ]
+    },
+    {
+      "station_code": "GHK",
+      "atcocode": "940GZZLUGHK",
+      "name": "Goldhawk Road",
+      "mode": "tube",
+      "longitude": -0.2266,
+      "latitude": 51.50195,
+      "lines": [
+        "circle",
+        "hammersmith"
+      ]
+    },
+    {
+      "station_code": "GPS",
+      "atcocode": "940GZZLUGPS",
+      "name": "Great Portland Street",
+      "mode": "tube",
+      "longitude": -0.14426,
+      "latitude": 51.52384,
+      "lines": [
+        "circle",
+        "hammersmith",
+        "metropolitan"
+      ]
+    },
+    {
+      "station_code": "HMS",
+      "atcocode": "940GZZLUHSC",
+      "name": "Hammersmith (Circle and H)",
+      "mode": "tube",
+      "longitude": -0.22501,
+      "latitude": 51.49354,
+      "lines": [
+        "circle",
+        "hammersmith"
+      ]
+    },
+    {
+      "station_code": "KXX",
+      "atcocode": "940GZZLUKSX",
+      "name": "King's Cross St. Pancras",
+      "mode": "tube",
+      "longitude": -0.12319,
+      "latitude": 51.53067,
+      "lines": [
+        "circle",
+        "hammersmith",
+        "metropolitan",
+        "victoria",
+        "piccadilly",
+        "northern"
+      ]
+    },
+    {
+      "station_code": "LBG",
+      "atcocode": "940GZZLULAD",
+      "name": "Ladbroke Grove",
+      "mode": "tube",
+      "longitude": -0.21093,
+      "latitude": 51.51725,
+      "lines": [
+        "circle",
+        "hammersmith"
+      ]
+    },
+    {
+      "station_code": "LRD",
+      "atcocode": "940GZZLULRD",
+      "name": "Latimer Road",
+      "mode": "tube",
+      "longitude": -0.21759,
+      "latitude": 51.51362,
+      "lines": [
+        "circle",
+        "hammersmith"
+      ]
+    },
+    {
+      "station_code": "LST",
+      "atcocode": "940GZZLULVT",
+      "name": "Liverpool Street",
+      "mode": "tube",
+      "longitude": -0.08318,
+      "latitude": 51.51738,
+      "lines": [
+        "circle",
+        "hammersmith",
+        "metropolitan",
+        "central"
+      ]
+    },
+    {
+      "station_code": "MLE",
+      "atcocode": "940GZZLUMED",
+      "name": "Mile End",
+      "mode": "tube",
+      "longitude": -0.03372,
+      "latitude": 51.52508,
+      "lines": [
+        "central",
+        "district",
+        "hammersmith"
+      ]
+    },
+    {
+      "station_code": "MGT",
+      "atcocode": "940GZZLUMGT",
+      "name": "Moorgate",
+      "mode": "tube",
+      "longitude": -0.08832,
+      "latitude": 51.51818,
+      "lines": [
+        "circle",
+        "hammersmith",
+        "metropolitan",
+        "northern"
+      ]
+    },
+    {
+      "station_code": "PADs",
+      "atcocode": "940GZZLUPAH",
+      "name": "Paddington (H & C line)",
+      "mode": "tube",
+      "longitude": -0.17858,
+      "latitude": 51.51847,
+      "lines": [
+        "circle",
+        "hammersmith"
+      ]
+    },
+    {
+      "station_code": "PLW",
+      "atcocode": "940GZZLUPLW",
+      "name": "Plaistow",
+      "mode": "tube",
+      "longitude": 0.01701,
+      "latitude": 51.5312,
+      "lines": [
+        "district",
+        "hammersmith"
+      ]
+    },
+    {
+      "station_code": "ROA",
+      "atcocode": "940GZZLURYO",
+      "name": "Royal Oak",
+      "mode": "tube",
+      "longitude": -0.18809,
+      "latitude": 51.51908,
+      "lines": [
+        "circle",
+        "hammersmith"
+      ]
+    },
+    {
+      "station_code": "SBM",
+      "atcocode": "940GZZLUSBM",
+      "name": "Shepherd's Bush Market",
+      "mode": "tube",
+      "longitude": -0.22635,
+      "latitude": 51.50578,
+      "lines": [
+        "circle",
+        "hammersmith"
+      ]
+    },
+    {
+      "station_code": "STG",
+      "atcocode": "940GZZLUSGN",
+      "name": "Stepney Green",
+      "mode": "tube",
+      "longitude": -0.04659,
+      "latitude": 51.52186,
+      "lines": [
+        "district",
+        "hammersmith"
+      ]
+    },
+    {
+      "station_code": "UPK",
+      "atcocode": "940GZZLUUPK",
+      "name": "Upton Park",
+      "mode": "tube",
+      "longitude": 0.03527,
+      "latitude": 51.53535,
+      "lines": [
+        "district",
+        "hammersmith"
+      ]
+    },
+    {
+      "station_code": "WHM",
+      "atcocode": "940GZZLUWHM",
+      "name": "West Ham",
+      "mode": "tube",
+      "longitude": 0.00511,
+      "latitude": 51.52849,
+      "lines": [
+        "district",
+        "hammersmith",
+        "jubilee"
+      ]
+    },
+    {
+      "station_code": "WBP",
+      "atcocode": "940GZZLUWSP",
+      "name": "Westbourne Park",
+      "mode": "tube",
+      "longitude": -0.20096,
+      "latitude": 51.52087,
+      "lines": [
+        "circle",
+        "hammersmith"
+      ]
+    },
+    {
+      "station_code": "WCL",
+      "atcocode": "940GZZLUWPL",
+      "name": "Whitechapel",
+      "mode": "tube",
+      "longitude": -0.05937,
+      "latitude": 51.51927,
+      "lines": [
+        "district",
+        "hammersmith"
+      ]
+    },
+    {
+      "station_code": "WLA",
+      "atcocode": "940GZZLUWLA",
+      "name": "Wood Lane",
+      "mode": "tube",
+      "longitude": -0.22397,
+      "latitude": 51.50987,
+      "lines": [
+        "circle",
+        "hammersmith"
+      ]
+    }
+  ],
+  "line_status": "Good Service",
+  "line_status_descripion": "Good Service",
+  "status_updated": "2016-08-11 15:16:50 +0100"
+}

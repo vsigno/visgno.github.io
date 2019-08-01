@@ -1,0 +1,325 @@
+{
+  "request_time": "2016-08-11 15:25:32 +0100",
+  "line": "jubilee",
+  "line_name": "Jubilee",
+  "stations": [
+    {
+      "station_code": "BST",
+      "atcocode": "940GZZLUBST",
+      "name": "Baker Street",
+      "mode": "tube",
+      "longitude": -0.15653,
+      "latitude": 51.52273,
+      "lines": [
+        "metropolitan",
+        "jubilee",
+        "circle",
+        "hammersmith",
+        "bakerloo"
+      ]
+    },
+    {
+      "station_code": "BER",
+      "atcocode": "940GZZLUBMY",
+      "name": "Bermondsey",
+      "mode": "tube",
+      "longitude": -0.06447,
+      "latitude": 51.49764,
+      "lines": [
+        "jubilee"
+      ]
+    },
+    {
+      "station_code": "BDS",
+      "atcocode": "940GZZLUBND",
+      "name": "Bond Street",
+      "mode": "tube",
+      "longitude": -0.14972,
+      "latitude": 51.51431,
+      "lines": [
+        "central",
+        "jubilee"
+      ]
+    },
+    {
+      "station_code": "CWR",
+      "atcocode": "940GZZLUCWR",
+      "name": "Canada Water",
+      "mode": "tube",
+      "longitude": -0.04908,
+      "latitude": 51.49794,
+      "lines": [
+        "jubilee"
+      ]
+    },
+    {
+      "station_code": "CWF",
+      "atcocode": "940GZZLUCYF",
+      "name": "Canary Wharf",
+      "mode": "tube",
+      "longitude": -0.01604,
+      "latitude": 51.50329,
+      "lines": [
+        "jubilee"
+      ]
+    },
+    {
+      "station_code": "CNT",
+      "atcocode": "940GZZLUCGT",
+      "name": "Canning Town",
+      "mode": "tube",
+      "longitude": 0.00833,
+      "latitude": 51.51359,
+      "lines": [
+        "jubilee"
+      ]
+    },
+    {
+      "station_code": "CPK",
+      "atcocode": "940GZZLUCPK",
+      "name": "Canons Park",
+      "mode": "tube",
+      "longitude": -0.29472,
+      "latitude": 51.60775,
+      "lines": [
+        "jubilee"
+      ]
+    },
+    {
+      "station_code": "DHL",
+      "atcocode": "940GZZLUDOH",
+      "name": "Dollis Hill",
+      "mode": "tube",
+      "longitude": -0.23907,
+      "latitude": 51.55196,
+      "lines": [
+        "jubilee"
+      ]
+    },
+    {
+      "station_code": "FRD",
+      "atcocode": "940GZZLUFYR",
+      "name": "Finchley Road",
+      "mode": "tube",
+      "longitude": -0.17984,
+      "latitude": 51.54683,
+      "lines": [
+        "jubilee",
+        "metropolitan"
+      ]
+    },
+    {
+      "station_code": "GPK",
+      "atcocode": "940GZZLUGPK",
+      "name": "Green Park",
+      "mode": "tube",
+      "longitude": -0.14278,
+      "latitude": 51.50695,
+      "lines": [
+        "piccadilly",
+        "victoria",
+        "jubilee"
+      ]
+    },
+    {
+      "station_code": "KIL",
+      "atcocode": "940GZZLUKBN",
+      "name": "Kilburn",
+      "mode": "tube",
+      "longitude": -0.2041,
+      "latitude": 51.54681,
+      "lines": [
+        "jubilee"
+      ]
+    },
+    {
+      "station_code": "KBY",
+      "atcocode": "940GZZLUKBY",
+      "name": "Kingsbury",
+      "mode": "tube",
+      "longitude": -0.27879,
+      "latitude": 51.58485,
+      "lines": [
+        "jubilee"
+      ]
+    },
+    {
+      "station_code": "LON",
+      "atcocode": "940GZZLULNB",
+      "name": "London Bridge",
+      "mode": "tube",
+      "longitude": -0.08887,
+      "latitude": 51.50573,
+      "lines": [
+        "northern",
+        "jubilee"
+      ]
+    },
+    {
+      "station_code": "NEA",
+      "atcocode": "940GZZLUNDN",
+      "name": "Neasden",
+      "mode": "tube",
+      "longitude": -0.24984,
+      "latitude": 51.55399,
+      "lines": [
+        "jubilee"
+      ]
+    },
+    {
+      "station_code": "NGW",
+      "atcocode": "940GZZLUNGW",
+      "name": "North Greenwich",
+      "mode": "tube",
+      "longitude": 0.0043,
+      "latitude": 51.50047,
+      "lines": [
+        "jubilee"
+      ]
+    },
+    {
+      "station_code": "QBY",
+      "atcocode": "940GZZLUQBY",
+      "name": "Queensbury",
+      "mode": "tube",
+      "longitude": -0.28622,
+      "latitude": 51.5942,
+      "lines": [
+        "jubilee"
+      ]
+    },
+    {
+      "station_code": "SWK",
+      "atcocode": "940GZZLUSWK",
+      "name": "Southwark",
+      "mode": "tube",
+      "longitude": -0.1054,
+      "latitude": 51.50429,
+      "lines": [
+        "jubilee"
+      ]
+    },
+    {
+      "station_code": "SJW",
+      "atcocode": "940GZZLUSJW",
+      "name": "St. John's Wood",
+      "mode": "tube",
+      "longitude": -0.17395,
+      "latitude": 51.53453,
+      "lines": [
+        "jubilee"
+      ]
+    },
+    {
+      "station_code": "STA",
+      "atcocode": "940GZZLUSTM",
+      "name": "Stanmore",
+      "mode": "tube",
+      "longitude": -0.30323,
+      "latitude": 51.61976,
+      "lines": [
+        "jubilee"
+      ]
+    },
+    {
+      "station_code": "SFD",
+      "atcocode": "940GZZLUSTD",
+      "name": "Stratford",
+      "mode": "tube",
+      "longitude": -0.00345,
+      "latitude": 51.54181,
+      "lines": [
+        "jubilee",
+        "central"
+      ]
+    },
+    {
+      "station_code": "SWC",
+      "atcocode": "940GZZLUSWC",
+      "name": "Swiss Cottage",
+      "mode": "tube",
+      "longitude": -0.17489,
+      "latitude": 51.54369,
+      "lines": [
+        "jubilee"
+      ]
+    },
+    {
+      "station_code": "WLO",
+      "atcocode": "940GZZLUWLO",
+      "name": "Waterloo",
+      "mode": "tube",
+      "longitude": -0.11478,
+      "latitude": 51.5033,
+      "lines": [
+        "northern",
+        "waterlooandcity",
+        "bakerloo",
+        "jubilee"
+      ]
+    },
+    {
+      "station_code": "WPK",
+      "atcocode": "940GZZLUWYP",
+      "name": "Wembley Park",
+      "mode": "tube",
+      "longitude": -0.27926,
+      "latitude": 51.5632,
+      "lines": [
+        "metropolitan",
+        "jubilee"
+      ]
+    },
+    {
+      "station_code": "WHM",
+      "atcocode": "940GZZLUWHM",
+      "name": "West Ham",
+      "mode": "tube",
+      "longitude": 0.00511,
+      "latitude": 51.52849,
+      "lines": [
+        "district",
+        "hammersmith",
+        "jubilee"
+      ]
+    },
+    {
+      "station_code": "WHD",
+      "atcocode": "940GZZLUWHP",
+      "name": "West Hampstead",
+      "mode": "tube",
+      "longitude": -0.19106,
+      "latitude": 51.54664,
+      "lines": [
+        "jubilee"
+      ]
+    },
+    {
+      "station_code": "WMS",
+      "atcocode": "940GZZLUWSM",
+      "name": "Westminster",
+      "mode": "tube",
+      "longitude": -0.12486,
+      "latitude": 51.50132,
+      "lines": [
+        "circle",
+        "district",
+        "jubilee"
+      ]
+    },
+    {
+      "station_code": "WLG",
+      "atcocode": "940GZZLUWIG",
+      "name": "Willesden Green",
+      "mode": "tube",
+      "longitude": -0.22271,
+      "latitude": 51.54939,
+      "lines": [
+        "jubilee"
+      ]
+    }
+  ],
+  "line_status": "Good Service",
+  "line_status_descripion": "Good Service",
+  "status_updated": "2016-08-11 15:21:44 +0100"
+}

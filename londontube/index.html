@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Virtual Dublin - City Module -</title>
+    <meta name="description" content="VRCastle WebVR">
+
+    <!--jQuery-->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+  <!--AFrame framework 0.9.0-->
+    <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
+
+  <!--Tangram map Layer-->
+   <script src="https://unpkg.com/aframe-tangram-component/dist/aframe-tangram-component.min.js"></script>
+
+   <!--<script src="https://unpkg.com/aframe-tangram-terrain-component/dist/aframe-tangram-terrain-component.min.js"></script>-->
+
+<!--MapBox map Layer-->
+    <!--<script src="https://unpkg.com/aframe-mapbox-component/dist/aframe-mapbox-component.min.js"></script>-->
+
+  <script src="js/offsetmap.js"></script>
+  <script src="js/tfl_lines.js"></script>
+  <script src="js/tfl_stations.js"></script>
+  <script src="js/proj4.js"></script>
+
+
+  <script src="js/tile.js"></script>
+
+  </head>
+
+  <body>
+
+<a-scene stats background="color: #ECECEC" >
+
+<a-assets >
+  <a-asset-item id="zip-style" src="https://www.nextzen.org/carto/bubble-wrap-style/9/bubble-wrap-style.zip"> </a-asset-item>
+ <!--<a-asset-item id="yamlElevation" src="resources/terrarium-elevation.yaml"> </a-asset-item>-->
+ <a-asset-item id="yamlRefill" src="resources/refill-style.zip"> </a-asset-item>
+  	 </a-assets>
+
+<a-entity id="tubecontainer" createtubelines  ></a-entity>
+<a-entity id="stationscontainer" createtubestations  ></a-entity>
+
+
+
+       <a-entity
+              id="map"
+              position="0 0 0"
+              scale="1.2 1.2 1.2 "
+              rotation="-90 0 0"
+              geometry="primitive: plane; width: 4096; height: 4096;"
+              material="shader: flat;"
+
+              tangram-map="
+              apiKey: UJcQwnnfQnWcPtKe2aYaEw;
+              center: -0.118092,51.509865;
+              zoom: 17;
+              pxToWorldRatio: 1;
+              style: #yamlRefill; "
+              >
+       </a-entity>
+
+
+
+<!--
+     <a-mapbox
+
+    position="0 0 0"
+    rotation="-90 0 0"
+    scale="1 1 1"
+    mapbox=
+    "
+    center: -0.118092,51.509865;
+    zoom:16;
+    accessToken:pk.eyJ1IjoidnNpZ25vIiwiYSI6ImNpeXhoc3o0aTAwMTIyd3FwdjlycmtoOW0ifQ.K4OJGOvagarG5QyqBTErrw;
+    style:mapbox://styles/mapbox/streets-v10;
+    "
+    width="5.12"
+    height="5.12" ></a-mapbox>
+
+    <a-mapbox
+
+    position="5.12 0 0"
+    rotation="-90 0 0"
+    scale="1 1 1"
+    mapbox=
+    "
+    center: -0.11254951574060684,51.509865;
+    zoom:16;
+    accessToken:pk.eyJ1IjoidnNpZ25vIiwiYSI6ImNpeXhoc3o0aTAwMTIyd3FwdjlycmtoOW0ifQ.K4OJGOvagarG5QyqBTErrw;
+    style:mapbox://styles/mapbox/streets-v10;
+    "
+    width="5.12"
+    height="5.12" ></a-mapbox>
+
+-->
+
+
+
+
+
+  <a-camera camera="far: 20000" id="userCamera" wasd-controls="acceleration: 3500" position="0 1000 10.5" >
+
+
+	</a-camera>
+
+</a-scene>
+</body>
+</html>
