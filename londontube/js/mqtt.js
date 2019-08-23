@@ -7,7 +7,7 @@ AFRAME.registerComponent('mqttreader', {
       var mqtt;
       var reconnectedTimeout=2000;
       var hostname="10.0.1.167";
-      var port="1883";
+      var port=8081;
 
       function onConnect()
       {
@@ -19,7 +19,7 @@ AFRAME.registerComponent('mqttreader', {
       {
         console.log("Connected to "+hostname+" "+ port);
 
-        mqtt=new Paho.MQTT.Client("10.0.1.167",1883,"clientjs");
+        mqtt=new Paho.MQTT.Client("10.0.1.167",8081,"clientjs");
 
         var options={
           timeout:3,
