@@ -21,7 +21,7 @@ AFRAME.registerComponent('mqttreader', {
 
         //mqtt=new Paho.Client("10.0.1.167",8081,"clientjs");
 
-        mqtt = new Paho.Client("wss://10.0.1.167/test", "clientid");
+        mqtt = new Paho.MQTT.Client("wss://10.0.1.167/test", "clientid");
 
         var options={
           timeout:3,
