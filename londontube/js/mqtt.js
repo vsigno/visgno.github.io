@@ -21,12 +21,13 @@ AFRAME.registerComponent('mqttreader', {
 
         //mqtt=new Paho.Client("10.0.1.167",8081,"clientjs");
 
-        mqtt = new Paho.MQTT.Client("wss://10.0.1.167/test", "clientid");
+        mqtt = new Paho.MQTT.Client("wss://10.0.1.167:1883/mqtt", "clientid");
 
         var options={
           timeout:3,
           onSuccess:onConnect,
           onFailure:onFailure,
+          useSSL:true,
         };
 
         mqtt.onMessageArrived=onMessageArrived;
