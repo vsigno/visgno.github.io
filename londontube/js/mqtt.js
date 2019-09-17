@@ -12,7 +12,7 @@ AFRAME.registerComponent('mqttreader', {
 
       var mqtt;
       var reconnectedTimeout=2000;
-      var hostname="10.0.1.167";
+      var hostname="10.0.1.169";
       var port=1883;
 
       function onConnect()
@@ -26,7 +26,7 @@ AFRAME.registerComponent('mqttreader', {
         console.log("Connected to "+hostname+" "+ port);
 
         //works but in ws not wss
-         mqtt=new Paho.MQTT.Client("10.0.1.167",9001,"clientjs");
+         mqtt=new Paho.MQTT.Client("10.0.1.169",9001,"clientjs");
 
         //mqtt = new Paho.MQTT.Client("wss://10.0.1.167:9001/test", "clientid");
 
