@@ -127,9 +127,9 @@ init:function()
 {
 
 //grid on x
-var gridx=4;
+var gridx=15;
 //grid on y
-var gridy=4;
+var gridy=15;
 
 console.log('GRID p5js');
 //Position, decimal degrees Center of the first cell
@@ -152,7 +152,7 @@ for(var i=0; i<gridx; i++)
 
     	var tile = document.createElement('a-entity');
 
-      tile.setAttribute('position', {x: 1024*i, y: 10, z: -1024*j});
+      tile.setAttribute('position', {x: 1024*i, y: -10, z: -1024*j});
       tile.setAttribute('scale', {x: 1, y: 1, z: 1});
       tile.setAttribute('rotation', {x: -90, y: 0, z: 0});
       tile.setAttribute('geometry',{primitive: 'plane', width: 1024, height: 1024});
@@ -161,7 +161,7 @@ for(var i=0; i<gridx; i++)
       var dLat = (dn*j)/r;
       var dLon = (de*i)/(r*Math.cos(Math.PI*lat/180));
 
-      console.log(dLon);
+    //  console.log(dLon);
 
       //OffsetPosition, decimal degrees
       var  latO = lat + dLat * 180/Math.PI;
@@ -173,7 +173,7 @@ for(var i=0; i<gridx; i++)
 
       tile.setAttribute('material',{src:url});
 
-      console.log('this is the img'+ url);
+    //  console.log('this is the img'+ url);
 
 
   }
@@ -193,7 +193,7 @@ function p5map(latAfr,lngAfr)
     scale:1,
     width: 1024,
     height: 1024,
-    style:'navigation-guidance-night-v4' //satellite-v9  dark-v10
+    style:'navigation-guidance-night-v4' //satellite-v9  dark-v10 'navigation-guidance-night-v4' streets-v11
 
     }
 

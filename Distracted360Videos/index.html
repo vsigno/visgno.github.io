@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <title>Distracted Walks</title>
+    <meta name="description" content="Distracted Walks 360 Videos">
+    <!--<script src="js/aframe.min.js"></script>-->
+    <script src="https://aframe.io/releases/0.9.0/aframe.min.js"></script>
+
+  </head>
+  <body>
+    <a-scene stats >
+      <a-assets>
+        <!--<video id="360" preload="true"
+               src="resources/dynamic_fast.mp4"
+               width="360" height="360" autoplay loop="true"
+               crossOrigin="anonymous"
+               webkit-playsinline
+               playsinline ></video>-->
+      </a-assets>
+      <a-camera>
+          <a-cursor>
+          </a-cursor>
+      </a-camera>
+<a-sphere material="shader: flat; " scale="-1 1 1"
+></a-sphere>
+    <!--<a-videosphere   src="#360" >
+      </a-videosphere >  play-video-->
+
+<a-plane position="0 1 -4" rotation="-40 0 0" width="4" height="4" color="#7BC8A4" ></a-plane>
+
+
+
+
+    </a-scene>
+
+    <script>
+      AFRAME.registerComponent('play-video', {
+
+        init: function () {
+          var el = this.el;
+          var video = document.querySelector('video');
+          el.addEventListener('click', function (evt) {
+
+          if(video.paused==true)
+          {
+            video.play();
+          }
+          else{
+              el.parentNode.removeChild(el);
+            }
+
+
+     console.log(video.paused);
+
+
+          });
+
+
+        }
+      });
+    </script>
+
+  </body>
+</html>

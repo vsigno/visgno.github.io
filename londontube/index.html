@@ -17,6 +17,9 @@
    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/mappa-mundi/dist/mappa.min.js" type="text/javascript"></script>
 
+<!--UInterface-->
+   <script type='text/javascript' src='js/dat.gui.min.js'></script>
+
 
 <!--MapBox map Layer-->
     <!--<script src="https://unpkg.com/aframe-mapbox-component/dist/aframe-mapbox-component.min.js"></script>-->
@@ -24,11 +27,15 @@
   <script src="js/offsetmap.js"></script>
   <script src="js/tfl_lines.js"></script>
   <script src="js/tfl_stations.js"></script>
+
+  <script src="js/TFL/bikes.js"></script>
   <script src="js/proj4.js"></script>
 
 
   <script src="js/p5.dom.js"></script>
   <script src="js/mappascript.js"></script>
+
+  <script src="js/gui.js"></script>
 
   </head>
 
@@ -48,8 +55,10 @@
 <a-entity id="tubecontainer" createtubelines  ></a-entity>
 <a-entity id="stationscontainer" createtubestations  ></a-entity>
 
+<a-entity id="bikedockscontainer" createbikesdocks rtbikes ></a-entity>
 
-<a-entity gridmap  id='tilebox'scale="0.6 0.6 0.6" position="0 0 0" ></a-entity>
+
+<a-entity settingui gridmap  id='tilebox'scale="0.6 0.6 0.6" position="0 -50 0" ></a-entity>
 
   <!--<a-entity id="screen"  canvas-material="width:4096;height:4096"  geometry="primitive: plane; width: 4096; height: 4096;" position="0 1 0" rotation="-90 0 0" ></a-entity>-->
   <!--<a-entity id="screen2" geometry="primitive: plane; width: 4096; height: 4096;" material="src:#defaultCanvas0" position="0 10 0" rotation="-90 0 0" ></a-entity>-->
