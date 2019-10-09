@@ -5,11 +5,11 @@
     <meta name="apple-mobile-web-app-capable" content="yes">
     <title>Distracted Walks</title>
     <meta name="description" content="Distracted Walks 360 Videos">
-    <!--<script src="js/aframe.min.js"></script>-->
-    <script src="https://aframe.io/releases/0.9.0/aframe.min.js"></script>
+    <script src="js/aframe.min.js"></script>
+    <!--<script src="https://aframe.io/releases/0.9.0/aframe.min.js"></script>-->
+
 	 <script>
       AFRAME.registerComponent('play-video', {
-
         init: function () {
           var el = this.el;
           var video = document.querySelector('video');
@@ -27,6 +27,10 @@
             });
 
      console.log(video.paused);
+     if(video.paused==false)
+     {
+       el.parentNode.removeChild(el);
+     }
 
 ///Video preloader
      var videoOdd = document.getElementById('360');
@@ -44,14 +48,14 @@
      videoOdd.addEventListener('ended', function(e)
      {
        // update the new active video index
-       activeVideo = (++activeVideo+1) % videos.length;
-
+       activeVideo = (++activeVideo) % videos.length;
+       console.log(activeVideo);
        // update the video source and play
        videoOdd.src = videos[activeVideo];
        sphVideo.setAttribute("src",'#360_b')
        videoEven.play();
        videoOdd.pause()
-       console.log("Video Even is playing");
+       console.log("Video Even is playing"+videoEven.src);
 
      });
 
@@ -60,7 +64,7 @@
      {
        // update the new active video index
        activeVideo = (++activeVideo) % videos.length;
-
+       console.log(activeVideo);
        // update the video source and play
        videoEven.src = videos[activeVideo];
 
@@ -68,7 +72,7 @@
 
        videoOdd.play();
        videoEven.pause();
-       console.log("Video Odd is playing");
+       console.log("Video Odd is playing"+videoOdd.src);
 
      });
 
@@ -81,7 +85,7 @@
   <body>
     <a-scene stats >
       <a-assets>
-
+        <img id="btwalk" src="resources/img/BtWalk.png"/>
 
         <video id="360" preload
                src="resources/P1_VRWill.mp4"
@@ -92,28 +96,21 @@
 
         <video id="360_b" preload
                       src="resources/P2_VRWill.mp4"
-
                       crossOrigin="anonymous"
                       webkit-playsinline
                       playsinline ></video>
-
-
 	  </a-assets>
+
       <a-camera>
           <a-cursor>
           </a-cursor>
       </a-camera>
 
-      <a-videosphere   src="#360" >
+      <a-videosphere src="#360" >
             </a-videosphere >
 
-<a-plane position="0 1 -4" rotation="-40 0 0" width="4" height="4" color="#7BC8A4" play-video></a-plane>
-
-
-
+<a-plane src="#btwalk" transparent="true" position="0 1 -4" rotation="0 0 0" width="5" height="1.25"  play-video></a-plane>
 
     </a-scene>
-
-
   </body>
 </html>
