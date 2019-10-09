@@ -13,8 +13,10 @@
         init: function () {
           var el = this.el;
           var video = document.querySelector('video');
-          el.addEventListener('click', function (evt) {
 
+          var sphVideo=document.querySelector('a-videosphere');
+
+          el.addEventListener('click', function (evt) {
           if(video.paused==true)
           {
             video.play();
@@ -22,53 +24,88 @@
           else{
               el.parentNode.removeChild(el);
             }
-
+            });
 
      console.log(video.paused);
 
+///Video preloader
+     var videoOdd = document.getElementById('360');
+     var videoEven = document.getElementById('360_b');
 
-          });
+     var videos = [
+       "resources/P1_VRWill.mp4",
+       "resources/P2_VRWill.mp4",
+       "resources/P3_VRWill.mp4",
+       "resources/P4_VRWill.mp4"
+       ];
 
+     var activeVideo = 0;
+
+     videoOdd.addEventListener('ended', function(e)
+     {
+       // update the new active video index
+       activeVideo = (++activeVideo+1) % videos.length;
+
+       // update the video source and play
+       videoOdd.src = videos[activeVideo];
+       sphVideo.setAttribute("src",'#360_b')
+       videoEven.play();
+       videoOdd.pause()
+       console.log("Video Even is playing");
+
+     });
+
+
+     videoEven.addEventListener('ended', function(e)
+     {
+       // update the new active video index
+       activeVideo = (++activeVideo) % videos.length;
+
+       // update the video source and play
+       videoEven.src = videos[activeVideo];
+
+       sphVideo.setAttribute("src",'#360')
+
+       videoOdd.play();
+       videoEven.pause();
+       console.log("Video Odd is playing");
+
+     });
 
         }
       });
     </script>
-  
+
 
   </head>
   <body>
     <a-scene stats >
       <a-assets>
-	  <!-- 
-	  <video id='360' class='video-js' preload 
-		src='resources/P1_VR_Video_Low.mp4'
-		crossorigin="anonymous">
-    <source src='resources/P1_VR_Video_Low.mp4' type='video/mp4'>
-    <source src='resources/P2_VR_Video_Low.mp4' type='video/mp4'>
-    
-  </video>
-	  -->
-	 
+
+
         <video id="360" preload
-               src="resources/P1_VR_Video_Low.mp4"
-                autoplay 
+               src="resources/P1_VRWill.mp4"
+               autoplay
                crossOrigin="anonymous"
                webkit-playsinline
                playsinline ></video>
-      
-	  
-	  
+
+        <video id="360_b" preload
+                      src="resources/P2_VRWill.mp4"
+
+                      crossOrigin="anonymous"
+                      webkit-playsinline
+                      playsinline ></video>
+
+
 	  </a-assets>
       <a-camera>
           <a-cursor>
           </a-cursor>
       </a-camera>
-<!--<a-sphere material="shader: flat; src="#360" " scale="-1 1 1"
-></a-sphere>
--->
 
-    <a-videosphere   src="#360" >
-      </a-videosphere >
+      <a-videosphere   src="#360" >
+            </a-videosphere >
 
 <a-plane position="0 1 -4" rotation="-40 0 0" width="4" height="4" color="#7BC8A4" play-video></a-plane>
 
@@ -77,25 +114,6 @@
 
     </a-scene>
 
-	<script>
-var myvid = document.getElementById('360');
-var myvids = [
-  "resources/P1_VR_Video_Low.mp4", 
-  "resources/P2_VR_Video_Low.mp4"
-  ];
-var activeVideo = 0;
 
-myvid.addEventListener('ended', function(e) {
-  // update the new active video index
-  activeVideo = (++activeVideo) % myvids.length;
-
-  // update the video source and play
-  myvid.src = myvids[activeVideo];
-  myvid.play();
-});
-</script>
-	
-   
-<script src='https://vjs.zencdn.net/7.6.5/video.js'></script>
   </body>
 </html>
