@@ -84,7 +84,7 @@
 
   </head>
   <body>
-    <a-scene stats >
+    <a-scene stats cursor="rayOrigin: mouse">
       <a-assets>
         <img id="btwalk" src="resources/img/BtWalk.png"/>
 
@@ -103,14 +103,14 @@
 	  </a-assets>
 
       <a-camera>
-          <a-cursor>
+          <a-cursor fuse-timeout="55000">
           </a-cursor>
       </a-camera>
 
       <a-videosphere src="#360" >
             </a-videosphere >
 
-<a-plane src="#btwalk" transparent="true" position="0 1 -4" rotation="0 0 0" width="5" height="1.25"  play-video></a-plane>
+<a-plane src="#btwalk" transparent="true" position="0 1.2 -4" rotation="0 0 0" width="5" height="1.25"  play-video></a-plane>
 
     </a-scene>
   </body>
