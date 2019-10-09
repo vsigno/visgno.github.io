@@ -12,11 +12,36 @@
       AFRAME.registerComponent('play-video', {
         init: function () {
           var el = this.el;
-          var video = document.querySelector('video');
+      //  var video = document.querySelector('video');
+          var video = document.getElementById('360');
+          var videoSupport = document.getElementById('360_b');
 
           var sphVideo=document.querySelector('a-videosphere');
 
           el.addEventListener('click', function (evt) {
+          if(video.paused==true)
+          {
+            videoSupport.play();
+            videoSupport.pause();
+
+            video.play();
+
+
+
+          //  el.parentNode.removeChild(el);
+          }
+          else{
+              el.parentNode.removeChild(el);
+            }
+            });
+
+     console.log(video.paused);
+     if(video.paused==false)
+     {
+       el.parentNode.removeChild(el);
+     }
+
+    /*      el.addEventListener('click', function (evt) {
           if(video.paused==true)
           {
             video.play();
@@ -33,6 +58,8 @@
        el.parentNode.removeChild(el);
      }
 
+     */
+
 ///Video preloader
      var videoOdd = document.getElementById('360');
      var videoEven = document.getElementById('360_b');
@@ -44,7 +71,7 @@
        "resources/P4_VRWill.mp4"
        ];
 
-     var activeVideo = 0;
+     var activeVideo = 1;
 
      videoOdd.addEventListener('ended', function(e)
      {
