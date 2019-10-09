@@ -7,37 +7,7 @@
     <meta name="description" content="Distracted Walks 360 Videos">
     <!--<script src="js/aframe.min.js"></script>-->
     <script src="https://aframe.io/releases/0.9.0/aframe.min.js"></script>
-
-  </head>
-  <body>
-    <a-scene stats >
-      <a-assets>
-        <video id="360" preload="true"
-               src="resources/experiment_1_1080p.webm"
-               width="360" height="360" autoplay loop="true"
-               crossOrigin="anonymous"
-               webkit-playsinline
-               playsinline ></video>
-      </a-assets>
-      <a-camera>
-          <a-cursor>
-          </a-cursor>
-      </a-camera>
-<!--<a-sphere material="shader: flat; src="#360" " scale="-1 1 1"
-></a-sphere>
--->
-
-    <a-videosphere   src="#360" >
-      </a-videosphere >
-
-<a-plane position="0 1 -4" rotation="-40 0 0" width="4" height="4" color="#7BC8A4" play-video></a-plane>
-
-
-
-
-    </a-scene>
-
-    <script>
+	 <script>
       AFRAME.registerComponent('play-video', {
 
         init: function () {
@@ -63,6 +33,69 @@
         }
       });
     </script>
+  
 
+  </head>
+  <body>
+    <a-scene stats >
+      <a-assets>
+	  <!-- 
+	  <video id='360' class='video-js' preload 
+		src='resources/P1_VR_Video_Low.mp4'
+		crossorigin="anonymous">
+    <source src='resources/P1_VR_Video_Low.mp4' type='video/mp4'>
+    <source src='resources/P2_VR_Video_Low.mp4' type='video/mp4'>
+    
+  </video>
+	  -->
+	 
+        <video id="360" preload
+               src="resources/P1_VR_Video_Low.mp4"
+                autoplay 
+               crossOrigin="anonymous"
+               webkit-playsinline
+               playsinline ></video>
+      
+	  
+	  
+	  </a-assets>
+      <a-camera>
+          <a-cursor>
+          </a-cursor>
+      </a-camera>
+<!--<a-sphere material="shader: flat; src="#360" " scale="-1 1 1"
+></a-sphere>
+-->
+
+    <a-videosphere   src="#360" >
+      </a-videosphere >
+
+<a-plane position="0 1 -4" rotation="-40 0 0" width="4" height="4" color="#7BC8A4" play-video></a-plane>
+
+
+
+
+    </a-scene>
+
+	<script>
+var myvid = document.getElementById('360');
+var myvids = [
+  "resources/P1_VR_Video_Low.mp4", 
+  "resources/P2_VR_Video_Low.mp4"
+  ];
+var activeVideo = 0;
+
+myvid.addEventListener('ended', function(e) {
+  // update the new active video index
+  activeVideo = (++activeVideo) % myvids.length;
+
+  // update the video source and play
+  myvid.src = myvids[activeVideo];
+  myvid.play();
+});
+</script>
+	
+   
+<script src='https://vjs.zencdn.net/7.6.5/video.js'></script>
   </body>
 </html>
