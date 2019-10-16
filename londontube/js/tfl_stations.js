@@ -1,7 +1,10 @@
 //Parsing a json with the location
 // good solution would be to use a meshline https://www.clicktorelease.com/code/THREE.MeshLine/demo/index.html
 
-//Add field to store JSON data of the Dublin Monuments
+//example ATCODE "940GZZLUACY" Archway - northerline
+
+
+
 AFRAME.registerComponent('station', {
   schema: {
     NAME:{type: 'string'},
@@ -50,6 +53,8 @@ AFRAME.registerComponent('createtubestations', {
   		//$.getJSON("resources/tubestations/LineStationsnorthern.json", function(json_stations) {
         //console.log(json_stations);
 
+var material = new THREE.MeshBasicMaterial( {color: 0x0000FF, side: THREE.DoubleSide} );
+
         json_stations.stations.forEach(function (tubestations)
         {
 
@@ -62,11 +67,12 @@ AFRAME.registerComponent('createtubestations', {
 
 
           var geometry = new THREE.ConeGeometry( 50, 150, 10 );
-          var material = new THREE.MeshBasicMaterial( {color: 0x0000FF, side: THREE.DoubleSide} );
+
           var cone = new THREE.Mesh( geometry, material );
           cone.position.set(x,-150,z);
           //cone.rotation.set(THREE.Math.degToRad(180),0,0);
           cone.name=tubestations.name;
+
           //mergemeshes(cone,material);
 
           groupstations.add(cone);
@@ -77,7 +83,7 @@ AFRAME.registerComponent('createtubestations', {
 
           // mon.object3D.position.set(x,20,z);
            //mon.object3D.rotation.set(THREE.Math.degToRad(180),0,0);
-          // mon.setAttribute('station', {NAME:tubestations.name,ATCODE:tubestations.atcode});
+          // mon.setAttribute('station', {NAME:tubestations.name,ATCODE:tubestations.atcocode});
 
            // stationscontainer.appendChild(mon);
 
