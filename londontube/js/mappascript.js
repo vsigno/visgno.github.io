@@ -127,9 +127,9 @@ init:function()
 {
 
 //grid on x
-var gridx=4;
+var gridx=20;
 //grid on y
-var gridy=4;
+var gridy=20;
 
 console.log('GRID p5js');
 //Position, decimal degrees Center of the first cell
