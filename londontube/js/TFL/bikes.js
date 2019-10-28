@@ -138,6 +138,7 @@ AFRAME.registerComponent('bikedocks', {
     NBDOCKS:{type: 'string'},
   }
 });
+
 var stationcont;
 
 AFRAME.registerComponent('createbikesdocks', {
@@ -230,13 +231,15 @@ bikedockscontainer.appendChild(stationcont);
 }
 })
 
-var counter=0;
+  var counter=0;
   var bikefree;
   var dockempty;
 
   var refT=Date.now();
+
 AFRAME.registerComponent('rtbikes', {
   schema: {
+
     TIME:{type: 'int',default:15},
 
   },
