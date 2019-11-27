@@ -12,7 +12,10 @@
 	  <script src="https://unpkg.com/aframe-event-set-component@4.2.1/dist/aframe-event-set-component.min.js"></script>
 
   <!--PoTree Loader-->
-	  <script src="https://unpkg.com/aframe-potree-loader-component/dist/aframe-potree-loader-component.min.js"></script>
+	  <!--<script src="https://unpkg.com/aframe-potree-loader-component/dist/aframe-potree-loader-component.min.js"></script>-->
+      <script src="js/aframe-potree-loader-component.min.js"></script>
+      
+    
     <!-- Look at component-->
     <script src="https://unpkg.com/aframe-look-at-component@0.8.x/dist/aframe-look-at-component.min.js"></script>
 
@@ -129,7 +132,8 @@
 
   <a-entity potree-loader="
      src: resource/dub10;
-     pointBudget: 10;
+     pointBudget:40;
+     
 
      pointSize: 0.05;
      pointColorType: rgb;
@@ -154,7 +158,10 @@
 
 
 	<!--
-	  <a-entity>
+  
+  position="-1500 -50 1000"
+	
+    <a-entity>
 
 		<a-gltf-model data-clickable src="#castletrigger" scale="0.3 0.3 0.3" rotation="0 -15 0" position="-4 -0.75 -5" material="color:red"
 		animation="property:visible; startEvents:mouseenter; dur:300;  to:false"
