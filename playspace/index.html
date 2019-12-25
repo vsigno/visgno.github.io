@@ -1,64 +1,63 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Play Space AR - Playing the Archive</title>
-    <meta name="description" content="Play Space AR - Playing the Archive">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-	 <style>
+    <title>Sense Of Play - Playing the Archive</title>
+    <meta name="description" content="Sense of Play - Playing the Archive">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	  <style>
+      html
+          {
+          overflow-x:hidden;
+          }
+      body
+	        {
+           background-image: url("resources/img/bkgrd.jpg");
+       	   background-color: #cccccc;
+           background-size: cover;
+           margin:0;
+           font-family:Verdana,sans-serif;
+           line-height:1.5;
+	        }
 
-   html
-   {
-     overflow-x:hidden;
-   }
-   body
-	 {
-     background-image: url("resources/img/bkgrd.jpg");
- 	   background-color: #cccccc;
-     background-size: cover;
-     margin:0;
-     font-family:Verdana,sans-serif;
-     line-height:1.5;
-	 }
+      #poem
+          {
+            text-align: center;
+            font-weight: bold;
+            font-size: 4.3vw;
 
-#poem{
-  text-align: center;
-  font-weight: bold;
-  font-size: 4.3vw;
+            font-family:"Segoe UI",Arial,sans-serif;
+            margin:10px 0 0 5px
+            background: rgb(255, 255, 255); /* Fallback for older browsers without RGBA-support */
+            background: rgba(255, 255, 255, 0.5);
+          }
 
-  font-family:"Segoe UI",Arial,sans-serif;
-  margin:10px 0 0 5px
-  background: rgb(255, 255, 255); /* Fallback for older browsers without RGBA-support */
-  background: rgba(255, 255, 255, 0.5);
-}
+        #howTo
+          {
+          font-size: 5vw;
+          line-height: 1;
+          font-family:"Segoe UI",Arial,sans-serif;
+          }
+        ul.a
+          {
+          list-style-type: square;
+          background: rgb(255, 255, 255); /* Fallback for older browsers without RGBA-support */
+          background: rgba(255, 255, 255, 0.5);
+          font-weight:100px;
+          }
+        #list
+          {
+          height:50%;
+          font-size: 4vw;
+          font-family:"Segoe UI",Arial,sans-serif;
+          }
 
-#howTo{
-  font-size: 5vw;
-line-height: 1;
-  font-family:"Segoe UI",Arial,sans-serif;
-}
-ul.a {
-  list-style-type: square;
-  background: rgb(255, 255, 255); /* Fallback for older browsers without RGBA-support */
-  background: rgba(255, 255, 255, 0.5);
-  font-weight:100px;
-
-}
-
-#list
-{
-
-  height:50%;
-  font-size: 4vw;
-  font-family:"Segoe UI",Arial,sans-serif;
-}
-
-	#playspace
-	{
-		background-color: #f57921;
-		height:25%;
-    text-align: center;
-    font-size: 9vw;
-		}
+	      #playspace
+	        {
+      		background-color: #f57921;
+      		height:25%;
+          text-align: center;
+          font-size: 9vw;
+		      }
 
 	.wrapper
 	{
@@ -156,21 +155,18 @@ button.addEventListener('click',go);
 	var go=function(){
 		device=navigator.platform;
 
-		console.log("Which device are you?  I am a  "+ device);
-
+		console.log("Which device are you?"+ device);
 
 			if (device==='iPad'||device==='iPhone'||device==='iPod'===true)
 				{
-					console.log("I am an Apple");
-					window.location='iosJuneBt.html';
+					console.log("Apple");
+					window.location='ios.html';
 				}
 			else
 				{
-					console.log("I am NOT an Apple");
-					window.location='androidJune.html';
+					console.log("NOT Apple");
+					window.location='android.html';
 				}
-
-
 }
 //the button
 

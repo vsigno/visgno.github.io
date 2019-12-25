@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sense Of Play - Playing the Archive</title>
+    <meta name="description" content="Sense of Play - Playing the Archive">
+
+	 <style>
+  .wrapper {
+    text-align: center;
+	}
+
+
+  .button {
+  border: 0;
+  background:transparent;
+  box-sizing: border-box;
+  width: 0;
+  height: 75px;
+  border-color: transparent transparent transparent #202020;
+  transition: 100ms all ease;
+  cursor: pointer;
+  border-style: solid;
+  border-width: 37px 0 37px 60px;
+  bottom:50px;
+  position:absolute;
+  bottom:0px;
+  text-align: center;
+
+  left:50%;
+
+
+
+}
+
+.button.paused {
+  border-style: double;
+  border-width: 0px 0 0px 60px;
+}
+.button:hover {
+  border-color: transparent transparent transparent #404040;
+}
+
+
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="js/jquery.min.js"></script>
+
+<!--needed for Edge-->
+<!--<script src="https://cdn.jsdelivr.net/npm/fast-text-encoding@1.0.0/text.min.js"></script>-->
+<script src="js/text.min.js"></script>
+
+<!--stable version 1.0.1 | Local version 1.0.1 -->
+<!--<script src="https://aframe.io/releases/1.0.1/aframe.min.js"></script>-->
+<script src="js/aframe.min.js"></script>
+
+
+<!--Stable Version AR.Js 2.1.4 | Local 2.1.4-->
+<!--<script src="https://raw.githack.com/jeromeetienne/AR.js/2.1.4/aframe/build/aframe-ar.js"></script>-->
+<script src="js/aframe-ar.js"></script>
+
+
+<!-- Chroma Key Shader-->
+<!--<script src="https://unpkg.com/aframe-chromakey-material/dist/aframe-chromakey-material.min.js"></script>-->
+<script src="js/aframe-chromakey-material.min.js"></script>
+
+<!--local manager script for the markers-->
+<script src="js/playmarkersmng.js"></script>
+
+
+	</head>
+
+	<body>
+
+	
+	<a-scene markers_start vr-mode-ui="enabled: false" color-space="sRGB" renderer="gammaOutput: true" embedded arjs='debugUIEnabled: false; sourceType: webcam; patternRatio: 0.85; trackingMethod: best;'>
+
+<a-entity id='storevideo'></a-entity>
+
+	<a-entity camera>
+		<a-cursor> </a-cursor>
+	</a-entity>
+
+
+
+	</a-scene>
+
+		<div id="wrapperid" class="wrapper">
+
+	    <button id="entervr" class="button" type="button">	</button>
+	 </div>
+
+
+
+	<script>
+
+//Just in case pause the videos
+		var checktap=false
+    var video='notLoaded';
+		var sceneEl = document.querySelector('a-scene');
+    $(document).ready(function() {
+      var btn = $(".button");
+      btn.click(function() {
+        return false;
+      });
+    });
+
+//if iOS true
+document.addEventListener("DOMContentLoaded", function(event)
+{
+var button=document.querySelector('#entervr')
+
+button.addEventListener('click',go);
+
+
+sceneEl.addEventListener('IamReady',
+function(e){
+  console.log(e.detail.value);
+  video=document.querySelector('#Video_'+e.detail.value);
+  video.pause();
+});
+
+
+var iOS=false;
+p=navigator.platform;
+
+if(p==='iPad'||p==='iPhone'||p==='iPod'){
+iOS=true;//
+checktap=false;
+button.style.visibility='visible';
+
+var wrapperDiv=document.querySelector('#wrapperid');
+}
+
+if(iOS===false){
+checktap=true;
+button.style.visibility='hidden';
+}
+
+});
+
+var go=function(){
+console.log("Toggle the video");
+if(!video){return;}
+video.paused ? video.play() : video.play();
+
+}
+</script>
+
+
+	</body>
+
+	</html>
