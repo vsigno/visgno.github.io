@@ -7,6 +7,9 @@ AFRAME.registerComponent('cursor-listener', {
   init: function () {
 	var sceneEl = document.querySelector('a-scene');
   
+  //sceneEl.object3D.overrideMaterial = new THREE.MeshBasicMaterial( { color: 'green' } );
+
+  
   var tempLine; //the endgegeometry, border of the mesh
 
   this.el.addEventListener('click', function (evt) {
