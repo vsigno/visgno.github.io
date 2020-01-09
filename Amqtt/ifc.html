@@ -12,6 +12,9 @@
   <!--AFrame framework 1.0.0-->
   <script src="js/aframe.min.js"></script>
   <!--<script src="https://aframe.io/releases/1.0.0/aframe.min.js"></script>-->
+  
+  
+  <script src="js/aframe-extras.min.js"></script>
 
 <!--<script src="js/ifc.js"></script>-->
 
@@ -21,17 +24,28 @@
 
   <body>
 
-<a-scene stats background="color: #ECECEC" cursor="rayOrigin: mouse" xml-parsing >
+<a-scene  background="color: #ECECEC" cursor="rayOrigin: mouse" xml-parsing >
     <a-assets>
       <a-asset-item id="ifcImport" src="Trapelo_Design_Origin.glb" response-type="arraybuffer" ></a-asset-item>
     </a-assets>
 
     <a-entity id="ifcmodel" gltf-model="#ifcImport" cursor-listener ></a-entity>
 
-    <a-entity id="cameraRig" >
-      <a-camera  camera="far: 20000" id="userCamera" wasd-controls="acceleration: 100" position="40 65 -30"  ></a-camera>
+      
+    <a-entity id="cameraRig"
+              movement-controls="fly: true; speed: 0.3"
+              position="40 62 -40">
+      <a-entity camera="far:100"
+                position="0 1.6 0"
+                look-controls></a-entity>
     </a-entity>
-
+    
+<!--
+    <a-entity id="cameraRig" >
+  
+    <a-camera universal-controls="fly: true;" camera="far: 20000" id="userCamera" wasd-controls="acceleration: 100" position="0 0 0"  ></a-camera>
+    </a-entity>
+-->
 </a-scene>
 </body>
 </html>
