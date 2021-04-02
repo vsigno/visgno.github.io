@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Virtual Dublin - City Module -</title>
+    <meta name="description" content="VRCastle WebVR">
+
+    <!--jQuery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!--AFrame framework 0.9.0-->
+      <!--<script src="https://aframe.io/releases/0.9.0/aframe.min.js"></script>-->
+      <script src='js/aframe.min.js'></script>
+
+      <!--Event system Aframe-->
+      <script src="https://unpkg.com/aframe-event-set-component@4.2.1/dist/aframe-event-set-component.min.js"></script>
+
+      <!--ThreeJs GUI-->
+       <script type='text/javascript' src='js/dat.gui.min.js'></script>
+
+
+
+  <script>
+   AFRAME.registerComponent('cursor-listener', {
+    init: function () {
+	var check=true;
+	var sceneEl = document.querySelector('a-scene');
+
+	var panel=this.el.querySelector('#imgT')
+
+      this.el.addEventListener('click', function (evt) {
+	  if(check==true)
+	  {
+	  panel.emit("go");
+
+	  panel.setAttribute('visible',true);
+
+	  if(panel.getAttribute('video')!=null){
+
+	  var video = document.querySelector('#Video').play();
+
+	  }
+
+	  check=false;
+	  }
+	  else
+	  {
+	  if(panel.getAttribute('video')!=null){
+
+	  var video = document.querySelector('#Video').pause();
+
+	  }
+	  panel.emit("nope");
+	  check=true;
+	  }
+        console.log('I was clicked at: ',!check, evt.detail.intersection.point);
+      });
+    }
+  });
+  </script>
+
+
+  <script>
+   AFRAME.registerComponent('cursor-listenerb', {
+    init: function () {
+	  var check=true;
+    var sceneEl = document.querySelector('a-scene');
+
+    this.el.addEventListener('click', function (evt) {
+	     if(check==true)
+	       {
+           console.log("Now is here")
+           this.getObject3D('mesh').material.color = new THREE.Color('#00FF00');
+           console.log(this.getAttribute('datamon').CLASSDESC);
+
+           var textEl = document.createElement('a-entity');
+         			textEl.setAttribute('id','text');
+         			textEl.setAttribute('position',{x: 0, y: -50, z: 0});
+         			textEl.setAttribute('rotation',{x:180, y: 0, z: 0});
+              textEl.setAttribute('look-at','#userCamera');
+
+
+         			textEl.setAttribute('text',{color: 'red', align: 'center', side:'double', value:this.getAttribute('datamon').CLASSDESC, width: '1000'});
+
+              console.log(sceneEl.querySelector('#userCamera').object3D.position);
+         			this.appendChild(textEl);
+
+
+
+	         check=false;
+	        }
+	      else
+	       {
+           console.log("Now is not")
+           this.getObject3D('mesh').material.color = new THREE.Color('#0000FF');
+	          check=true;
+
+            this.removeChild(this.querySelector('#text'));
+	         }
+
+      });
+    }
+  });
+  </script>
+
+
+  <script>
+   AFRAME.registerComponent('cursor-listenerc', {
+    init: function () {
+	  var check=true;
+    var sceneEl = document.querySelector('a-scene');
+
+    this.el.addEventListener('click', function (evt) {
+	     if(check==true)
+	       {
+           console.log("Now is here")
+           this.getObject3D('mesh').material.color = new THREE.Color('#00FF00');
+           console.log(this.getAttribute('dataarch').ORIGINAL_TYPE);
+
+           var textEl = document.createElement('a-entity');
+         			textEl.setAttribute('id','text');
+         			textEl.setAttribute('position',{x: 0, y: -50, z: 0});
+         			textEl.setAttribute('rotation',{x:180, y: 0, z: 0});
+              textEl.setAttribute('look-at','#userCamera');
+
+
+         			textEl.setAttribute('text',{color: 'red', align: 'center', side:'double', value:this.getAttribute('dataarch').APPRAISAL, width: '1000'});
+
+              console.log(sceneEl.querySelector('#userCamera').object3D.position);
+         			this.appendChild(textEl);
+
+
+
+	         check=false;
+	        }
+	      else
+	       {
+           console.log("Now is not")
+           this.getObject3D('mesh').material.color = new THREE.Color('#ff0000');
+	          check=true;
+
+            this.removeChild(this.querySelector('#text'));
+	         }
+
+      });
+    }
+  });
+  </script>
+
+
+
+<script>
+AFRAME.registerComponent("mylink", {
+  schema: {
+    href:{type: 'string'},
+  },
+init: function() {
+  this.el.addEventListener("click", (e)=> {
+     window.location = this.data.href;
+  })
+}
+})
+</script>
+
+
+
+
+
+<!-- Creating a Three.Js GUI-->
+<script>
+AFRAME.registerComponent('guithree',{
+  init:function(){
+
+    var sceneEl = document.querySelector('a-scene');
+
+    var dublinModel=sceneEl.querySelector('#bldgCut').object3D;
+    var magicplane=sceneEl.querySelector('#magicplane').object3D;
+
+    var checkMat=false;
+
+    var opacity={opac:1,}
+
+    var crossSection=
+    {
+    value:1,
+    }
+
+    var gui = new dat.GUI({name:"Virtual Dublin"});
+    gui.add(dublinModel, 'visible').name('Dublin Model');
+    gui.add(crossSection,'value',1,20).onChange(clippingPlanes)
+    gui.add(opacity, 'opac',0,1).name('Opacity').onChange(modelOpacity);
+
+    function modelOpacity(value)
+    {
+      if(checkMat==false)
+      {
+          const dublinModelMesh = sceneEl.querySelector('#bldgCut').getObject3D('mesh');
+          const material = new THREE.MeshLambertMaterial ( {color: 0xaeaeae } );
+        if (dublinModelMesh) {
+            dublinModelMesh.traverse(function (node) {
+            if (node.isMesh)
+            {node.material = material;
+              node.material.transparent=true;
+            }
+          });
+        }
+          checkMat=true;
+          console.log("DONE Material");
+      }
+      const dublinModelMesh = sceneEl.querySelector('#bldgCut').getObject3D('mesh');
+      if (dublinModelMesh) {
+        dublinModelMesh.traverse(function (node) {
+          if (node.isMesh) node.material.opacity = value;
+        });
+      }
+    };
+
+
+function clippingPlanes(value)
+{
+//console.log('I am here');
+  var sceneEl=document.querySelector('a-scene');
+  var el=sceneEl.querySelector('#bldgCut');
+  var magicplane=sceneEl.querySelector('#magicplane');
+  //var localPlane=new THREE.Plane(new THREE.Vector3(-1, 0, 0),value);
+  var localPlane=new THREE.Plane(new THREE.Vector3(0, -1, 0),value);
+var localplaneArray=[localPlane];
+  //var localplaneArray=[new THREE.Plane(new THREE.Vector3(-1, 0, 0),value), new THREE.Plane(new THREE.Vector3(1, 0, 0),value)]
+
+  //Geometry
+  var material= new THREE.MeshLambertMaterial({
+    color: 0xaeaeae,
+    //shininess:100,
+    side:THREE.DoubleSide,
+    //***** Clipping setup (Material):*****
+    clippingPlanes:[localPlane],
+    clipShadows:true
+  });
+//single object
+  //el.getObject3D('mesh').material=material;
+
+  //going through the nodes
+
+  var nestedOBJ = el.getObject3D('mesh');
+    if(nestedOBJ){
+    //  console.log("DONE Material");
+        nestedOBJ.traverse(function (node) {
+                  if (node.isMesh)
+                      {
+                        //A complete new material
+                      //node.material = material;
+
+                      //just the clip plane, in the case the texture is there
+                      //node.material.clippingPlanes = [localPlane];
+                    node.material.clippingPlanes = localplaneArray;
+                      //console.log("DONE Material");
+                      node.material.transparent=true;
+                    }
+                  });
+                }
+  sceneEl.renderer.localClippingEnabled=true; //this make the magic
+}
+
+  }
+});
+</script>
+
+  </head>
+
+
+  <body>
+
+  <!--<a-scene background="color: #ECECEC" stats   >-->
+  <a-scene cursor="rayOrigin: mouse" background="color: #ECECEC" stats>
+
+	 <a-assets >
+
+    <a-asset-item id="bldg" src="resource/crosssection/Ex_HouseWEBGL.glb"  >
+
+    <a-asset-item id="court-obj" src="resource/courtObj/Court136.obj"  ></a-asset-item>
+    <a-asset-item id="court-mtl" src="resource/courtObj/Court136.mtl"  ></a-asset-item>
+
+	 </a-assets>
+
+
+
+	<a-camera id="userCamera" wasd-controls="acceleration: 500" position="-10  10  22" rotation="-1.8 -39.076 0" >
+	</a-camera>
+
+<a-box position="0.993 -4.971 -1.258"  scale="28 10 32" material="color:green"></a-box>
+
+<a-entity>
+	<a-gltf-model   id="bldgCut" src="#bldg" scale="1 1 1" rotation="0 0 0" position="-3.722 0 12.218">
+	</a-gltf-model>
+</a-entity>
+
+<!--
+<a-obj-model id="courty" src="#court-obj" mtl="#court-mtl"scale="0.3 0.3 0.3"
+ rotation="-97.650 -2.550 -22.320"
+ position="0 -15 0"></a-obj-model>
+-->
+
+<a-entity id="magicplane"></a-entity>
+<a-entity guithree ></a-entity>
+
+	</a-scene>
+  </body>
+</html>

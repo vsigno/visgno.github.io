@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Virtual Dublin - City Module -</title>
+    <meta name="description" content="VRCastle WebVR">
+
+    <!--jQuery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <!--AFrame framework 0.9.0-->
+      <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
+
+    <!--Tangram map Layer-->
+    	<script src="https://unpkg.com/aframe-tangram-component/dist/aframe-tangram-component.min.js"></script>
+
+      <!--Event system Aframe-->
+      <script src="https://unpkg.com/aframe-event-set-component@4.2.1/dist/aframe-event-set-component.min.js"></script>
+
+      <!-- Look at component-->
+      <script src="https://unpkg.com/aframe-look-at-component@0.8.x/dist/aframe-look-at-component.min.js"></script>
+      <!--https://github.com/OSGeo/PROJ PROJ - Cartographic Projections and Coordinate Transformations Library-->
+        <script src="js/proj4.js"></script>
+
+	     <script src="js/GeoLoc3.js"></script>
+       <!--Main system script-->
+
+	     <script src="jsb/map-controls.js"></script>
+       <script src="https://unpkg.com/aframe-mapbox-component/dist/aframe-mapbox-component.min.js"></script>
+
+      <!--ThreeJs GUI-->
+       <script type='text/javascript' src='js/dat.gui.min.js'></script>
+
+
+
+  <script>
+   AFRAME.registerComponent('cursor-listener', {
+    init: function () {
+	var check=true;
+	var sceneEl = document.querySelector('a-scene');
+
+	var panel=this.el.querySelector('#imgT')
+
+      this.el.addEventListener('click', function (evt) {
+	  if(check==true)
+	  {
+	  panel.emit("go");
+
+	  panel.setAttribute('visible',true);
+
+	  if(panel.getAttribute('video')!=null){
+
+	  var video = document.querySelector('#Video').play();
+
+	  }
+
+	  check=false;
+	  }
+	  else
+	  {
+	  if(panel.getAttribute('video')!=null){
+
+	  var video = document.querySelector('#Video').pause();
+
+	  }
+	  panel.emit("nope");
+	  check=true;
+	  }
+        console.log('I was clicked at: ',!check, evt.detail.intersection.point);
+
+
+
+      });
+    }
+  });
+  </script>
+
+
+  <script>
+   AFRAME.registerComponent('cursor-listenerb', {
+    init: function () {
+	  var check=true;
+    var sceneEl = document.querySelector('a-scene');
+
+    this.el.addEventListener('click', function (evt) {
+	     if(check==true)
+	       {
+           console.log("Now is here")
+           this.getObject3D('mesh').material.color = new THREE.Color('#00FF00');
+           console.log(this.getAttribute('datamon').CLASSDESC);
+
+           var textEl = document.createElement('a-entity');
+         			textEl.setAttribute('id','text');
+         			textEl.setAttribute('position',{x: 0, y: -50, z: 0});
+         			textEl.setAttribute('rotation',{x:180, y: 0, z: 0});
+              textEl.setAttribute('look-at','#userCamera');
+
+
+         			textEl.setAttribute('text',{color: 'red', align: 'center', side:'double', value:this.getAttribute('datamon').CLASSDESC, width: '1000'});
+
+              console.log(sceneEl.querySelector('#userCamera').object3D.position);
+         			this.appendChild(textEl);
+
+
+
+	         check=false;
+	        }
+	      else
+	       {
+           console.log("Now is not")
+           this.getObject3D('mesh').material.color = new THREE.Color('#0000FF');
+	          check=true;
+
+            this.removeChild(this.querySelector('#text'));
+	         }
+
+      });
+    }
+  });
+  </script>
+
+
+  <script>
+   AFRAME.registerComponent('cursor-listenerc', {
+    init: function () {
+	  var check=true;
+    var sceneEl = document.querySelector('a-scene');
+
+    this.el.addEventListener('click', function (evt) {
+	     if(check==true)
+	       {
+           console.log("Now is here")
+           this.getObject3D('mesh').material.color = new THREE.Color('#00FF00');
+           console.log(this.getAttribute('dataarch').ORIGINAL_TYPE);
+
+           var textEl = document.createElement('a-entity');
+         			textEl.setAttribute('id','text');
+         			textEl.setAttribute('position',{x: 0, y: -50, z: 0});
+         			textEl.setAttribute('rotation',{x:180, y: 0, z: 0});
+              textEl.setAttribute('look-at','#userCamera');
+
+
+         			textEl.setAttribute('text',{color: 'red', align: 'center', side:'double', value:this.getAttribute('dataarch').APPRAISAL, width: '1000'});
+
+              console.log(sceneEl.querySelector('#userCamera').object3D.position);
+         			this.appendChild(textEl);
+
+
+
+	         check=false;
+	        }
+	      else
+	       {
+           console.log("Now is not")
+           this.getObject3D('mesh').material.color = new THREE.Color('#ff0000');
+	          check=true;
+
+            this.removeChild(this.querySelector('#text'));
+	         }
+
+      });
+    }
+  });
+  </script>
+
+
+
+
+
+
+  <script>
+/*
+  AFRAME.registerComponent('raycaster-listen', {
+	init: function () {
+    // Use events to figure out what raycaster is listening so we don't have to
+    // hardcode the raycaster.
+    this.el.addEventListener('raycaster-intersected', evt => {
+      this.raycaster = evt.detail.el;
+    });
+    this.el.addEventListener('raycaster-intersected-cleared', evt => {
+      this.raycaster = null;
+    });
+  },
+
+  tick: function () {
+    if (!this.raycaster) { return; }  // Not intersecting.
+
+    let intersection = this.raycaster.components.raycaster.getIntersection(this.el);
+    if (!intersection) { return; }
+    console.log(intersection.distance);
+  }
+});
+*/
+  </script>
+
+
+<script>
+AFRAME.registerComponent("mylink", {
+  schema: {
+    href:{type: 'string'},
+  },
+init: function() {
+  this.el.addEventListener("click", (e)=> {
+     window.location = this.data.href;
+  })
+}
+})
+</script>
+
+
+
+
+
+<!-- Creating a Three.Js GUI-->
+<script>
+AFRAME.registerComponent('guithree',{
+  init:function(){
+
+    var sceneEl = document.querySelector('a-scene');
+
+    var monuments= sceneEl.querySelector('#NIAH').object3D;
+    var architectures= sceneEl.querySelector('#NIARCH').object3D;
+    var arch= sceneEl.querySelector('#NIARCH');
+
+    var dublinModel=sceneEl.querySelector('#dublinModel').object3D;
+
+
+    var checkMat=false;
+
+    var historicalmap= sceneEl.querySelector('#historicalmap').object3D;
+    historicalmap.visible=false;
+
+    var thearchchild=arch.children;
+
+    var satMapbox=
+    {
+    value:true,
+    //map: 'mapbox://styles/mapbox/light-v9'
+    //satellite: 'mapbox://styles/mapbox/satellite-streets-v9'
+    }
+
+
+    var years=
+    {
+    yfrom:1660,
+    yto:1925,
+    }
+
+    var opacity={opac:1,}
+
+    var gui = new dat.GUI({name:"Virtual Dublin"});
+    gui.add(monuments, 'visible').name('Monuments');
+    gui.add(architectures, 'visible').name('Architectures');
+    gui.add(historicalmap, 'visible').name('Historical Map');
+    gui.add(satMapbox,'value',true).name('Satellite').onChange(satmap);
+    gui.add(dublinModel, 'visible').name('Dublin Model');
+
+    gui.add(opacity, 'opac',0,1).name('Opacity').onChange(modelOpacity);
+
+    gui.add(years, 'yfrom',1660,1924).name('Year From:').onChange(setYearFrom);
+    gui.add(years, 'yto',1661,1925).name('Year To:').onChange(setYearTo);
+
+/*
+    const dublinModelMesh = sceneEl.querySelector('#dublinModel').getObject3D('mesh');
+    const material = new THREE.MeshLambertMaterial ( {color: 0xff0000 } );
+      if (dublinModelMesh) {
+        dublinModelMesh.traverse(function (node) {
+          if (node.isMesh) node.material = material;
+          });
+          }
+*/
+function satmap()
+{
+
+
+  var mapEl = document.querySelector('[mapbox]');
+  console.log(mapEl.getAttribute('material').src);
+  mapEl.setAttribute('mapbox',{center:'-0.106142,51.514519'});
+console.log(mapEl.getAttribute('mapbox','centre'));
+
+console.log(mapEl.getAttribute('material').src);
+var newMap=mapEl.getAttribute('material').src;
+mapEl.setAttribute('material',{src:newMap});
+}
+    function modelOpacity(value)
+    {
+      if(checkMat==false)
+      {
+          const dublinModelMesh = sceneEl.querySelector('#dublinModel').getObject3D('mesh');
+          const material = new THREE.MeshLambertMaterial ( {color: 0xaeaeae } );
+        if (dublinModelMesh) {
+            dublinModelMesh.traverse(function (node) {
+            if (node.isMesh)
+            {node.material = material;
+              node.material.transparent=true;
+            }
+          });
+        }
+          checkMat=true;
+          console.log("DONE Material");
+      }
+      const dublinModelMesh = sceneEl.querySelector('#dublinModel').getObject3D('mesh');
+      if (dublinModelMesh) {
+        dublinModelMesh.traverse(function (node) {
+          if (node.isMesh) node.material.opacity = value;
+        });
+      }
+
+    }
+
+    function setYearFrom(value) {
+      for (var k = 0;k < thearchchild.length; k++)
+      {
+        if(thearchchild[k].getAttribute('dataarch').DATEFROM<value)
+        {
+            thearchchild[k].object3D.visible=false;
+        }
+        else{thearchchild[k].object3D.visible=true;}
+      }
+    }
+
+      function setYearTo(value) {
+        for (var k = 0;k < thearchchild.length; k++)
+        {
+          if(thearchchild[k].getAttribute('dataarch').DATETO>value)
+          {
+              thearchchild[k].object3D.visible=false;
+          }
+          else{thearchchild[k].object3D.visible=true;}
+        }
+
+    }
+
+  }
+});
+</script>
+
+
+  </head>
+
+
+  <body>
+
+  <!--<a-scene background="color: #ECECEC" stats   >-->
+  <a-scene cursor="rayOrigin: mouse" background="color: #ECECEC" >
+
+	 <a-assets >
+
+		<!--<a-asset-item id="court" src="resource/Courtlow.glb"  >-->
+
+		<!--<a-asset-item id="dublinCen" src="resource/DublinCentre_WM_3857.gltf"  >-->
+    <a-asset-item id="dublinCen" src="resource/models/dublin/DublinLargArea.glb"  >
+
+    <!--Historical Image-->
+    <img id="castle1847" src="resource/Castle1847Mod.jpg">
+
+
+		<img id="Image" src="resource/Escape.jpg">
+
+			<a-asset-item id="zip-style" src="https://www.nextzen.org/carto/bubble-wrap-style/9/bubble-wrap-style.zip" />
+
+	 </a-assets>
+
+
+
+	<a-camera id="userCamera" wasd-controls="acceleration: 1000" position="-4 280 -1.5" >
+      <!--  <a-cursor id="raycaster"   color="#FAFAFA"  raycaster="objects: [data-clickable]"></a-cursor>-->
+
+	</a-camera>
+
+
+
+
+
+<!--	<a-entity>
+	<a-gltf-model id="courtModel" src="#court" scale="1 1 1" rotation="-97.650 -2.550 -22.320" position="0 -80.8 0">
+		</a-gltf-model>
+</a-entity>
+-->
+<a-entity>
+  <!-- MAPBOX STYLES
+  mapbox://styles/mapbox/streets-v10
+mapbox://styles/mapbox/outdoors-v10
+mapbox://styles/mapbox/light-v9
+mapbox://styles/mapbox/dark-v9
+mapbox://styles/mapbox/satellite-v9
+mapbox://styles/mapbox/satellite-streets-v10
+mapbox://styles/mapbox/navigation-preview-day-v2
+mapbox://styles/mapbox/navigation-preview-night-v2
+mapbox://styles/mapbox/navigation-guidance-day-v2
+mapbox://styles/mapbox/navigation-guidance-night-v2
+
+  mapbox://styles/mapbox/streets-v11
+  mapbox://styles/mapbox/satellite-streets-v9
+-->
+<a-mapbox
+
+position="0 0 0"
+rotation="-90 0 0"
+scale="60 60 60"
+mapbox=
+"
+center: -6.267287,53.343071;
+zoom:17;
+accessToken:pk.eyJ1IjoidnNpZ25vIiwiYSI6ImNpeXhoc3o0aTAwMTIyd3FwdjlycmtoOW0ifQ.K4OJGOvagarG5QyqBTErrw;
+style:mapbox://styles/mapbox/streets-v10;
+"
+width="20.48"
+height="20.48" buildextrud></a-mapbox>
+</a-entity>
+
+
+<a-entity>
+	<a-gltf-model id="dublinModel" src="#dublinCen" scale="1 1 1" rotation="0 0 0" position="0 0 0">
+		</a-gltf-model>
+</a-entity>
+
+<a-plane id="historicalmap" src="#castle1847" height="923.8" width="686.4" rotation="-90 0 0" position="86.242 5 3.001"></a-plane>
+
+  <a-sphere scale="10 10 10" position="0 40 -5" color="red" value="DublinCastle"
+        mylink="href: district_module.html;"></a-sphere>
+
+<!--<a-sphere id="ref" color="red" position="0 0 0" radius="1" > </a-sphere>-->
+
+
+<a-entity id="NIAH"   ></a-entity>
+<a-entity id="NIARCH" ></a-entity>
+
+<!--
+<a-entity
+       id="map"
+       position="-0.285 0.035 2.265"
+       scale="1.2 1.2 1.2"
+       rotation="-90 0 0"
+       geometry="primitive: plane; width: 128; height: 128;"
+
+       material="shader: flat;"
+       map-controls
+       tangram-map="
+       apiKey: UJcQwnnfQnWcPtKe2aYaEw;
+       center: -6.267287,53.343071;
+       zoom: 17;
+       pxToWorldRatio: 1;
+       style: #zip-style; "
+       >
+</a-entity>
+-->
+
+<!--Initialise the Gui at the end-->
+<a-entity guithree ></a-entity>
+	<!--
+	  <a-entity>
+
+		<a-gltf-model data-clickable src="#castletrigger" scale="0.3 0.3 0.3" rotation="0 -15 0" position="-4 -0.75 -5" material="color:red"
+		animation="property:visible; startEvents:mouseenter; dur:300;  to:false"
+		animation__2="property:visible; startEvents:mouseleave; dur:300;  to:true">
+		</a-gltf-model>
+
+	</a-entity>
+	-->
+
+
+
+
+
+	<!--
+	event-set__up="_event: mouseup; _target: #imgT; visible:true"
+			event-set__down="_event: mouseup; _target: #imgT; visible:false"
+		-->
+
+
+
+	</a-scene>
+  </body>
+</html>

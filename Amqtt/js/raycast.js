@@ -3,6 +3,7 @@ var jsonDb; //var to contain the parsed JSON
 var xmlDb; //var to contain the parsed XML
 
 AFRAME.registerComponent('cursor-listener', {
+  
     
   init: function () {
 	var sceneEl = document.querySelector('a-scene');
@@ -58,6 +59,7 @@ AFRAME.registerComponent('cursor-listener', {
       //create a label in the location of the click and with the name of the IFC element
           var textEl = document.createElement('a-entity');
               textEl.setAttribute('id','text');
+              
               textEl.object3D.position.set(evt.detail.intersection.point.x,evt.detail.intersection.point.y+0.5,evt.detail.intersection.point.z);
               //	textEl.setAttribute('rotation',{x:180, y: 0, z: 0});
               // textEl.setAttribute('look-at','#userCamera');
